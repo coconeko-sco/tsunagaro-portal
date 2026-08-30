@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd /home/toku/Desktop/tsunagaro && python3 scripts/build_portal\\.py && python3 - <<'PY'\nfrom pathlib import Path\ntext = Path\\('index\\.html'\\)\\.read_text\\(encoding='utf-8'\\)\nfor needle in \\['地域のおすすめ', '飯塚のおすすめ', '今週のホット情報', 'LINE最新', '飯塚田川直方', 'tag-list', 'meta-row'\\]:\n    print\\(f'\\{needle\\}:', needle in text\\)\nprint\\('--- generated hero snippet ---'\\)\nstart = text\\.find\\('<article class=\"featured-card\">'\\)\nprint\\(text\\[start:start\\+1000\\]\\)\nPY$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

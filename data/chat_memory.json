@@ -10,5 +10,37 @@
   {
     "role": "assistant",
     "content": "（つながろAIの応答シミュレーション）「テストテスト」ですね。了解です！"
+  },
+  {
+    "role": "user",
+    "content": "このパソコンの型番調べられる？"
+  },
+  {
+    "role": "assistant",
+    "content": "（つながろAIの応答シミュレーション）「このパソコンの型番調べられる？」ですね。了解です！"
+  },
+  {
+    "role": "user",
+    "content": "はい？"
+  },
+  {
+    "role": "assistant",
+    "content": "（つながろAIの応答シミュレーション）「はい？」ですね。了解です！"
+  },
+  {
+    "role": "user",
+    "content": "おっぱい"
+  },
+  {
+    "role": "assistant",
+    "content": "（つながろAIの応答シミュレーション）「おっぱい」ですね。了解です！"
+  },
+  {
+    "role": "user",
+    "content": "なにさ"
+  },
+  {
+    "role": "assistant",
+    "content": "（つながろAIの応答シミュレーション）「なにさ」ですね。了解です！"
   }
 ]
