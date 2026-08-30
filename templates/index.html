@@ -3,87 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>つながろ - 飯塚地域ポータル</title>
+    <title>つながろ - 地域のおすすめ</title>
     <style>
         :root {
             --primary-color: #ff6b35;
-            --bg-color: #f7f9fc;
-            --card-bg: #ffffff;
-            --text-main: #333333;
-            --text-sub: #666666;
+            --primary-dark: #dd5524;
+            --brand-soft: #fff2ea;
+            --bg-color: #f5f7fb;
+            --panel: #ffffff;
+            --line: #ebeff5;
+            --text-main: #1f2937;
+            --text-sub: #58657a;
+            --success: #2e8b57;
+            --info: #2d6cdf;
+            --warning: #d97706;
+            --danger: #ca3d3d;
+            --shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
-        header {
-            background: linear-gradient(135deg, #ff6b35, #f8a5c2);
-            color: white;
-            padding: 20px 16px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 0.05em; }
-        header p { margin: 6px 0 0; font-size: 0.85rem; opacity: 0.9; }
-        .container { max-width: 600px; margin: 0 auto; padding: 16px; }
-        
-        .hot-banner {
-            background: #fff3ed;
-            border-left: 4px solid var(--primary-color);
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-        }
-        .hot-banner h2 { margin: 0 0 6px; font-size: 1rem; color: var(--primary-color); }
-        .hot-banner p { margin: 0; font-size: 0.85rem; color: var(--text-sub); line-height: 1.5; }
 
-        .card-list { display: flex; flex-direction: column; gap: 16px; }
-        .card {
-            background: var(--card-bg);
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #fffaf7 0%, var(--bg-color) 20%, var(--bg-color) 100%);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        .topbar {
+            background: linear-gradient(135deg, #ff7a3d 0%, #ff9a75 55%, #f2bb93 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 130, 80, 0.18);
+        }
+        .topbar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 18px 20px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-mark {
+            width: 42px;
+            height: 42px;
             border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .brand-text strong {
+            display: block;
+            font-size: 1.08rem;
+            letter-spacing: 0.08em;
+        }
+        .brand-text span {
+            display: block;
+            font-size: 0.72rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 20px 54px;
+        }
+
+        .featured-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 26px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            margin-bottom: 24px;
+        }
+        .featured-card img {
+            width: 100%;
+            height: 100%;
+            min-height: 340px;
+            object-fit: cover;
+            background: #edf2f7;
+        }
+        .featured-body {
+            padding: 28px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
+        }
+        .featured-eyebrow {
+            display: inline-block;
+            width: fit-content;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            border: 1px solid #f5d3c1;
+            color: var(--primary-dark);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .featured-card h1 {
+            margin: 16px 0 10px;
+            font-size: clamp(2.1rem, 4vw, 3.1rem);
+            letter-spacing: -0.06em;
+            line-height: 1.05;
+        }
+        .featured-card p {
+            margin: 0;
+            color: var(--text-sub);
+            font-size: 0.96rem;
+            line-height: 1.8;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .tag-list span {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #f5f7fb;
+            border: 1px solid var(--line);
+            color: var(--text-main);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .meta-row span {
+            display: inline-block;
+            padding: 8px 10px;
+            border-radius: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .hot-section {
+            margin: 12px 0 22px;
+        }
+        .hot-banner {
+            padding: 22px 24px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: linear-gradient(135deg, #fff7f3 0%, #ffffff 100%);
+            box-shadow: var(--shadow);
+        }
+        .hot-banner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .hot-banner h2 {
+            margin: 0;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            color: var(--primary-dark);
+            letter-spacing: -0.04em;
+        }
+        .hot-banner small {
+            color: var(--text-sub);
+            font-weight: 700;
+        }
+        .hot-banner p {
+            margin: 0;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+        }
+        .panel .label {
+            display: inline-block;
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            color: var(--primary-dark);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .panel h3 {
+            margin: 14px 0 8px;
+            font-size: 1.2rem;
+            letter-spacing: -0.03em;
+        }
+        .panel p {
+            margin: 0;
+            color: var(--text-sub);
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 18px;
+        }
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
         .card-image {
             width: 100%;
-            height: 160px;
+            height: 220px;
             object-fit: cover;
-            background: #eee;
+            display: block;
+            background: #edf2f7;
         }
         .card-body {
-            padding: 16px;
+            padding: 18px 18px 16px;
         }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .category-tag { font-size: 0.75rem; background: #eee; padding: 3px 8px; border-radius: 4px; color: #555; font-weight: bold; }
-        .badge { font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 12px; }
-        .badge.active { background: #e2fcdb; color: #2b7a0b; }
-        .badge.upcoming { background: #e3f2fd; color: #0d47a1; }
-        .badge.preparation { background: #fffde7; color: #f57f17; }
-        .badge.ended { background: #ffebee; color: #c62828; }
-        .card h3 { margin: 0 0 8px; font-size: 1.1rem; line-height: 1.4; }
-        .card p { margin: 0 0 12px; font-size: 0.85rem; color: var(--text-sub); line-height: 1.5; }
-        .card-footer { border-top: 1px solid #f0f0f0; padding-top: 10px; font-size: 0.75rem; color: #888; display: flex; justify-content: space-between; }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .category-tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: var(--text-main);
+            padding: 6px 9px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 10px;
+            min-width: 84px;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .status-pill.open { background: #eafaf1; color: var(--success); }
+        .status-pill.upcoming { background: #ebf3ff; color: var(--info); }
+        .status-pill.prep { background: #fff6de; color: var(--warning); }
+        .status-pill.closed { background: #ffe9ea; color: var(--danger); }
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+        }
+        .card p {
+            margin: 0 0 14px;
+            line-height: 1.7;
+            color: var(--text-sub);
+            font-size: 0.92rem;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+            color: var(--text-sub);
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+        .card-line-mini {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+        }
+        .card-line-mini .line-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .card-line-mini .line-tag {
+            display: inline-block;
+            padding: 5px 8px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: var(--info);
+            font-size: 0.66rem;
+            font-weight: 800;
+        }
+        .card-line-mini .line-meta {
+            color: var(--text-sub);
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .card-line-mini .line-post {
+            display: grid;
+            grid-template-columns: 86px 1fr;
+            gap: 10px;
+            align-items: center;
+            background: #fafbff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 8px;
+        }
+        .card-line-mini .line-post img {
+            width: 86px;
+            height: 86px;
+            border-radius: 10px;
+            object-fit: cover;
+            display: block;
+            background: #edf2f7;
+        }
+        .card-line-mini .line-post p {
+            margin: 0;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-sub);
+        }
+
+        @media (max-width: 860px) {
+            .featured-card, .grid, .card-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 640px) {
+            .hot-banner-header, .card-header, .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>つながろ 飯塚ポータル</h1>
-        <p>今、飯塚で起きているリアルな情報をつなぐ</p>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <div class="brand-text">
+                    <strong>つながろ</strong>
+                    <span>筑豊エリア</span>
+                </div>
+            </div>
+        </div>
     </header>
-    <div class="container">
-        <div class="hot-banner">
-            <h2>{{HOT_TITLE}}</h2>
-            <p>{{HOT_DESCRIPTION}}（更新: {{HOT_UPDATED}}）</p>
-        </div>
 
-        <div class="card-list">
-            {{CARD_LIST_HTML}}
-        </div>
-    </div>
+    <main class="container">
+        <section id="recommended">
+            {{FEATURED_HTML}}
+        </section>
+
+        <section>
+            <div class="card-list">
+                {{CARD_LIST_HTML}}
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toMinutes(value) {
+            if (!value) return null;
+            const [hour, minute] = value.split(':').map(Number);
+            return hour * 60 + minute;
+        }
+
+        function updateStatusPills() {
+            document.querySelectorAll('.status-pill[data-open][data-close]').forEach((pill) => {
+                const openMinutes = toMinutes(pill.dataset.open);
+                const closeMinutes = toMinutes(pill.dataset.close);
+                const nowMinutes = new Date().getHours() * 60 + new Date().getMinutes();
+
+                if (openMinutes === null || closeMinutes === null) return;
+
+                let label = '営業時間外';
+                let className = 'closed';
+
+                if (nowMinutes >= openMinutes && nowMinutes < closeMinutes) {
+                    label = '営業中';
+                    className = 'open';
+                } else if (nowMinutes < openMinutes) {
+                    label = '営業開始前';
+                    className = 'upcoming';
+                }
+
+                pill.textContent = label;
+                pill.className = 'status-pill ' + className;
+            });
+        }
+
+        updateStatusPills();
+        setInterval(updateStatusPills, 60000);
+    </script>
 </body>
 </html>

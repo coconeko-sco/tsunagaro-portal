@@ -1,45 +1,120 @@
 {
+  "featured": [
+    {
+      "title": "飯塚のおすすめ",
+      "subtitle": "バイクイベント特集",
+      "description": "今、飯塚で気になるのは夏の夜を盛り上げるイベントと、地元の話題スポット。",
+      "region": "飯塚",
+      "image_url": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=900&auto=format&fit=crop&q=80"
+    },
+    {
+      "title": "田川のおすすめ",
+      "subtitle": "地域ホット情報",
+      "description": "地元グルメと小さな暮らしの話題を、のんびり見て回れるページ。",
+      "region": "田川",
+      "image_url": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=900&auto=format&fit=crop&q=80"
+    },
+    {
+      "title": "直方のおすすめ",
+      "subtitle": "地域ホット情報",
+      "description": "日常に寄り添う小さな情報と、町の雰囲気が感じられるおすすめ記事。",
+      "region": "直方",
+      "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&auto=format&fit=crop&q=80"
+    }
+  ],
+  "regions": [
+    {
+      "name": "田川",
+      "slug": "tagawa",
+      "hot_title": "田川ホット情報",
+      "hot_description": "週末に出会う小さな店と、町の顔になる話題をピックアップしているよ。",
+      "updated_at": "2026-08-27"
+    },
+    {
+      "name": "飯塚",
+      "slug": "iizuka",
+      "hot_title": "飯塚ホット情報",
+      "hot_description": "バイクイベントや地元グルメ、暮らしに関わる話題をまとめて紹介している。",
+      "updated_at": "2026-08-27"
+    },
+    {
+      "name": "直方",
+      "slug": "nogata",
+      "hot_title": "直方ホット情報",
+      "hot_description": "日常のちょっとした魅力が、こんな感じで拾える場所を目指している。",
+      "updated_at": "2026-08-27"
+    }
+  ],
+  "line_posts": [
+    {
+      "image_url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&auto=format&fit=crop&q=80",
+      "caption": "テンポ写真: 夕方の風景で気分が上がる。",
+      "label": "テンポ写真"
+    },
+    {
+      "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80",
+      "caption": "グルメ: 町中で見つけたちょっとしたご褒美。",
+      "label": "グルメ"
+    },
+    {
+      "image_url": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&auto=format&fit=crop&q=80",
+      "caption": "イベント: 今週の雰囲気が一番良かった時間帯。",
+      "label": "イベント"
+    }
+  ],
   "hot_topics": {
-    "title": "🔥 今週の飯塚ホット情報",
-    "description": "本町商店街の週末イベントや、地元で話題の最新トピックスをお届け！",
+    "title": "🔥 今週のホット情報",
+    "description": "最近の町の話題や、気になるイベント、食べ歩きのネタをまとめてお届けします。",
     "updated_at": "2026-08-26"
   },
   "cards": [
     {
       "category": "グルメ",
       "status": "active",
-      "status_label": "【開催中・営業中】",
+      "status_label": "営業中",
       "title": "飯塚名物カツ丼をガッツリ！老舗食堂の隠れた名店",
       "description": "本町商店街の裏手にある昔ながらの食堂。ジューシーなカツと絶品タレがたまらない、地元民のソウルフード。",
       "location": "飯塚市本町",
-      "date": "11:00〜20:00 (毎日営業)"
+      "date": "11:00〜20:00",
+      "open_time": "11:00",
+      "close_time": "20:00",
+      "line_post": {
+        "image_url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&auto=format&fit=crop&q=80",
+        "label": "テンポ写真",
+        "caption": "夕方の本町商店街に立つと、食欲がぐんと上がる時間帯。"
+      }
     },
     {
       "category": "イベント",
       "status": "upcoming",
-      "status_label": "【開催予定】",
+      "status_label": "開催予定",
       "title": "嘉穂劇場マルシェ＆ワークショップ2026",
       "description": "歴史ある嘉穂劇場周辺で開催される手作り市。地元カフェの出店や、子供向けの木工体験ワークショップが勢揃い！",
       "location": "嘉穂劇場周辺",
-      "date": "09-05 (土) 10:00〜"
+      "date": "09-05 (土) 10:00〜",
+      "open_time": "10:00",
+      "close_time": "18:00",
+      "line_post": {
+        "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80",
+        "label": "グルメ",
+        "caption": "集まりの前に、食べ歩きで町の空気を満喫したい時間。"
+      }
     },
     {
       "category": "子育て・コミュニティ",
       "status": "preparation",
-      "status_label": "【準備中】",
+      "status_label": "準備中",
       "title": "イイヅカ子育て交流ひろば「親子サッカー教室」",
       "description": "プレマタニティから小学生まで参加できるアットホームなスポーツイベント。初心者大歓迎、参加費無料。",
       "location": "飯塚市総合体育館",
-      "date": "09-12 (土) 13:00〜"
-    },
-    {
-      "category": "グルメ",
-      "status": "ended",
-      "status_label": "【終了しました】",
-      "title": "遠賀川河川敷で開催されたナイトビアガーデン",
-      "description": "夏の終わりの夜風を感じながら、飯塚の美味しい地ビールと屋台グルメを楽しむ1夜限りの特設会場。",
-      "location": "遠賀川保養緑地",
-      "date": "終了しました"
+      "date": "09-12 (土) 13:00〜",
+      "open_time": "13:00",
+      "close_time": "17:00",
+      "line_post": {
+        "image_url": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&auto=format&fit=crop&q=80",
+        "label": "イベント",
+        "caption": "親子で回る会場が、だんだん町の空気をつくっていく感じ。"
+      }
     }
   ]
 }

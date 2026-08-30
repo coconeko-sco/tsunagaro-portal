@@ -1,0 +1,22 @@
+{
+  "regions": [
+    {
+      "name": "飯塚",
+      "slug": "fukuoka-iizuka",
+      "description": "グルメ・イベント・暮らしの話題をまとめた飯塚のおすすめページ。",
+      "href": "fukuoka-iizuka.html"
+    },
+    {
+      "name": "田川",
+      "slug": "tagawa",
+      "description": "地元の小さな発見と、のんびり楽しめる話題をまとめるページ。",
+      "href": "#"
+    },
+    {
+      "name": "直方",
+      "slug": "nogata",
+      "description": "町の空気と暮らしに寄り添うおすすめ情報を載せる地域ページ。",
+      "href": "#"
+    }
+  ]
+}

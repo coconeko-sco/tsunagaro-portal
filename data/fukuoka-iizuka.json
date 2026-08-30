@@ -1,0 +1,31 @@
+{
+  "page_title": "飯塚のおすすめ",
+  "hero_image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=900&auto=format&fit=crop&q=80",
+  "hero_description": "今、飯塚で気になるのは夏の夜を盛り上げるイベントと、地元の話題スポット。",
+  "cards": [
+    {
+      "category": "グルメ",
+      "title": "飯塚名物カツ丼をガッツリ！老舗食堂の隠れた名店",
+      "description": "本町商店街の裏手にある昔ながらの食堂。ジューシーなカツと絶品タレがたまらない、地元民のソウルフード。",
+      "location": "飯塚市本町",
+      "date": "11:00〜20:00",
+      "image_url": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "category": "イベント",
+      "title": "嘉穂劇場マルシェ＆ワークショップ2026",
+      "description": "歴史ある嘉穂劇場周辺で開催される手作り市。地元カフェの出店や、子供向けの木工体験ワークショップが勢揃い！",
+      "location": "嘉穂劇場周辺",
+      "date": "09-05 (土) 10:00〜",
+      "image_url": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      "category": "子育て・コミュニティ",
+      "title": "イイヅカ子育て交流ひろば「親子サッカー教室」",
+      "description": "プレマタニティから小学生まで参加できるアットホームなスポーツイベント。初心者大歓迎、参加費無料。",
+      "location": "飯塚市総合体育館",
+      "date": "09-12 (土) 13:00〜",
+      "image_url": "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=600&auto=format&fit=crop&q=80"
+    }
+  ]
+}
