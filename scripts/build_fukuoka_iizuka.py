@@ -4,7 +4,7 @@ import json
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(BASE_DIR, "data", "fukuoka-iizuka.json")
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "fukuoka-iizuka.html")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "iizuka.html")
 
 
 def build_card_html(cards):
