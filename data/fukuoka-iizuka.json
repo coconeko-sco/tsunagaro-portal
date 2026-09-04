@@ -4,6 +4,15 @@
   "hero_description": "今、飯塚で気になるのは夏の夜を盛り上げるイベントと、地元の話題スポット。",
   "cards": [
     {
+      "category": "イベント",
+      "title": "4MINI BIKE MEETING in カホテラス",
+      "description": "カホテラスで開催される4ミニバイクのミーティング。詳しい内容はこちらから確認できます。",
+      "location": "カホテラス",
+      "date": "開催情報を確認",
+      "image_url": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&auto=format&fit=crop&q=80",
+      "href": "./4mini-kahoterasu/4mini-kahoterasu.html"
+    },
+    {
       "category": "グルメ",
       "title": "飯塚名物カツ丼をガッツリ！老舗食堂の隠れた名店",
       "description": "本町商店街の裏手にある昔ながらの食堂。ジューシーなカツと絶品タレがたまらない、地元民のソウルフード。",

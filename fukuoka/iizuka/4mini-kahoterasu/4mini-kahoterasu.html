@@ -3,256 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4MINI BIKE MEETING in カホテラス</title>
+    <title>4MINI BIKE MEETING IN 2026 | つながろ</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --brand: #ff7a3d;
+            --brand-dark: #d85d22;
+            --bg: #f5f7fb;
+            --panel: #ffffff;
+            --line: #ebeff5;
+            --text: #1f2937;
+            --sub: #58657a;
+            --shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
         }
+        * { box-sizing: border-box; }
         body {
-            font-family: Arial, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-            line-height: 1.6;
-            color: #333333;
-            background-color: #f8f9fa;
+            margin: 0;
+            color: var(--text);
+            background: linear-gradient(180deg, #fffaf7 0%, var(--bg) 25%, var(--bg) 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
-        header {
-            background-color: #d9534f;
-            color: #ffffff;
-            text-align: center;
-            padding: 40px 20px;
+        a { color: inherit; text-decoration: none; }
+        .topbar {
+            color: white;
+            background: linear-gradient(135deg, var(--brand) 0%, #ff9a75 55%, #f2bb93 100%);
+            box-shadow: 0 10px 30px rgba(255, 130, 80, 0.18);
         }
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        header p {
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-        .container {
-            max-width: 900px;
+        .topbar-inner {
+            max-width: 980px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            position: relative;
         }
-        .next-event-card {
-            background-color: #ffffff;
-            border: 3px solid #d9534f;
+        .brand-group {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            min-width: 0;
+        }
+        .brand {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+        .coming-soon {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 5px 11px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 999px;
+            background: #fff3a3;
+            color: #713b12;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(107, 48, 10, 0.2);
+        }
+        .coming-soon::before {
+            width: 7px;
+            height: 7px;
+            margin-right: 7px;
+            border-radius: 50%;
+            background: #e05a22;
+            content: "";
+        }
+        .menu-button {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex: 0 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            cursor: pointer;
+        }
+        .menu-button span {
+            width: 20px;
+            height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+        }
+        .menu-panel {
+            position: absolute;
+            top: calc(100% - 8px);
+            right: 20px;
+            z-index: 2;
+            width: min(260px, calc(100vw - 40px));
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
             border-radius: 12px;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: -30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 16px 32px rgba(80, 42, 20, 0.18);
         }
-        .next-event-card .badge {
-            display: inline-block;
-            background-color: #d9534f;
-            color: #ffffff;
-            padding: 6px 16px;
-            font-weight: bold;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        .next-event-card h2 {
-            font-size: 1.8rem;
-            color: #d9534f;
-            margin-bottom: 15px;
-        }
-        .date-highlight {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #111111;
-            margin: 15px 0;
-        }
-        .date-highlight span {
-            color: #d9534f;
-            font-size: 2.5rem;
-        }
-        .section {
-            background-color: #ffffff;
+        .menu-panel[hidden] { display: none; }
+        .menu-panel a {
+            display: block;
+            padding: 11px 12px;
             border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 700;
         }
-        .section h2 {
-            font-size: 1.4rem;
-            border-bottom: 2px solid #d9534f;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            color: #333333;
+        .menu-panel a:hover,
+        .menu-panel a:focus-visible {
+            background: #fff2ea;
+            color: var(--brand-dark);
+            outline: none;
+        }
+        .event-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+        .event-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 22px;
+            align-items: stretch;
+            margin-bottom: 24px;
+        }
+        .flyer-frame {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 0;
+        }
+        .event-flyer {
+            width: 100%;
+            height: 520px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #edf2f7;
+            box-shadow: var(--shadow);
+        }
+        .flyer-link {
+            color: var(--brand-dark);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-align: center;
+        }
+        .event-summary,
+        .event-section {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+        }
+        .event-summary {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .event-label {
+            display: inline-block;
+            width: fit-content;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: #fff2ea;
+            color: var(--brand-dark);
+            font-size: 0.76rem;
+            font-weight: 800;
+        }
+        .event-summary h1 {
+            margin: 16px 0 10px;
+            color: var(--text);
+            font-size: clamp(2rem, 5vw, 3.3rem);
+            line-height: 1.08;
+        }
+        .event-summary > p {
+            margin: 0;
+            color: var(--sub);
+            line-height: 1.8;
+        }
+        .event-date {
+            margin: 22px 0 0;
+            padding: 16px;
+            border-left: 5px solid var(--brand);
+            background: #fff7f3;
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: 800;
+            line-height: 1.7;
+        }
+        .event-date strong {
+            display: block;
+            color: var(--brand-dark);
+            font-size: 1.5rem;
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .event-section h2 {
+            margin: 0 0 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--brand);
+            color: var(--brand-dark);
+            font-size: 1.35rem;
+        }
+        .event-section p {
+            margin: 0;
+            color: var(--sub);
+            line-height: 1.85;
         }
         .info-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 15px;
         }
-        .info-table th, .info-table td {
-            padding: 12px;
+        .info-table th,
+        .info-table td {
+            padding: 11px 8px;
+            border-bottom: 1px solid var(--line);
             text-align: left;
-            border-bottom: 1px solid #eeeeee;
+            vertical-align: top;
+            line-height: 1.65;
         }
         .info-table th {
-            width: 30%;
-            background-color: #fcfcfc;
-            font-weight: bold;
-            color: #555555;
+            width: 34%;
+            color: var(--sub);
+            font-size: 0.88rem;
+        }
+        .info-table td {
+            color: var(--text);
+            font-weight: 700;
         }
         .event-list {
-            list-style-type: none;
-            padding-left: 0;
+            display: grid;
+            gap: 9px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
         .event-list li {
+            padding: 10px 12px 10px 34px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            color: var(--text);
+            font-weight: 700;
             position: relative;
-            padding: 10px 0 10px 25px;
-            border-bottom: 1px dashed #dddddd;
-            font-size: 1.05rem;
         }
         .event-list li::before {
-            content: "✔";
             position: absolute;
-            left: 0;
-            color: #d9534f;
-            font-weight: bold;
+            left: 12px;
+            color: var(--brand);
+            content: "★";
         }
-        .map-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-top: 15px;
+        .notice {
+            background: #fffaf0;
+            border-color: #f1d59d;
         }
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        .notice h2 { color: #9a6500; border-color: #d99b24; }
+        .contact strong { color: var(--brand-dark); }
         .past-info {
-            background-color: #f9f9f9;
-            border-left: 4px solid #888888;
             padding: 15px;
-            margin-top: 10px;
-            font-size: 0.95rem;
+            border-left: 4px solid #888;
+            background: #f8fafc;
         }
-        footer {
+        .event-footer {
+            padding: 28px 0 0;
+            color: var(--sub);
             text-align: center;
-            padding: 20px;
-            color: #777777;
             font-size: 0.85rem;
-            margin-top: 20px;
+        }
+        @media (max-width: 820px) {
+            .event-hero,
+            .event-grid { grid-template-columns: 1fr; }
+            .event-summary { order: 1; }
+            .flyer-frame { order: 2; }
+            .event-flyer { height: min(360px, 58vh); }
         }
         @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.6rem;
-            }
-            .date-highlight {
-                font-size: 1.5rem;
-            }
-            .date-highlight span {
-                font-size: 1.8rem;
-            }
-            .info-table th, .info-table td {
-                display: block;
-                width: 100%;
-            }
-            .info-table th {
-                background-color: transparent;
-                padding-bottom: 4px;
-                color: #d9534f;
-            }
-            .info-table td {
-                padding-top: 0;
-            }
+            .event-page { padding: 20px 14px 44px; }
+            .event-summary,
+            .event-section { padding: 18px; }
+            .event-flyer { height: 280px; }
+            .info-table th,
+            .info-table td { display: block; width: 100%; }
+            .info-table th { padding-bottom: 3px; border-bottom: 0; }
+            .info-table td { padding-top: 0; }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>4MINI BIKE MEETING in カホテラス</h1>
-        <p>4MINIファンによる、4MINIファンのための熱い1日！</p>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand-group">
+                <a class="brand" href="../../../index.html">つながろ</a>
+                <span class="coming-soon">Coming soon...</span>
+            </div>
+            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="menu-panel" id="site-menu" hidden>
+                <a href="../iizuka.html">飯塚</a>
+                <a href="#">田川</a>
+                <a href="#">直方</a>
+                <a href="#">求人</a>
+                <a href="#">商いマッチ</a>
+                <a href="#">ツール</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="container">
-        
-        <div class="next-event-card">
-            <span class="badge">次回開催決定！📢</span>
-            <h2>今年度 4ミニミーティングinカホテラス</h2>
-            <p>皆様のお越しを心よりお待ちしております！</p>
-            <div class="date-highlight">
-                2026年 <span>11月22日（日）</span>
+    <main class="event-page">
+        <section class="event-hero">
+            <div class="event-summary">
+                <span class="event-label">飯塚・カホテラス</span>
+                <h1>4MINI BIKE MEETING IN 2026</h1>
+                <p>4MINIファンによる、4MINIファンのための熱い1日。2St / 4St、オールOKのバイクイベントです。</p>
+                <p class="event-date">
+                    <strong>2026年11月22日（日）</strong>
+                    10:00〜15:00<br>
+                    雨天中止／エントリー受付 8:00〜
+                </p>
             </div>
-            <p>（いい夫婦の日）</p>
-        </div>
-
-        <div class="section">
-            <h2>イベント内容</h2>
-            <p style="margin-bottom: 15px;">モンキー、シャリー、ダックスなど、こだわりの4MINIカスタム車両が集結！初心者からベテランまでみんなで楽しめるイベントです。</p>
-            <ul class="event-list">
-                <li>カスタムバイク展示</li>
-                <li>オリジナルグッズ販売</li>
-                <li>充実のフードコート（カホテラス内）</li>
-                <li>ミニゲーム企画</li>
-                <li>恒例の20mレース</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>開催概要・料金</h2>
-            <table class="info-table">
-                <tr>
-                    <th>会場</th>
-                    <td>KAHO TERRAS（カホテラス）</td>
-                </tr>
-                <tr>
-                    <th>住所</th>
-                    <td>福岡県飯塚市鶴三緒1151番-1</td>
-                </tr>
-                <tr>
-                    <th>バイクエントリー</th>
-                    <td>1,000円（125cc以下なら何でもOK！）</td>
-                </tr>
-                <tr>
-                    <th>一般入場</th>
-                    <td>500円（※中学生以下無料）</td>
-                </tr>
-                <tr>
-                    <th>対象車種</th>
-                    <td>ミニバイク（〜125cc MT）、原付スクーター（〜50cc）、スクーター（51cc〜125cc）など</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section">
-            <h2>アクセスマップ</h2>
-            <p><strong>カホテラス</strong>（福岡県飯塚市鶴三緒1151番-1）</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.5416045888065!2d130.706173!3d33.642511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541a7d65ef63eb7%3A0x6b8014e4bdf5033c!2z44CSODIwLTAwMTIg56aP5bO255yM6a-v5aGa5biC6ba45LiJ57eSMTExNS0x!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="flyer-frame">
+                <img class="event-flyer" src="2026-event-1.png" alt="4MINI BIKE MEETING IN 2026のイベント案内">
+                <a class="flyer-link" href="2026 kai 1.pdf">PDFチラシを大きく見る</a>
             </div>
+        </section>
+
+        <div class="event-grid">
+            <section class="event-section">
+                <h2>開催概要・料金</h2>
+                <table class="info-table">
+                    <tr><th>会場</th><td>飯塚カホテラス（芝生広場）</td></tr>
+                    <tr><th>住所</th><td>福岡県飯塚市（カホテラス）</td></tr>
+                    <tr><th>バイクエントリー</th><td>1,000円〜（125cc以下ならOK）<br>当日乗り付けエントリー可能</td></tr>
+                    <tr><th>一般入場</th><td>1人 500円（中学生以下無料）</td></tr>
+                    <tr><th>対象</th><td>2St / 4St オールOK</td></tr>
+                </table>
+            </section>
+
+            <section class="event-section">
+                <h2>主な内容・企画</h2>
+                <ul class="event-list">
+                    <li>グッズ販売</li>
+                    <li>カスタム車展示</li>
+                    <li>俺達全員チビ乗ダー</li>
+                    <li>恒例の20mレース（初心者もベテランも皆で楽しもう）</li>
+                    <li>ガレージセール！</li>
+                    <li>厳選キッチンカー</li>
+                    <li>今回のアワード実施</li>
+                </ul>
+            </section>
+
+            <section class="event-section notice">
+                <h2>注意事項</h2>
+                <p>駐車場は一般の方との共有になりますので、マナー良くご利用ください。事故等の責任は負いかねます。空ぶかし等の行為は絶対におやめください。マナーを守り楽しい1日にしましょう。</p>
+            </section>
+
+            <section class="event-section contact">
+                <h2>主催・関連団体</h2>
+                <p>ツーリングクラブ JIB（Jack in the box）<br>チーム小宮川<br>全日本改造組合 佐田昆流陀頭<br><br><strong>お問い合わせ</strong><br>イベント担当者：SU勝D（佐田昆流陀頭）<br>携帯：090-9414-3711</p>
+            </section>
+
+            <section class="event-section">
+                <h2>過去の開催実績</h2>
+                <div class="past-info">
+                    <p><strong>2025年9月28日（日）開催</strong><br>会場：カホテラス（福岡県飯塚市）<br>新会場となって初の開催も多くの4MINIオーナー様・ファンの皆様にご参加いただき、盛況のうちに終了しました。</p>
+                </div>
+            </section>
         </div>
 
-        <div class="section">
-            <h2>過去の開催実績</h2>
-            <div class="past-info">
-                <p><strong>2025年9月28日（日）開催</strong></p>
-                <p>会場：カホテラス（福岡県飯塚市）</p>
-                <p>新会場となって初の開催も多くの4MINIオーナー様・ファンの皆様にご参加いただき、盛況のうちに終了いたしました。</p>
-            </div>
-        </div>
+        <footer class="event-footer">4MINI BIKE MEETING in カホテラス 実行委員会</footer>
+    </main>
 
-    </div>
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const siteMenu = document.querySelector('#site-menu');
 
-    <footer>
-        <p>&copy; 4MINI BIKE MEETING in カホテラス 実行委員会</p>
-    </footer>
-
+        menuButton.addEventListener('click', () => {
+            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', String(!isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
+            siteMenu.hidden = isOpen;
+        });
+    </script>
 </body>
 </html>
