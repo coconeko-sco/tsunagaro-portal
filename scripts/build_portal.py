@@ -4,9 +4,8 @@ import json
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(BASE_DIR, "data", "tsunagaro_data.json")
 TEMPLATE_FILE = os.path.join(BASE_DIR, "templates", "index.html")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "index.html")
-ROOT_INDEX_FILE = os.path.join(BASE_DIR, "index.html")
+OUTPUT_DIR = BASE_DIR
+OUTPUT_FILE = os.path.join(BASE_DIR, "index.html")
 
 
 def build_featured_html(featured_items):
@@ -116,8 +115,6 @@ def main():
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write(final_html)
-    with open(ROOT_INDEX_FILE, "w", encoding="utf-8") as f:
         f.write(final_html)
 
     print(f"✨ ビルド成功！ポータルサイトが更新されました: {OUTPUT_FILE}")

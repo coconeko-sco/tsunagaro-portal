@@ -21,9 +21,11 @@
 
 ## 4. フォルダ構成（作業母艦：~/Desktop/tsunagaro/）
 * data/        : イベントや店舗などのデータ置き場
-* templates/   : 絶対に崩れないHTML/CSSの土台・デザインの型
-* scripts/     : Pythonによる自動化・HTML生成エンジン
-* output/      : 完成品の出力先（index.html）
+* templates/   : 参考用のHTML/CSSテンプレート
+* scripts/     : 必要に応じたHTML生成・更新用スクリプト
+* ルート直下  : GitHub Pagesで公開するHTML/CSS/JSの正本
+* fukuoka/等  : 地域別ページの公開先
+* output/      : 使用しない（生成先にしない）
 * assets/images/: 写真やアイコンの保存先
 
 ## 5. 開発時の絶対ルール

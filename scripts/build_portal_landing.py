@@ -3,8 +3,8 @@ import json
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(BASE_DIR, "data", "portal_landing.json")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "index.html")
+OUTPUT_DIR = BASE_DIR
+OUTPUT_FILE = os.path.join(BASE_DIR, "index.html")
 
 
 def build_region_links(regions):
