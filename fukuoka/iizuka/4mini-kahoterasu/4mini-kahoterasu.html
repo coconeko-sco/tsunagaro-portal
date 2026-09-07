@@ -33,42 +33,27 @@
         }
         .event-hero {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-            gap: 22px;
+            grid-template-columns: minmax(0, 760px);
             align-items: stretch;
             margin-bottom: 32px;
             padding-bottom: 26px;
             border-bottom: 4px solid var(--yellow);
         }
-        .flyer-frame {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            min-width: 0;
-        }
-        .event-flyer {
-            width: 100%;
-            height: 520px;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 4px;
-            border: 6px solid #f5f1e8;
-            background: #000;
-            box-shadow: var(--shadow);
-        }
         .flyer-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 11px 16px;
             color: var(--yellow);
             font-size: 0.82rem;
             font-weight: 800;
-            text-align: center;
+            border-bottom: 2px solid var(--red);
         }
         .event-summary,
         .event-section {
-            padding: 24px;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            background: var(--panel);
-            box-shadow: var(--shadow);
+            padding: 24px 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
         }
         .event-summary {
             display: flex;
@@ -164,9 +149,8 @@
         }
         .event-list li {
             padding: 10px 12px 10px 34px;
-            border: 1px solid var(--line);
-            border-radius: 3px;
-            background: #25272a;
+            border-bottom: 1px solid var(--line);
+            background: transparent;
             color: #fff;
             font-weight: 700;
             position: relative;
@@ -178,15 +162,17 @@
             content: "◆";
         }
         .notice {
-            background: #2a2112;
-            border-color: rgba(246, 210, 27, 0.55);
+            background: transparent;
+            border-color: transparent;
+            padding: 24px;
+            border-left: 4px solid var(--yellow);
         }
         .notice h2 { color: var(--yellow); border-color: var(--yellow); }
         .contact strong { color: var(--yellow); }
         .past-info {
-            padding: 15px;
-            border-left: 4px solid var(--yellow);
-            background: #25272a;
+            padding: 15px 0;
+            border-left: 0;
+            background: transparent;
         }
         .event-footer {
             padding: 28px 0 0;
@@ -197,15 +183,11 @@
         @media (max-width: 820px) {
             .event-hero,
             .event-grid { grid-template-columns: 1fr; }
-            .event-summary { order: 1; }
-            .flyer-frame { order: 2; }
-            .event-flyer { height: min(360px, 58vh); }
         }
         @media (max-width: 600px) {
             .event-page { padding: 20px 14px 44px; }
             .event-summary,
             .event-section { padding: 18px; }
-            .event-flyer { height: 280px; }
             .info-table th,
             .info-table td { display: block; width: 100%; }
             .info-table th { padding-bottom: 3px; border-bottom: 0; }
@@ -225,10 +207,7 @@
                     10:00〜15:00<br>
                     雨天中止／エントリー受付 8:00〜
                 </p>
-            </div>
-            <div class="flyer-frame">
-                <img class="event-flyer" src="2026-event-1.png" alt="4MINI BIKE MEETING IN 2026のイベント案内">
-                <a class="flyer-link" href="2026 kai 1.pdf">PDFチラシを大きく見る</a>
+                <a class="flyer-link" href="2026 kai 1.pdf">公式PDFを開く</a>
             </div>
         </section>
 
