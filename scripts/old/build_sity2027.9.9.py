@@ -3,7 +3,7 @@ import os
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_FILE = os.path.join(BASE_DIR, "data", "fukuoka", "iizuka.json")
+DATA_FILE = os.path.join(BASE_DIR, "data", "fukuoka-iizuka.json")
 TEMPLATE_FILE = os.path.join(BASE_DIR, "templates", "sity-page.html")
 OUTPUT_DIR = os.path.join(BASE_DIR, "fukuoka", "iizuka")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "iizuka.html")
@@ -12,38 +12,20 @@ OUTPUT_FILE = os.path.join(OUTPUT_DIR, "iizuka.html")
 def build_card_html(cards):
     cards_html = []
     for card in cards:
-        href = card.get("href")
-        
-        # リンクがある場合はタイトルとボタンを<a>タグにする
-        if href:
-            is_external = href.startswith("http")
-            target_attr = ' target="_blank" rel="noopener noreferrer"' if is_external else ''
-            title_html = f'<h3><a href="{href}"{target_attr}>{card["title"]}</a></h3>'
-            link_btn_html = f'<a href="{href}"{target_attr} class="card-link-btn">詳細を見る →</a>'
-        else:
-            title_html = f'<h3>{card["title"]}</h3>'
-            link_btn_html = ''
-
-        # バッジ（休業中など）の安全な判定
-        badge = card.get("badge", "")
-        badge_html = f'<span class="badge">{badge}</span>' if badge else ''
-
-        card_html = f"""            <article class="card">
-                <img src="{card['image_url']}" alt="{card['title']}" class="card-image">
-                <div class="card-body">
-                    <div class="card-tags">
-                        <span class="category-tag">{card['category']}</span>
-                        {badge_html}
-                    </div>
-                    {title_html}
+        card_html = f"""            <article class=\"card\">
+                <img src=\"{card['image_url']}\" alt=\"{card['title']}\" class=\"card-image\">
+                <div class=\"card-body\">
+                    <span class=\"category-tag\">{card['category']}</span>
+                    <h3>{card['title']}</h3>
                     <p>{card['description']}</p>
-                    <div class="card-footer">
+                    <div class=\"card-footer\">
                         <span>📍 {card['location']}</span>
                         <span>🕒 {card['date']}</span>
-                        {link_btn_html}
                     </div>
                 </div>
             </article>"""
+        if card.get("href"):
+            card_html = f'<a class="card-link" href="{card["href"]}">\n{card_html}\n            </a>'
         cards_html.append(card_html)
     return "\n".join(cards_html)
 
