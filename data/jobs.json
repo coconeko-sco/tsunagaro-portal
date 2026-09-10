@@ -1,0 +1,103 @@
+[
+  {
+    "id": "job-001",
+    "store_id": "store-iizuka-01",
+    "status": "published",
+    "created_at": "2026-09-10T09:00:00Z",
+    "basic_info": {
+      "store_name": "たこ焼き居酒屋 〇〇",
+      "branch_name": "飯塚2号店",
+      "area": "飯塚市",
+      "address": "福岡県飯塚市吉原町X-X",
+      "category": "飲食・接客",
+      "title": "【飯塚市】居酒屋のホール・キッチンスタッフ／髪色自由・WワークOK！",
+      "employment_type": "パート・アルバイト",
+      "salary": {
+        "type": "時給",
+        "amount": 1050,
+        "detail": "昇給あり / 22時以降は時給25%UP（時給1,312円〜）"
+      }
+    },
+    "work_conditions": {
+      "working_hours": "17:00〜23:00（実働6時間 / 休憩なし）",
+      "shift_detail": "週2日・1日3時間からOK / シフト自己申告制（15日ごとに提出）",
+      "holidays": "毎週火曜日定休、年末年始",
+      "overtime": "残業なし / 終電・終バス考慮"
+    },
+    "environment": {
+      "access": "西鉄バス「吉原町」バス停から徒歩3分（無料駐車場あり）",
+      "photos": [
+        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80"
+      ],
+      "store_call_hours": {
+        "recommended_time": "14:00〜17:00（仕込み中・ピーク外）",
+        "avoid_time": "18:00〜21:00（ディナーピーク）"
+      }
+    },
+    "tags": {
+      "fashion": ["髪色・髪型自由", "ネイルOK", "ピアスOK", "ヒゲOK", "まかないあり"],
+      "target": ["20代活躍中", "30代・40代活躍中", "未経験歓迎", "学生歓迎", "フリーター歓迎"],
+      "work_style": ["Wワーク・副業OK", "扶養内OK", "週1〜2日〜OK", "短時間OK"],
+      "facility": ["空調完備", "車・バイク通勤OK", "無料駐車場あり"]
+    },
+    "management_info": {
+      "phone_public": true,
+      "phone_number": "0948-XX-XXXX",
+      "notification_email": "takoyaki2nd@example.com",
+      "official_line_url": "https://line.me/R/ti/p/@sample_takoyaki",
+      "contact_person": "山田 太郎（店長）",
+      "job_page_url": "https://tsunagaro-portal.com/jobs/iizuka/job-001.html"
+    }
+  },
+  {
+    "id": "job-002",
+    "store_id": "store-tagawa-02",
+    "status": "published",
+    "created_at": "2026-09-08T10:30:00Z",
+    "basic_info": {
+      "store_name": "筑豊運送 株式会社",
+      "branch_name": "田川営業所",
+      "area": "田川市",
+      "address": "福岡県田川市大字伊田XXXX-X",
+      "category": "配送・ドライバー",
+      "title": "【田川市】小型冷蔵トラック配送ドライバー／固定時間制・土日休み",
+      "employment_type": "正社員",
+      "salary": {
+        "type": "月給",
+        "amount": 240000,
+        "detail": "基本給24万円＋各種手当（交通費、無事故手当）/ 賞与年2回あり"
+      }
+    },
+    "work_conditions": {
+      "working_hours": "08:00〜17:00（実働8時間 / 休憩60分）",
+      "shift_detail": "ルート配送のため時間が安定しています（ルート回収・納品完了次第終了）",
+      "holidays": "土曜日・日曜日・祝日（GW・お盆・年末年始休暇あり）",
+      "overtime": "月平均10時間程度"
+    },
+    "environment": {
+      "access": "平成筑豊鉄道「伊田駅」より車で10分（マイカー通勤推奨）",
+      "photos": [
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80"
+      ],
+      "store_call_hours": {
+        "recommended_time": "09:00〜12:00 / 15:00〜17:00",
+        "avoid_time": "12:00〜13:00（昼休憩中）"
+      }
+    },
+    "tags": {
+      "fashion": ["作業着貸与", "ヒゲOK"],
+      "target": ["30代・40代活躍中", "50代・シニア応援", "男性活躍中", "未経験歓迎", "ブランクOK"],
+      "work_style": ["平日のみOK", "固定時間制"],
+      "facility": ["マイカー・バイク通勤OK", "無料駐車場あり", "空調完備"]
+    },
+    "management_info": {
+      "phone_public": true,
+      "phone_number": "0947-XX-XXXX",
+      "notification_email": "saiyou@chikuhou-express.example.com",
+      "official_line_url": null,
+      "contact_person": "佐藤 健一（採用担当）",
+      "job_page_url": "https://tsunagaro-portal.com/jobs/tagawa/job-002.html"
+    }
+  }
+]
