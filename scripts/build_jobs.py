@@ -73,7 +73,7 @@ def render_job_card(job):
 
         <div class="job-apply-section" id="form-{job["id"]}" style="display: none;">
             <h3>30秒カンタン応募フォーム（{b["store_name"]}）</h3>
-            <p class="apply-lead">中間マージンなし！店主へ直接つながるクリーンな応募フォームです。</p>
+            <p class="apply-lead">店主へ直接つながるクリーンな応募フォームです。</p>
             <form class="quick-apply-form" onsubmit="handleApply(event, '{job["id"]}')">
                 <input type="hidden" name="job_id" value="{job["id"]}">
                 
@@ -138,7 +138,16 @@ def main():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>つながろ求人 | 地域密着・中間マージンゼロの求人ポータル</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6LHJQFWKTQ');
+    </script>
+    <title>つながろ求人 | 地域密着の求人ポータル</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
