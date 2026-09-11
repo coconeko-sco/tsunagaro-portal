@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6LHJQFWKTQ');
+    </script>
+    <title>つながろ 商いマッチ | 地域店舗の不用品・厨房機器・間借りスペース掲示板</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand-group">
+                <div class="brand">つながろ 商いマッチ</div>
+                <span class="coming-soon">Coming soon...</span>
+            </div>
+            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="menu-panel" id="site-menu" hidden>
+                <a href="../index.html">TOP</a>
+                <a href="./akinai.html">商いマッチ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container job-portal-container">
+        <!-- 案内セクション -->
+        <section class="portal-intro-box" style="background: #fdf8f6; border-left: 4px solid #d97706; padding: 16px; margin-bottom: 24px; border-radius: 4px;">
+            <h2 style="font-size: 1.1rem; margin-bottom: 8px; color: #92400e;">🤝 商いマッチ（店舗間シェア・譲渡掲示板）</h2>
+            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.6;">
+                筑豊エリアの飲食店・商店で使える「厨房機器・不用品の売買/譲渡」や「空きスペース・間借りキッチンのシェア」等に特化した掲示板です。店主同士が直接つながるクリーンなローカルプラットフォームです。（※決済や仲介は行いません。当事者間の自己責任となります）
+            </p>
+        </section>
+
+        <!-- 検索・フィルターバー -->
+        <section class="filter-section">
+            <div class="filter-group">
+                <label>カテゴリ</label>
+                <select id="filter-category" onchange="filterAkinai()">
+                    <option value="">すべてのカテゴリ</option>
+                    <option value="item">物（備品・機器など）</option>
+                    <option value="space">空間（間借り・スペース）</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>取引タイプ</label>
+                <select id="filter-transaction" onchange="filterAkinai()">
+                    <option value="">すべての取引タイプ</option>
+                    <option value="sell">売ります</option>
+                    <option value="give">あげます</option>
+                    <option value="rent">貸します</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>フリーワード</label>
+                <input type="text" id="filter-keyword" placeholder="店舗名、品目など" oninput="filterAkinai()">
+            </div>
+        </section>
+
+        <!-- 一覧リスト -->
+        <section class="job-list" id="akinai-list">
+            
+    <article class="job-card akinai-card" data-category="item" data-transaction="sell" data-area="飯塚市本町" id="item-001">
+        <div class="job-header">
+            <div class="job-meta-row">
+                <span class="category-tag">商い物品</span>
+                <span class="employment-badge">売ります</span>
+                <span class="area-badge">📍 飯塚市本町</span>
+                <span class="badge-tag invoice">インボイス対応</span>
+                <span class="badge-tag receipt">領収書発行可</span>
+            </div>
+            <h2>【飯塚市】業務用電子レンジ（パナソニック・2021年製）</h2>
+            <div class="store-info-bar">
+                <strong>居酒屋 テスト店A</strong>
+                <span><a href="https://tsunagaro.jp/stores/sample01" target="_blank">店舗情報・詳細ウェブサイト</a></span>
+            </div>
+        </div>
+
+        <div class="job-body-grid">
+            <div class="job-photos">
+                <img src="https://placehold.co/600x400/e2e8f0/475569?text=Microwave+01" alt="居酒屋 テスト店A" loading="lazy"><img src="https://placehold.co/600x400/cbd5e1/334155?text=Microwave+02" alt="居酒屋 テスト店A" loading="lazy">
+            </div>
+            <div class="job-details-list">
+                <div class="salary-box akinai-price-box">
+                    <span class="salary-label">希望価格 / 賃料</span>
+                    <span class="salary-amount">15,000円</span>
+                </div>
+                
+                <table class="job-table">
+                    
+            <tr><th>仕様・サイズ</th><td>幅510×奥行470×高さ337mm / 単相200V</td></tr>
+            <tr><th>商品の状態</th><td>店舗リニューアルのため出品。動作確認済み（現状渡し・現物確認必須）</td></tr>
+            <tr><th>引き渡し可能日</th><td>即日引き渡し可能</td></tr>
+            <tr><th>引き取り方法</th><td>現地引き取り（購入者様で搬出。積み込みはお手伝いします）</td></tr>
+        
+                    <tr><th>連絡推奨時間</th><td class="highlight-time">✅ 14:00〜17:00（仕込み時間帯）</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="job-footer-action akinai-footer-action">
+            <a href="#" onclick="return false;" class="contact-btn line-btn" style="cursor: default;">💬 LINEで店主へ直接問い合わせる</a><a href="#" onclick="return false;" class="contact-btn phone-btn" style="cursor: default;">📞 直通電話で問い合わせ (0948-12-3456)</a>
+            <p class="disclaimer-note">※当サイトは情報掲載のみを行います。取引・契約・搬出作業・保健所への届出等はすべて当事者間の自己責任となります。</p>
+        </div>
+    </article>
+    
+    <article class="job-card akinai-card" data-category="item" data-transaction="give" data-area="飯塚市吉原町" id="item-002">
+        <div class="job-header">
+            <div class="job-meta-row">
+                <span class="category-tag">商い物品</span>
+                <span class="employment-badge">あげます</span>
+                <span class="area-badge">📍 飯塚市吉原町</span>
+                
+                
+            </div>
+            <h2>【飯塚市】店舗用木製テーブル＆椅子4脚セット（無料）</h2>
+            <div class="store-info-bar">
+                <strong>カフェ テスト店B</strong>
+                <span><a href="https://cafe-roku.com/" target="_blank">店舗情報・詳細ウェブサイト</a></span>
+            </div>
+        </div>
+
+        <div class="job-body-grid">
+            <div class="job-photos">
+                <img src="https://placehold.co/600x400/e2e8f0/475569?text=Table+and+Chairs" alt="カフェ テスト店B" loading="lazy">
+            </div>
+            <div class="job-details-list">
+                <div class="salary-box akinai-price-box">
+                    <span class="salary-label">希望価格 / 賃料</span>
+                    <span class="salary-amount">0円（あげます）</span>
+                </div>
+                
+                <table class="job-table">
+                    
+            <tr><th>仕様・サイズ</th><td>テーブル：幅1200×奥行750×高さ700mm</td></tr>
+            <tr><th>商品の状態</th><td>使用感・小傷あり。まだ十分使えます。まとめて引き取れる方優先。</td></tr>
+            <tr><th>引き渡し可能日</th><td>9月15日以降（店舗改装後）</td></tr>
+            <tr><th>引き取り方法</th><td>現地引き取り限定（搬出はご自身でお願いします）</td></tr>
+        
+                    <tr><th>連絡推奨時間</th><td class="highlight-time">✅ 10:00〜11:00 / 15:00〜17:00</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="job-footer-action akinai-footer-action">
+            <a href="#" onclick="return false;" class="contact-btn phone-btn" style="cursor: default;">📞 直通電話で問い合わせ (0948-23-4567)</a><a href="#" onclick="return false;" class="contact-btn mail-btn" style="cursor: default;">✉️ メールで問い合わせる</a>
+            <p class="disclaimer-note">※当サイトは情報掲載のみを行います。取引・契約・搬出作業・保健所への届出等はすべて当事者間の自己責任となります。</p>
+        </div>
+    </article>
+    
+    <article class="job-card akinai-card" data-category="space" data-transaction="rent" data-area="飯塚市幸袋" id="space-001">
+        <div class="job-header">
+            <div class="job-meta-row">
+                <span class="category-tag">スペース・間借り</span>
+                <span class="employment-badge">貸します</span>
+                <span class="area-badge">📍 飯塚市幸袋</span>
+                <span class="badge-tag invoice">インボイス対応</span>
+                <span class="badge-tag receipt">領収書発行可</span>
+            </div>
+            <h2>【飯塚市】飲食店 昼の時間帯の間借りキッチン（仕込み・ゴーストキッチン可）</h2>
+            <div class="store-info-bar">
+                <strong>飲食店 テスト店C</strong>
+                <span><a href="https://tsunagaro.jp/stores/sample03" target="_blank">店舗情報・詳細ウェブサイト</a></span>
+            </div>
+        </div>
+
+        <div class="job-body-grid">
+            <div class="job-photos">
+                <img src="https://placehold.co/600x400/e2e8f0/475569?text=Kitchen+Space+01" alt="飲食店 テスト店C" loading="lazy"><img src="https://placehold.co/600x400/cbd5e1/334155?text=Kitchen+Space+02" alt="飲食店 テスト店C" loading="lazy">
+            </div>
+            <div class="job-details-list">
+                <div class="salary-box akinai-price-box">
+                    <span class="salary-label">希望価格 / 賃料</span>
+                    <span class="salary-amount">月額 35,000円</span>
+                </div>
+                
+                <table class="job-table">
+                    
+            <tr><th>利用可能時間</th><td>07:00 〜 15:00（毎週火曜日・定休日）</td></tr>
+            <tr><th>利用開始日</th><td>2026年10月1日〜利用可能</td></tr>
+            <tr><th>物件オーナー区分</th><td>自家物件（大家確認不要）</td></tr>
+            <tr><th>保健所営業許可</th><td>飲食店営業許可</td></tr>
+            <tr><th>光熱費など</th><td>賃料に含む（電気・ガス・水道代コミ）</td></tr>
+            <tr><th>利用想定目的</th><td>仕込み専用 / デリバリー・テイクアウト専門 / 昼営業（要相談）</td></tr>
+        
+                    <tr><th>連絡推奨時間</th><td class="highlight-time">✅ 15:00〜18:00</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="job-footer-action akinai-footer-action">
+            <a href="#" onclick="return false;" class="contact-btn line-btn" style="cursor: default;">💬 LINEで店主へ直接問い合わせる</a><a href="#" onclick="return false;" class="contact-btn phone-btn" style="cursor: default;">📞 直通電話で問い合わせ (0948-34-5678)</a><a href="#" onclick="return false;" class="contact-btn mail-btn" style="cursor: default;">✉️ メールで問い合わせる</a>
+            <p class="disclaimer-note">※当サイトは情報掲載のみを行います。取引・契約・搬出作業・保健所への届出等はすべて当事者間の自己責任となります。</p>
+        </div>
+    </article>
+    
+        </section>
+    </main>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const siteMenu = document.querySelector('#site-menu');
+        if (menuButton) {
+            menuButton.addEventListener('click', () => {
+                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', String(!isOpen));
+                siteMenu.hidden = isOpen;
+            });
+        }
+
+        function filterAkinai() {
+            const category = document.getElementById('filter-category').value;
+            const transaction = document.getElementById('filter-transaction').value;
+            const keyword = document.getElementById('filter-keyword').value.toLowerCase();
+
+            const cards = document.querySelectorAll('.akinai-card');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category') || '';
+                const cardTrans = card.getAttribute('data-transaction') || '';
+                const cardText = card.textContent.toLowerCase();
+
+                let matchCat = !category || cardCat === category;
+                let matchTrans = !transaction || cardTrans === transaction;
+                let matchKeyword = !keyword || cardText.includes(keyword);
+
+                if (matchCat && matchTrans && matchKeyword) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

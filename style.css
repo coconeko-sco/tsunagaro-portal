@@ -368,3 +368,52 @@ a { text-decoration: none; color: inherit; }
     .job-body-grid { grid-template-columns: 1fr; }
     .job-photos img { height: 180px; }
 }
+
+/* 商いマッチ専用スタイル */
+.badge-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 4px;
+}
+.badge-tag.invoice { background: #e0f2fe; color: #0369a1; }
+.badge-tag.receipt { background: #fef3c7; color: #b45309; }
+
+.akinai-price-box {
+    background: #fafaf9;
+    border: 1px solid #e7e5e4;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.akinai-footer-action {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.contact-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    transition: opacity 0.2s;
+}
+.contact-btn:hover { opacity: 0.9; }
+.line-btn { background: #06c755; }
+.phone-btn { background: #2563eb; }
+.mail-btn { background: #4b5563; }
+
+.disclaimer-note {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1.4;
+    margin-top: 4px;
+}

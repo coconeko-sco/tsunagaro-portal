@@ -1,0 +1,97 @@
+[
+  {
+    "id": "item-001",
+    "status": "active",
+    "created_at": "2026-09-01",
+    "category": "item",
+    "transaction_type": "sell",
+    "title": "【飯塚市】業務用電子レンジ（パナソニック・2021年製）",
+    "price": "15,000円",
+    "invoice": true,
+    "receipt": true,
+    "images": [
+      "https://placehold.co/600x400/e2e8f0/475569?text=Microwave+01",
+      "https://placehold.co/600x400/cbd5e1/334155?text=Microwave+02"
+    ],
+    "seller_info": {
+      "store_name": "居酒屋 テスト店A",
+      "store_url": "https://tsunagaro.jp/stores/sample01",
+      "area": "飯塚市本町",
+      "contacts": {
+        "line": "https://line.me/ti/p/xxxxx",
+        "phone": "0948-12-3456"
+      },
+      "preferred_contact_time": "14:00〜17:00（仕込み時間帯）"
+    },
+    "item_details": {
+      "spec": "幅510×奥行470×高さ337mm / 単相200V",
+      "condition": "店舗リニューアルのため出品。動作確認済み（現状渡し・現物確認必須）",
+      "available_date": "即日引き渡し可能",
+      "delivery_method": "現地引き取り（購入者様で搬出。積み込みはお手伝いします）"
+    }
+  },
+  {
+    "id": "item-002",
+    "status": "pending",
+    "created_at": "2026-08-25",
+    "category": "item",
+    "transaction_type": "give",
+    "title": "【飯塚市】店舗用木製テーブル＆椅子4脚セット（無料）",
+    "price": "0円（あげます）",
+    "invoice": false,
+    "receipt": false,
+    "images": [
+      "https://placehold.co/600x400/e2e8f0/475569?text=Table+and+Chairs"
+    ],
+    "seller_info": {
+      "store_name": "カフェ テスト店B",
+      "store_url": "https://cafe-roku.com/",
+      "area": "飯塚市吉原町",
+      "contacts": {
+        "phone": "0948-23-4567",
+        "email": "info@example.com"
+      },
+      "preferred_contact_time": "10:00〜11:00 / 15:00〜17:00"
+    },
+    "item_details": {
+      "spec": "テーブル：幅1200×奥行750×高さ700mm",
+      "condition": "使用感・小傷あり。まだ十分使えます。まとめて引き取れる方優先。",
+      "available_date": "9月15日以降（店舗改装後）",
+      "delivery_method": "現地引き取り限定（搬出はご自身でお願いします）"
+    }
+  },
+  {
+    "id": "space-001",
+    "status": "active",
+    "created_at": "2026-09-05",
+    "category": "space",
+    "transaction_type": "rent",
+    "title": "【飯塚市】飲食店 昼の時間帯の間借りキッチン（仕込み・ゴーストキッチン可）",
+    "price": "月額 35,000円",
+    "invoice": true,
+    "receipt": true,
+    "images": [
+      "https://placehold.co/600x400/e2e8f0/475569?text=Kitchen+Space+01",
+      "https://placehold.co/600x400/cbd5e1/334155?text=Kitchen+Space+02"
+    ],
+    "seller_info": {
+      "store_name": "飲食店 テスト店C",
+      "store_url": "https://tsunagaro.jp/stores/sample03",
+      "area": "飯塚市幸袋",
+      "contacts": {
+        "line": "https://line.me/ti/p/yyyyy",
+        "phone": "0948-34-5678",
+        "email": "contact@example.com"
+      },
+      "preferred_contact_time": "15:00〜18:00"
+    },
+    "space_details": {
+      "available_hours": "07:00 〜 15:00（毎週火曜日・定休日）",
+      "available_date": "2026年10月1日〜利用可能",
+      "owner_type": "自家物件（大家確認不要）",
+      "health_license_type": "飲食店営業許可",
+      "utility_fee": "賃料に含む（電気・ガス・水道代コミ）",
+      "usage_purpose": "仕込み専用 / デリバリー・テイクアウト専門 / 昼営業（要相談）"
+    }
+  }
+]
