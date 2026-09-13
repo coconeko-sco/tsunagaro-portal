@@ -44,39 +44,51 @@
             <p>地域ごとのおすすめを選んで、地元の話題を見ていきましょう。</p>
         </section>
 
-        <section class="region-grid">
-            <article class="region-card">
-                <h3>飯塚</h3>
-                <p>グルメ・イベント・暮らしの話題をまとめた飯塚のおすすめページ。</p>
-                <a href="fukuoka/iizuka/iizuka.html">飯塚を見る</a>
-            </article>
-            <article class="region-card">
-                <h3>田川</h3>
-                <p>地元の小さな発見と、のんびり楽しめる話題をまとめるページ。</p>
-                <a href="#">田川を見る</a>
-            </article>
-            <article class="region-card">
-                <h3>直方</h3>
-                <p>町の空気と暮らしに寄り添うおすすめ情報を載せる地域ページ。</p>
-                <a href="#">直方を見る</a>
-            </article>
-            <article class="region-card">
-                <h3>求人</h3>
-                <p>地域の店主と求職者が直接やり取りできる、ローカル求人ページ。</p>
-                <a href="jobs/jobs.html">求人を見る</a>
-            </article>
-            <article class="region-card">
-                <h3>商いマッチ</h3>
-                <p>筑豊エリアの飲食店・商店で使える厨房機器・不用品の売買や空きスペースのシェア掲示板。</p>
-                <a href="akinai/akinai.html">商いマッチを見る</a>
-            </article>
-            <article class="region-card">
-                <h3>ツール</h3>
-                <p>現場の日常業務をちょっと楽にする、店舗・事業者向けのお助けツール一覧。</p>
-                <a href="tools/tools.html">ツールを見る</a>
-            </article>
+        <!-- 地域情報エリア -->
+        <section class="portal-section">
+            <h2 style="font-size: 1.25rem; margin-bottom: 16px; color: #334155; border-left: 4px solid #f97316; padding-left: 8px;">地域情報</h2>
+            <div class="region-grid">
+                <article class="region-card">
+                    <h3>飯塚</h3>
+                    <p>グルメ・イベント・暮らしの話題をまとめた飯塚のおすすめページ。</p>
+                    <a href="fukuoka/iizuka/iizuka.html">飯塚を見る</a>
+                </article>
+                <article class="region-card">
+                    <h3>田川</h3>
+                    <p>地元の小さな発見と、のんびり楽しめる話題をまとめるページ。</p>
+                    <a href="#">田川を見る</a>
+                </article>
+                <article class="region-card">
+                    <h3>直方</h3>
+                    <p>町の空気と暮らしに寄り添うおすすめ情報を載せる地域ページ。</p>
+                    <a href="#">直方を見る</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- 事業者向け・お仕事エリア -->
+        <section class="portal-section" style="margin-top: 40px;">
+            <h2 style="font-size: 1.25rem; margin-bottom: 16px; color: #334155; border-left: 4px solid #f97316; padding-left: 8px;">お店と仕事のサポート</h2>
+            <div class="region-grid">
+                <article class="region-card">
+                    <h3>求人</h3>
+                    <p>地域の店主と求職者が直接やり取りできる、ローカル求人ページ。</p>
+                    <a href="jobs/jobs.html">求人を見る</a>
+                </article>
+                <article class="region-card">
+                    <h3>商いマッチ</h3>
+                    <p>筑豊エリアの飲食店・商店で使える厨房機器・不用品の売買や空きスペースのシェア掲示板。</p>
+                    <a href="akinai/akinai.html">商いマッチを見る</a>
+                </article>
+                <article class="region-card">
+                    <h3>ツール</h3>
+                    <p>現場の日常業務をちょっと楽にする、店舗・事業者向けのお助けツール一覧。</p>
+                    <a href="tools/tools.html">ツールを見る</a>
+                </article>
+            </div>
         </section>
     </main>
+
     <script>
         const menuButton = document.querySelector('.menu-button');
         const siteMenu = document.querySelector('#site-menu');
