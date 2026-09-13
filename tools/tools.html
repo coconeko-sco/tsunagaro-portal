@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6LHJQFWKTQ');
+    </script>
     <title>ポータル連携ツール（順次公開予定）</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./tools.css">
@@ -12,12 +21,17 @@
         <div class="topbar-inner">
             <div class="brand-group">
                 <div class="brand">つながろ ツール</div>
-                <span class="coming-soon">Sample</span>
+                <span class="coming-soon">Coming soon...</span>
             </div>
-            <nav class="menu-panel">
-                <a href="../index.html">TOP</a>
-                <a href="./tools.html">ツール一覧</a>
-            </nav>
+            <div class="menu-container" style="position: relative;">
+                <button class="menu-toggle" id="menuToggle" aria-label="メニューを開閉" style="background: none; border: none; cursor: pointer; padding: 8px; color: #334155;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <nav class="menu-panel" id="menuPanel" style="display: none; position: absolute; right: 0; top: 100%; background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 8px 0; min-width: 140px; z-index: 100;">
+                    <a href="../index.html" style="display: block; padding: 8px 16px; color: #334155; text-decoration: none;">TOP</a>
+                    <a href="./tools.html" style="display: block; padding: 8px 16px; color: #334155; text-decoration: none;">ツール一覧</a>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -77,5 +91,19 @@
             <p>「ここが面倒」「こんな通知が欲しい」といったお店ごとのリアルな意見を反映しながら、機能を順次拡張していく予定です。</p>
         </section>
     </main>
+
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const menuPanel = document.getElementById('menuPanel');
+        if (toggleBtn && menuPanel) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menuPanel.style.display = menuPanel.style.display === 'block' ? 'none' : 'block';
+            });
+            document.addEventListener('click', () => {
+                menuPanel.style.display = 'none';
+            });
+        }
+    </script>
 </body>
 </html>

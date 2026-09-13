@@ -42,6 +42,10 @@ def main():
     cards_html = render_tool_cards(data.get("tools", []))
     concept = data.get("concept", {})
     footer = data.get("footer_message", {})
+    page_title = data.get("page_title", "ツール一覧")
+    lead_text = concept.get("lead_text", "")
+    footer_title = footer.get("title", "")
+    footer_desc = footer.get("description", "")
 
     html_content = f"""<!DOCTYPE html>
 <html lang="ja">
@@ -52,12 +56,12 @@ def main():
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
 
       gtag('config', 'G-6LHJQFWKTQ');
     </script>
-    <title>{data.get("page_title", "ツール一覧")}</title>
+    <title>{page_title}</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./tools.css">
 </head>
@@ -82,8 +86,8 @@ def main():
 
     <main class="container tools-container">
         <section class="portal-intro-box">
-            <h2>{data.get("page_title", "")}</h2>
-            <p>{concept.get("lead_text", "")}</p>
+            <h2>{page_title}</h2>
+            <p>{lead_text}</p>
         </section>
 
         <section class="tool-list">
@@ -91,15 +95,15 @@ def main():
         </section>
 
         <section class="portal-footer-box">
-            <h3>{footer.get("title", "")}</h3>
-            <p>{footer.get("description", "")}</p>
+            <h3>{footer_title}</h3>
+            <p>{footer_desc}</p>
         </section>
     </main>
 
     <script>
         const toggleBtn = document.getElementById('menuToggle');
         const menuPanel = document.getElementById('menuPanel');
-        if (toggleBtn && menuPanel) {
+        if (toggleBtn && menuPanel) {{
             toggleBtn.addEventListener('click', (e) => {{
                 e.stopPropagation();
                 menuPanel.style.display = menuPanel.style.display === 'block' ? 'none' : 'block';
@@ -107,7 +111,7 @@ def main():
             document.addEventListener('click', () => {{
                 menuPanel.style.display = 'none';
             }});
-        }
+        }}
     </script>
 </body>
 </html>
