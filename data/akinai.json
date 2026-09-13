@@ -18,8 +18,7 @@
       "store_url": "https://tsunagaro.jp/stores/sample01",
       "area": "飯塚市本町",
       "contacts": {
-        "line": "https://line.me/ti/p/xxxxx",
-        "phone": "0948-12-3456"
+        "line": "https://line.me/ti/p/xxxxx"
       },
       "preferred_contact_time": "14:00〜17:00（仕込み時間帯）"
     },
@@ -48,7 +47,7 @@
       "store_url": "https://cafe-roku.com/",
       "area": "飯塚市吉原町",
       "contacts": {
-        "phone": "0948-23-4567",
+        "phone": "0948-23-xxxx",
         "email": "info@example.com"
       },
       "preferred_contact_time": "10:00〜11:00 / 15:00〜17:00"
@@ -80,7 +79,7 @@
       "area": "飯塚市幸袋",
       "contacts": {
         "line": "https://line.me/ti/p/yyyyy",
-        "phone": "0948-34-5678",
+        "phone": "0948-34-xxxx",
         "email": "contact@example.com"
       },
       "preferred_contact_time": "15:00〜18:00"
