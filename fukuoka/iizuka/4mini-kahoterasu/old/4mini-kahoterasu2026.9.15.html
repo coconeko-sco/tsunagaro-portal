@@ -15,7 +15,7 @@
     <title>4MINI BIKE MEETING IN 2026 | つながろ</title>
     
     <!-- 外部化したCSSの読み込み -->
-    <link rel="stylesheet" href="event.css?v=13" />
+    <link rel="stylesheet" href="event.css?v=4" />
 </head>
 <body>
     <main class="event-page">
@@ -46,7 +46,7 @@
                     <tr><th>住所</th><td>福岡県飯塚市鶴三緒1151番-1</td></tr>
                     <tr><th>バイクエントリー</th><td>1,000円〜（125cc以下ならOK）<br>当日乗り付けエントリー可能</td></tr>
                     <tr><th>一般入場</th><td>1人 500円（中学生以下無料）</td></tr>
-                    <tr><th>対象</th><td>2st / 4st オールOK</td></tr>
+                    <tr><th>対象</th><td>2Ss / 4st オールOK</td></tr>
                 </table>
             </section>
 
@@ -56,31 +56,11 @@
                     <li>グッズ販売</li>
                     <li>カスタム車展示</li>
                     <li>俺達全員チビ乗ダー</li>
-                    <li>恒例の20mレース<span class="sub-text">初心者もベテランも皆で楽しもう</span></li>
+                    <li>恒例の20mレース（初心者もベテランも皆で楽しもう）</li>
                     <li>ガレージセール！</li>
                     <li>厳選キッチンカー</li>
                     <li>今回のアワード実施</li>
                 </ul>
-            </section>
-
-            <!-- 熊本復興チャリティー募金 -->
-            <section class="event-section charity">
-                <h2>熊本復興チャリティー募金</h2>
-                <div class="charity-wrapper">
-                    <div class="charity-content">
-                        <p class="charity-org">全日本造屋連合 博多総本部 佐田毘流駄頭</p>
-                        <p class="charity-lead">令和8年熊本地震 ご協力のお願い</p>
-                        <p class="charity-desc">集められた募金は、被災地域の再建に活用させていただきます。</p>
-                        <div class="charity-info">
-                            <p><strong>募金先：</strong>福岡市役所</p>
-                            <p><strong>所在地：</strong>〒833-3431 福岡県宗像市田熊1丁目5-27 まつ勝</p>
-                            <p><strong>寄付用途：</strong>救助支援復興支援として全額を寄付させていただきます。</p>
-                        </div>
-                    </div>
-                    <div class="charity-img">
-                        <img src="images/charity-flyer.jpg" alt="熊本復興チャリティー募金ポスター">
-                    </div>
-                </div>
             </section>
 
             <section class="event-section notice">
@@ -110,28 +90,5 @@
         <footer class="event-footer">4MINI BIKE MEETING in カホテラス 実行委員会</footer>
     </main>
 
-    <!-- 画像全画面拡大用モーダル -->
-    <div id="image-modal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-img" alt="拡大画像">
-    </div>
-
-    <script>
-        const modal = document.getElementById('image-modal');
-        const modalImg = document.getElementById('modal-img');
-        const closeBtn = document.getElementsByClassName('modal-close')[0];
-
-        document.querySelectorAll('.charity-img img').forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.src;
-            });
-        });
-
-        closeBtn.addEventListener('click', () => modal.style.display = 'none');
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-    </script>
 </body>
 </html>
