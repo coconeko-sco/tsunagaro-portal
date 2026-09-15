@@ -3,10 +3,10 @@ import os
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_FILE = os.path.join(BASE_DIR, "data", "fukuoka", "iizuka.json")
 TEMPLATE_FILE = os.path.join(BASE_DIR, "templates", "sity-page.html")
-OUTPUT_DIR = os.path.join(BASE_DIR, "fukuoka", "iizuka")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "iizuka.html")
+
+# 処理対象の地域リスト（今後直方などを増やす際もここに追加すれば自動生成されます）
+CITIES = ["iizuka", "tagawa"]
 
 
 def build_card_html(cards):
@@ -28,6 +28,26 @@ def build_card_html(cards):
         badge = card.get("badge", "")
         badge_html = f'<span class="badge">{badge}</span>' if badge else ''
 
+        # --- MEO情報（評価・口コミ数・マップリンク）の組み立て ---
+        meo_html = ""
+        rating = card.get("rating")
+        map_url = card.get("map_url")
+        reviews_count = card.get("reviews_count")
+
+        if rating or map_url:
+            rating_text = f"★ {rating}" if rating else ""
+            reviews_text = f" ({reviews_count}件)" if reviews_count else ""
+            
+            map_btn_html = ""
+            if map_url:
+                map_btn_html = f'<a href="{map_url}" target="_blank" rel="noopener noreferrer" class="meo-map-btn">📍 Googleマップ</a>'
+
+            meo_html = f"""
+                    <div class="card-meo">
+                        <span class="meo-rating">{rating_text}{reviews_text}</span>
+                        {map_btn_html}
+                    </div>"""
+
         card_html = f"""            <article class="card">
                 <img src="{card['image_url']}" alt="{card['title']}" class="card-image">
                 <div class="card-body">
@@ -37,6 +57,7 @@ def build_card_html(cards):
                     </div>
                     {title_html}
                     <p>{card['description']}</p>
+                    {meo_html}
                     <div class="card-footer">
                         <span>📍 {card['location']}</span>
                         <span>🕒 {card['date']}</span>
@@ -48,8 +69,16 @@ def build_card_html(cards):
     return "\n".join(cards_html)
 
 
-def main():
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
+def build_city_page(city_key):
+    data_file = os.path.join(BASE_DIR, "data", "fukuoka", f"{city_key}.json")
+    output_dir = os.path.join(BASE_DIR, "fukuoka", city_key)
+    output_file = os.path.join(output_dir, f"{city_key}.html")
+
+    if not os.path.exists(data_file):
+        print(f"スキップ: {data_file} が見つかりません")
+        return
+
+    with open(data_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     with open(TEMPLATE_FILE, "r", encoding="utf-8") as f:
@@ -65,11 +94,16 @@ def main():
     for placeholder, value in replacements.items():
         html = html.replace(placeholder, value)
 
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    os.makedirs(output_dir, exist_ok=True)
+    with open(output_file, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print("飯塚ページを更新しました")
+    print(f"[{city_name}] ページを生成しました -> {output_file}")
+
+
+def main():
+    for city in CITIES:
+        build_city_page(city)
 
 
 if __name__ == "__main__":

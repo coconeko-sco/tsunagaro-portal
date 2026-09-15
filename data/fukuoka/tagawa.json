@@ -1,0 +1,19 @@
+{
+  "page_title": "田川のおすすめ",
+  "hero_image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&auto=format&fit=crop&q=80",
+  "hero_description": "地元で愛されるグルメやおすすめスポットなど、田川の魅力を発信中！",
+  "cards": [
+    {
+      "category": "グルメ",
+      "title": "居酒屋一歩｜旬の鮮魚と刺身盛りが自慢！宴会にも最適な人気居酒屋",
+      "description": "店主が目利きした新鮮な魚介と美味しい料理が楽しめる居酒屋。アットホームな雰囲気で、個室や団体宴会にも幅広く対応！",
+      "location": "田川郡福智町赤池510-112",
+      "date": "17:00〜23:00（L.O. 22:30）",
+      "image_url": "../../fukuoka/tagawa/images/ippo.jpeg",
+      "href": "https://www.lifefood.info/ippo/",
+      "rating": 3.9,
+      "reviews_count": 76,
+      "map_url": "https://maps.app.goo.gl/7eB4VunrVCZNuYJm9"
+    }
+  ]
+}
