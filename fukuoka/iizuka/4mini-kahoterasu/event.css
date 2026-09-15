@@ -16,11 +16,12 @@ body {
     line-height: 1.6;
 }
 
-/* 画面全体の幅制限 */
+/* 画面全体の幅制限（可変%＋最大幅制限） */
 .event-page {
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 24px 16px;
+    padding: 3% 4%;
 }
 
 /* ==========================================
@@ -30,13 +31,14 @@ body {
     background-color: #FFFF00; /* 原色100%イエロー */
     border: 3px solid #000000;
     border-radius: 12px;
-    padding: 24px 16px;
+    padding: 5% 4%;
     margin-bottom: 24px;
     text-align: center;
     box-shadow: 6px 6px 0px #000000;
 }
 
 .hero-logo img {
+    width: 100%;
     max-width: 160px;
     height: auto;
     margin-bottom: 12px;
@@ -54,7 +56,7 @@ body {
 }
 
 .event-hero h1 {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
     color: #000000;
     font-weight: 900;
     margin-bottom: 12px;
@@ -66,17 +68,19 @@ body {
 
 .event-date strong {
     display: block;
-    font-size: 1.35rem;
+    font-size: clamp(1.1rem, 4vw, 1.35rem);
     color: #D50000; /* 原色赤で強烈なアクセント */
 }
 
 .flyer-link {
     display: inline-block;
+    width: auto;
+    max-width: 100%;
     background-color: #000000;
     color: #FFFF00;
     font-weight: bold;
     text-decoration: none;
-    padding: 12px 28px;
+    padding: 12px 8%;
     border-radius: 8px;
     box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
     transition: transform 0.1s;
@@ -99,12 +103,12 @@ body {
     background-color: #FFEE58; /* 高彩度カード背景 */
     border: 3px solid #000000;
     border-radius: 12px;
-    padding: 20px;
+    padding: 5% 4%;
     box-shadow: 6px 6px 0px #000000;
 }
 
 .event-section h2 {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
     color: #000000;
     font-weight: 900;
     border-bottom: 3px solid #000000;
@@ -120,14 +124,14 @@ body {
 
 .info-table th, 
 .info-table td {
-    padding: 12px 10px;
+    padding: 12px 2%;
     border-bottom: 2px solid #000000;
     text-align: left;
     color: #000000;
 }
 
 .info-table th {
-    width: 32%;
+    width: 30%;
     background-color: #FFFF00; /* 原色イエロー */
     color: #000000;
     font-weight: bold;
@@ -168,6 +172,7 @@ body {
 }
 
 .organizer-box img {
+    width: 100%;
     max-width: 130px;
     height: auto;
     margin-bottom: 8px;
@@ -202,7 +207,7 @@ body {
 
 .charity-wrapper {
     display: flex;
-    gap: 16px;
+    gap: 4%;
     align-items: flex-start;
 }
 
@@ -211,15 +216,15 @@ body {
     min-width: 0;
 }
 
+/* 固定pxから％ベースの可変指定へ変更 */
 .charity-img {
-    flex: 0 0 180px;
-    width: 180px;
+    flex: 0 0 25%;
+    width: 25%;
     max-width: 180px;
 }
 
 .charity-img img {
     width: 100%;
-    max-width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
@@ -279,7 +284,7 @@ body {
     background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
-    padding: 16px;
+    padding: 4%;
 }
 
 .modal-content {
@@ -366,10 +371,11 @@ body {
         align-items: center;
     }
 
+    /* スマホ時の画像幅もパーセンテージ指定へ */
     .charity-img {
         flex: none;
-        width: 100%;
-        max-width: 220px;
+        width: 70%;
+        max-width: 100%;
         margin-top: 12px;
     }
 }
