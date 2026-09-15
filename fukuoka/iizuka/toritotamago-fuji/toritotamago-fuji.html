@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鶏とたまご料理の店 藤 | ゆめタウン飯塚</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #fcfbfa;
+      --bg-card: #ffffff;
+      --text-main: #2b2b2b;
+      --text-sub: #666666;
+      --accent: #b81c24;
+      --gold: #d4a359;
+      --dark-wood: #3a2d27;
+      --border: #e8e2d9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('./images/toritotamago-fuji2.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      padding: 4px 16px;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    /* ギャラリーセクション（写真をメニュー1対1ではなくイメージ集として配置） */
+    .gallery-section {
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--dark-wood);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 8px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background-color: #eee;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .image-note {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      text-align: right;
+    }
+
+    /* メニューリスト */
+    .menu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .menu-header {
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .menu-header h3 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.3rem;
+      color: var(--dark-wood);
+    }
+
+    .menu-sub-note {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 15px;
+    }
+
+    .menu-item-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .price-group {
+      display: flex;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .price-group strong {
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .spicy-note {
+      font-size: 0.75rem;
+      color: #d97706;
+      margin-top: 4px;
+    }
+
+    .option-box {
+      background: #f8f6f2;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    /* 店舗概要 */
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .info-table th, .info-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .info-table th {
+      width: 25%;
+      color: var(--text-sub);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .map-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: var(--dark-wood);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+
+    .map-btn:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="hero-badge">ゆめタウン飯塚 2F フードコート</span>
+    <h1>鶏とたまご料理の店 藤</h1>
+    <p>こだわり卵と香ばしい鶏肉を味わう極上どんぶり</p>
+  </header>
+
+  <main class="container">
+
+    <!-- イメージギャラリー -->
+    <section class="gallery-section">
+      <h2 class="section-title">お品書きの一例</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="./images/toritotamago-fuji.png" alt="看板メニュー丼イメージ">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/toritotamago-fuji2.jpg" alt="ふわとろ玉子のどんぶり">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/toritotamago-fuji3.jpg" alt="ボリューム満点チキン南蛮丼">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/toritotamago-fuji1.jpg" alt="店頭メニュー看板">
+        </div>
+      </div>
+      <p class="image-note">※写真はイメージ・盛り付け例です。時期や仕入れにより異なる場合がございます。</p>
+    </section>
+
+    <!-- メニューセクション -->
+    <section class="menu-card">
+      <div class="menu-header">
+        <h3>お品書き</h3>
+        <span class="menu-sub-note">全セット：みそ汁・ミニ茶碗蒸し付き</span>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-name">たまご丼</div>
+          <div class="price-group">
+            <span>単品 550円</span>
+            <span>セット <strong>700円</strong></span>
+          </div>
+          <div class="spicy-note">★ +30円でピリ辛に変更可能</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">親子丼</div>
+          <div class="price-group">
+            <span>単品 700円</span>
+            <span>セット <strong>850円</strong></span>
+          </div>
+          <div class="spicy-note">★ +30円でピリ辛に変更可能</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">鶏そぼろ丼</div>
+          <div class="price-group">
+            <span>単品 700円</span>
+            <span>セット <strong>850円</strong></span>
+          </div>
+          <div class="spicy-note">★ +30円でピリ辛に変更可能</div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">チキンカツ丼セット</div>
+          <div class="price-group">
+            <span>単品 800円</span>
+            <span>セット <strong>950円</strong></span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">チキン南蛮丼セット</div>
+          <div class="price-group">
+            <span>単品 800円</span>
+            <span>セット <strong>950円</strong></span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">鶏てりたま丼セット</div>
+          <div class="price-group">
+            <span>単品 800円</span>
+            <span>セット <strong>950円</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-box">
+        <span>みそ汁：100円</span>
+        <span>温泉卵：100円</span>
+        <span>ミニ茶碗蒸し：150円</span>
+        <span>こだわりプリン：250円</span>
+      </div>
+      <p style="font-size: 0.75rem; color: var(--text-sub); margin-top: 10px; text-align: center;">※お持ち帰りも可能です（お持ち帰りの場合、みそ汁・茶碗蒸しは付きません）。</p>
+    </section>
+
+    <!-- 店舗情報 -->
+    <section class="info-card">
+      <h2 class="section-title">店舗情報</h2>
+      <table class="info-table">
+        <tr>
+          <th>店名</th>
+          <td>鶏とたまご料理の店 藤（ふじ）</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>福岡県飯塚市菰田西3-6-1 ゆめタウン飯塚 2F レストラン・フードコート</td>
+        </tr>
+        <tr>
+          <th>カテゴリ</th>
+          <td>丼物・和食</td>
+        </tr>
+      </table>
+      <div style="text-align: center;">
+        <a href="https://maps.app.goo.gl/uteZFfVPaL9K5TS17" target="_blank" rel="noopener" class="map-btn">Googleマップで場所を確認</a>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

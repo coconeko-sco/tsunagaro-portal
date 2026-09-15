@@ -1,28 +1,39 @@
 {
   "page_title": "飯塚のおすすめ",
-  "hero_image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=900&auto=format&fit=crop&q=80",
-  "hero_description": "今、飯塚で気になるのは夏の夜を盛り上げるイベントと、地元の話題スポット。",
-  "cards": [
+  "hero_image": "./images/iizuka-hero.jpg",
+  "hero_description": "2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。","cards": [
     {
       "category": "イベント",
       "title": "4MINI BIKE MEETING in カホテラス",
       "description": "カホテラスで開催される4ミニバイクのミーティング。詳しい内容はこちらから確認できます。",
       "location": "カホテラス",
       "date": "開催情報を確認",
-      "image_url": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&auto=format&fit=crop&q=80",
+      "image_url": "./4mini-kahoterasu/images/4mini-group-photo.jpg",
       "href": "./4mini-kahoterasu/4mini-kahoterasu.html"
     },
     {
       "category": "グルメ",
-      "title": "てんぷら屋 藤｜揚げたてサクサク天ぷらと名物「華味鳥のとり天」",
+      "title": "てんぷら屋 藤｜揚げたてサクサク天ぷら",
       "description": "職人が目の前で一品ずつ揚げる本格天ぷら店。福岡の銘柄鶏「華味鳥」を使ったささみのとり天は絶品！ごはん・味噌汁・茶碗蒸し付き。",
       "location": "飯塚市勢田（国道200号沿い）",
       "date": "11:00〜14:30 / 16:30〜20:30",
-      "image_url": "../../fukuoka/iizuka/images/ebiten.jpeg",
+      "image_url": "./images/ebiten.jpeg",
       "href": "https://www.lifefood.info/?utm_source=GBP&utm_medium=organic",
       "rating": 4.1,
       "reviews_count": 491,
       "map_url": "https://maps.app.goo.gl/EmBGbGtWDF1XSFtcA"
+    },
+    {
+      "category": "グルメ",
+      "title": "鶏とたまご料理の店 藤｜ふわとろ卵とこだわり丼の専門店",
+      "description": "銘柄鶏「華味鳥」と野上養鶏場の「味宝卵」を使用。出汁のきいた味噌汁・茶碗蒸しセットで楽しむ絶品どんぶり。",
+      "location": "ゆめタウン飯塚 2F フードコート",
+      "date": "10:00〜21:00",
+      "image_url": "./toritotamago-fuji/images/toritotamago-fuji.png",
+      "href": "./toritotamago-fuji/toritotamago-fuji.html",
+      "rating": 2.7,
+      "reviews_count": 3,
+      "map_url": "https://maps.app.goo.gl/uteZFfVPaL9K5TS17"
     },
     {
       "category": "ライフスタイル",
