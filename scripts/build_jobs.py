@@ -129,6 +129,10 @@ def render_job_card(job):
 
 def main():
     jobs = load_jobs()
+    
+    # 新着順（created_atの新しい順）に並び替え
+    jobs.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     cards_html = "".join([render_job_card(job) for job in jobs])
