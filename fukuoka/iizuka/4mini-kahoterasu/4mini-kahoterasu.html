@@ -15,7 +15,43 @@
     <title>4MINI BIKE MEETING IN 2026 | つながろ</title>
     
     <!-- 外部化したCSSの読み込み -->
-    <link rel="stylesheet" href="event.css?v=13" />
+    <link rel="stylesheet" href="event.css?v=18" />
+    <style>
+        /* 過去の開催実績ギャラリー用スタイル */
+        .past-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .past-gallery .gallery-item {
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .past-gallery .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .past-gallery .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 企画景品画像用スタイル（拡大なし・静止表示） */
+        .prize-img {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .prize-img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <main class="event-page">
@@ -26,14 +62,14 @@
             <div class="event-summary">
                 <span class="event-label">飯塚・カホテラス</span>
                 <h1>4MINI BIKE MEETING<br>IN カホテラス 2026</h1>
-                <p>4MINIファンによる、4MINIファンのための熱い1日。2st / 4st、オールOKのバイクイベントです。</p>
+                <p>4MINIファンによる、4MINIファンのための熱い1日。2st / 4st / スクーター、オールOKのバイクイベントです。</p>
                 <p class="event-date">
                     <strong>2026年11月22日（日）</strong>
                     10:00〜15:00<br>
                     雨天中止／エントリー受付 8:00〜
                 </p>
                 <div>
-                    <a class="flyer-link" href="images/2026 kai 1.pdf">公式PDFを開く</a>
+                    <a class="flyer-link" href="images/sai.pdf">公式PDFを開く</a>
                 </div>
             </div>
         </section>
@@ -42,11 +78,17 @@
             <section class="event-section">
                 <h2>開催概要・料金</h2>
                 <table class="info-table">
-                    <tr><th>会場</th><td>飯塚カホテラス（芝生広場）</td></tr>
+                    <tr>
+                        <th>会場</th>
+                        <td>
+                            飯塚カホテラス（芝生広場）<br>
+                            <a href="https://kahoterasu.com/" id="kaho-link" style="font-size: 0.9em; text-decoration: underline;">カホテラス公式HP</a>
+                        </td>
+                    </tr>
                     <tr><th>住所</th><td>福岡県飯塚市鶴三緒1151番-1</td></tr>
-                    <tr><th>バイクエントリー</th><td>1,000円〜（125cc以下ならOK）<br>当日乗り付けエントリー可能</td></tr>
+                    <tr><th>バイクエントリー</th><td>1,000円（125cc以下ならOK）<br>当日乗り付けエントリー可能</td></tr>
                     <tr><th>一般入場</th><td>1人 500円（中学生以下無料）</td></tr>
-                    <tr><th>対象</th><td>2st / 4st オールOK</td></tr>
+                    <tr><th>対象</th><td>2st / 4st / スクーター オールOK</td></tr>
                 </table>
             </section>
 
@@ -56,11 +98,52 @@
                     <li>グッズ販売</li>
                     <li>カスタム車展示</li>
                     <li>俺達全員チビ乗ダー</li>
-                    <li>恒例の20mレース<span class="sub-text">初心者もベテランも皆で楽しもう</span></li>
+                    <li>大好評！恒例の人力20mレース<span class="sub-text">初心者もベテランも皆で楽しもう</span></li>
                     <li>ガレージセール！</li>
+                    <li>お楽しみ抽選会（ガラポン）</li>
+                    <li>キッズゲーム（電子シューティング射的・スーパーボールすくい）</li>
                     <li>厳選キッチンカー</li>
                     <li>今回のアワード実施</li>
                 </ul>
+                <div class="prize-img">
+                    <img src="images/award-trophies.jpg" alt="アワード・レース用楯・景品">
+                </div>
+            </section>
+
+            <!-- 出店・キッチンカー情報 -->
+            <section class="event-section vendors">
+                <h2>出店・グルメ情報</h2>
+                <div class="vendor-list">
+                    <div class="vendor-card">
+                        <div class="vendor-img">
+                            <img src="images/daruma-logo.jpg" alt="達磨 ロゴ">
+                        </div>
+                        <div class="vendor-info">
+                            <h3>達磨</h3>
+                            <p class="vendor-menu">サガリ串 / ホルモンスープ</p>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-img">
+                            <img src="images/nijinijikirara-logo.jpg" alt="nijinijikirara ロゴ">
+                        </div>
+                        <div class="vendor-info">
+                            <h3>nijinijikirara</h3>
+                            <p class="vendor-menu">クラムチャウダー / ピザ釜料理 / ガーリックフランス / めんたいフランス / ピザフランス / フランクフルト / ホットレモン / レモンスカッシュ</p>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-img">
+                            <img src="images/kikuchin-logo.jpg" alt="きくっちん ロゴ">
+                        </div>
+                        <div class="vendor-info">
+                            <h3>きくっちん</h3>
+                            <p class="vendor-menu">ベビーカステラ</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- 熊本復興チャリティー募金 -->
@@ -75,6 +158,7 @@
                             <p><strong>募金先：</strong>福岡市役所</p>
                             <p><strong>所在地：</strong>〒833-3431 福岡県宗像市田熊1丁目5-27 まつ勝</p>
                             <p><strong>寄付用途：</strong>救助支援復興支援として全額を寄付させていただきます。</p>
+                            <p><strong>公式Instagram：</strong><a href="https://www.instagram.com/hakatasohonbu" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">@hakatasohonbu</a></p>
                         </div>
                     </div>
                     <div class="charity-img">
@@ -85,7 +169,7 @@
 
             <section class="event-section notice">
                 <h2>注意事項</h2>
-                <p>駐車場は一般の方との共有になりますので、マナー良くご利用ください。事故等の責任は負いかねます。空ぶかし等の行為は絶対におやめください。マナーを守り楽しい1日にしましょう。</p>
+                <p>駐車場は一般の方との共有になりますので、マナー良くご利用ください。事故等の責任は負いかねます。空ぶかし等の行為は絶対におやめください。クレーム等出ない様に会場では常識ある行動をし、参加者全員で秋の楽しい1日にしましょう。</p>
             </section>
 
             <section class="event-section contact">
@@ -96,6 +180,7 @@
                         <span class="nobreak">Touring Club JIB</span>
                         <span class="nobreak">（Jack in the box）</span>
                     </p>
+                    <p class="contact-tel" style="margin-top: 8px; font-weight: bold;">【お問い合わせ】 携帯 090-9414-3711</p>
                 </div>
             </section>
 
@@ -103,6 +188,13 @@
                 <h2>過去の開催実績</h2>
                 <div class="past-info">
                     <p><strong>2025年9月28日（日）開催</strong><br>会場：カホテラス<br>新会場となって初の開催も多くの4MINIオーナー様・ファンの皆様にご参加いただき、盛況のうちに終了しました。</p>
+                </div>
+                <!-- 過去イベントギャラリー -->
+                <div class="past-gallery">
+                    <div class="gallery-item"><img src="images/4mini-group-photo.jpg" alt="集合写真"></div>
+                    <div class="gallery-item"><img src="images/past-bikes.jpg" alt="展示カスタム車"></div>
+                    <div class="gallery-item"><img src="images/past-stage.jpg" alt="本部ステージ風景"></div>
+                    <div class="gallery-item"><img src="images/past-staff.jpg" alt="JIBスタッフ集合"></div>
                 </div>
             </section>
         </div>
@@ -117,11 +209,12 @@
     </div>
 
     <script>
+        // 画像モーダル処理（ポスター・出店・過去ギャラリーのみ対象）
         const modal = document.getElementById('image-modal');
         const modalImg = document.getElementById('modal-img');
         const closeBtn = document.getElementsByClassName('modal-close')[0];
 
-        document.querySelectorAll('.charity-img img').forEach(img => {
+        document.querySelectorAll('.charity-img img, .vendor-img img, .past-gallery img').forEach(img => {
             img.addEventListener('click', function() {
                 modal.style.display = 'flex';
                 modalImg.src = this.src;
@@ -131,6 +224,24 @@
         closeBtn.addEventListener('click', () => modal.style.display = 'none');
         modal.addEventListener('click', (e) => {
             if (e.target === modal) modal.style.display = 'none';
+        });
+
+        // カホテラスHPリンクのフォールバック制御
+        document.getElementById('kaho-link').addEventListener('click', async function(e) {
+            e.preventDefault();
+            const primaryUrl = 'https://kahoterasu.com/';
+            const fallbackUrl = 'https://wing-r.com/kaho-terras/';
+            
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 1500);
+
+            try {
+                await fetch(primaryUrl, { mode: 'no-cors', signal: controller.signal });
+                clearTimeout(timeoutId);
+                window.open(primaryUrl, '_blank', 'noopener,noreferrer');
+            } catch (err) {
+                window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+            }
         });
     </script>
 </body>

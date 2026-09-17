@@ -1,45 +1,47 @@
 @charset "UTF-8";
 
-/* ==========================================
-   全体設定（限界突破イエロー×漆黒）
-   ========================================== */
+/* 全体設定 */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: #FFEB3B; /* ガッツリ鮮やかなイエロー */
-    color: #000000;            /* 漆黒 */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
+html, body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
-/* 画面全体の幅制限（可変%＋最大幅制限） */
+body {
+    background-color: #FFEB3B;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
 .event-page {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 3% 4%;
+    padding: 2%;
 }
 
-/* ==========================================
-   ヒーローセクション（トップ）
-   ========================================== */
+/* ヒーロー */
 .event-hero {
-    background-color: #FFFF00; /* 原色100%イエロー */
+    background-color: #FFFF00;
     border: 3px solid #000000;
     border-radius: 12px;
-    padding: 5% 4%;
+    padding: 4%;
     margin-bottom: 24px;
     text-align: center;
     box-shadow: 6px 6px 0px #000000;
 }
 
 .hero-logo img {
-    width: 100%;
+    width: 40%;
     max-width: 160px;
+    min-width: 100px;
     height: auto;
     margin-bottom: 12px;
 }
@@ -69,30 +71,22 @@ body {
 .event-date strong {
     display: block;
     font-size: clamp(1.1rem, 4vw, 1.35rem);
-    color: #D50000; /* 原色赤で強烈なアクセント */
+    color: #D50000;
 }
 
 .flyer-link {
     display: inline-block;
-    width: auto;
     max-width: 100%;
     background-color: #000000;
     color: #FFFF00;
     font-weight: bold;
     text-decoration: none;
-    padding: 12px 8%;
+    padding: 12px 24px;
     border-radius: 8px;
     box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-    transition: transform 0.1s;
 }
 
-.flyer-link:hover {
-    transform: translate(-2px, -2px);
-}
-
-/* ==========================================
-   セクション（強烈な黄×黒カード）
-   ========================================== */
+/* グリッド・カード */
 .event-grid {
     display: flex;
     flex-direction: column;
@@ -100,10 +94,10 @@ body {
 }
 
 .event-section {
-    background-color: #FFEE58; /* 高彩度カード背景 */
+    background-color: #FFEE58;
     border: 3px solid #000000;
     border-radius: 12px;
-    padding: 5% 4%;
+    padding: 4%;
     box-shadow: 6px 6px 0px #000000;
 }
 
@@ -116,7 +110,7 @@ body {
     margin-bottom: 16px;
 }
 
-/* 概要テーブル (PCデフォルト) */
+/* テーブル */
 .info-table {
     width: 100%;
     border-collapse: collapse;
@@ -124,16 +118,14 @@ body {
 
 .info-table th, 
 .info-table td {
-    padding: 12px 2%;
+    padding: 12px 8px;
     border-bottom: 2px solid #000000;
     text-align: left;
-    color: #000000;
 }
 
 .info-table th {
     width: 30%;
-    background-color: #FFFF00; /* 原色イエロー */
-    color: #000000;
+    background-color: #FFFF00;
     font-weight: bold;
 }
 
@@ -147,33 +139,150 @@ body {
     position: relative;
     border-bottom: 2px dashed #000000;
     font-weight: bold;
-    color: #000000;
 }
 
 .event-list li::before {
     content: "✔";
     position: absolute;
     left: 0;
-    color: #000000;
     font-weight: 900;
 }
 
 .event-list .sub-text {
-    display: block;          /* 下の行に配置 */
-    font-size: 1em;          /* 親項目と同じ文字サイズ */
-    font-weight: bold;       /* 同じ太字 */
-    white-space: nowrap;     /* 折り返さず1行で表示 */
+    display: block;
+    font-size: 0.9em;
+    font-weight: normal;
     margin-top: 2px;
 }
 
-/* 主催ロゴ */
+/* 出店セクション */
+.vendor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.vendor-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.vendor-img {
+    flex: 0 0 25%;
+    max-width: 90px;
+}
+
+.vendor-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    display: block;
+    cursor: pointer;
+}
+
+.vendor-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.vendor-info h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.vendor-menu {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333333;
+    line-height: 1.4;
+}
+
+/* チャリティー */
+.event-section.charity {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.event-section.charity h2 {
+    color: #FFFF00;
+    border-bottom-color: #FFFF00;
+}
+
+/* 黒背景内のリンク色を見やすい黄色に固定指定 */
+.event-section.charity a {
+    color: #FFFF00 !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.charity-wrapper {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.charity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.charity-img {
+    flex: 0 0 30%;
+    max-width: 120px;
+}
+
+.charity-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #FFFF00;
+    cursor: pointer;
+}
+
+.charity-org {
+    font-size: 0.85rem;
+    color: #FFEB3B;
+    font-weight: bold;
+}
+
+.charity-lead {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin: 4px 0;
+}
+
+.charity-desc {
+    font-size: 0.85rem;
+}
+
+.charity-info {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #555555;
+    font-size: 0.8rem;
+}
+
+.charity-info strong {
+    color: #FFFF00;
+}
+
+/* 主催・問い合わせ */
 .organizer-box {
     text-align: center;
 }
 
 .organizer-box img {
-    width: 100%;
-    max-width: 130px;
+    width: 30%;
+    max-width: 120px;
     height: auto;
     margin-bottom: 8px;
 }
@@ -185,94 +294,11 @@ body {
 .event-footer {
     text-align: center;
     padding: 24px 0;
-    font-size: clamp(0.7rem, 3.5vw, 0.85rem);
-    color: #000000;
+    font-size: clamp(0.75rem, 3.5vw, 0.85rem);
     font-weight: bold;
-    white-space: nowrap;
 }
 
-/* ==========================================
-   チャリティー（画像＋テキスト レイアウト）
-   ========================================== */
-.event-section.charity {
-    background-color: #000000;
-    color: #FFFFFF;
-}
-
-.event-section.charity h2 {
-    color: #FFFF00;
-    border-bottom-color: #FFFF00;
-    white-space: nowrap;
-}
-
-.charity-wrapper {
-    display: flex;
-    gap: 4%;
-    align-items: flex-start;
-}
-
-.charity-content {
-    flex: 1;
-    min-width: 0;
-}
-
-/* 固定pxから％ベースの可変指定へ変更 */
-.charity-img {
-    flex: 0 0 25%;
-    width: 25%;
-    max-width: 180px;
-}
-
-.charity-img img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-    border: 2px solid #FFFF00;
-    display: block;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.charity-img img:hover {
-    transform: scale(1.03);
-}
-
-.charity-org {
-    font-size: 0.9rem;
-    color: #FFEB3B;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.charity-lead {
-    font-size: 1.1rem;
-    font-weight: 900;
-    color: #FFFFFF;
-    margin: 6px 0;
-    white-space: nowrap;
-}
-
-.charity-desc {
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.charity-info {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px dashed #555555;
-    font-size: 0.85rem;
-    line-height: 1.5;
-}
-
-.charity-info strong {
-    color: #FFFF00;
-}
-
-/* ==========================================
-   全画面画像表示用モーダル
-   ========================================== */
+/* モーダル */
 .modal {
     display: none;
     position: fixed;
@@ -293,7 +319,6 @@ body {
     object-fit: contain;
     border: 2px solid #FFFF00;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .modal-close {
@@ -304,23 +329,11 @@ body {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    line-height: 1;
-    z-index: 10000;
 }
 
-.modal-close:hover {
-    color: #FFFFFF;
-}
-
-/* ==========================================
-   スマホ表示最適化（幅600px以下）
-   ========================================== */
+/* スマホ最適化 (600px以下) */
 @media (max-width: 600px) {
-    .info-table, 
-    .info-table tbody, 
-    .info-table tr, 
-    .info-table th, 
-    .info-table td {
+    .info-table, .info-table tbody, .info-table tr, .info-table th, .info-table td {
         display: block;
         width: 100%;
     }
@@ -333,49 +346,24 @@ body {
 
     .info-table th {
         background-color: transparent;
-        padding: 6px 0 2px 0;
+        padding: 2px 0;
         border-bottom: none;
-        font-size: 0.9rem;
-        color: #666666;
+        font-size: 0.85rem;
+        color: #555555;
     }
 
     .info-table td {
-        padding: 0 0 6px 0;
+        padding: 0 0 4px 0;
         border-bottom: none;
         font-weight: bold;
     }
 
-    .event-list li {
-        font-size: clamp(0.72rem, 3.6vw, 1rem);
-    }
-
-    .event-list .sub-text {
-        font-size: inherit;
-    }
-
-    /* 募金セクション 見出し・指定テキストの縮小＋1行維持 */
-    .event-section.charity h2 {
-        font-size: clamp(0.95rem, 4.8vw, 1.3rem);
-    }
-
-    .charity-org {
-        font-size: clamp(0.68rem, 3.4vw, 0.9rem);
-    }
-
-    .charity-lead {
-        font-size: clamp(0.78rem, 3.9vw, 1.1rem);
-    }
-
-    .charity-wrapper {
-        flex-direction: column;
+    .vendor-card {
+        flex-direction: row;
         align-items: center;
     }
 
-    /* スマホ時の画像幅もパーセンテージ指定へ */
-    .charity-img {
-        flex: none;
-        width: 70%;
-        max-width: 100%;
-        margin-top: 12px;
+    .vendor-img {
+        flex: 0 0 70px;
     }
 }
