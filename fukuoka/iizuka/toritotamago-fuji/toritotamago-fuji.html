@@ -12,7 +12,7 @@
       --bg-main: #fcfbfa;
       --bg-card: #ffffff;
       --text-main: #2b2b2b;
-      --text-sub: #666666;
+      --text-sub: #555555;
       --accent: #b81c24;
       --gold: #d4a359;
       --dark-wood: #3a2d27;
@@ -34,9 +34,9 @@
 
     .hero {
       position: relative;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('./images/toritotamago-fuji2.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url('./images/toritotamago-fuji2.jpg') center/cover no-repeat;
       color: #fff;
-      padding: 80px 20px 60px;
+      padding: 60px 20px 50px;
       text-align: center;
     }
 
@@ -48,14 +48,14 @@
       font-size: 0.85rem;
       letter-spacing: 0.1em;
       border-radius: 20px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
       font-family: 'Shippori Mincho', serif;
       font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       letter-spacing: 0.05em;
     }
 
@@ -70,9 +70,46 @@
       padding: 30px 20px 60px;
     }
 
-    /* ギャラリーセクション（写真をメニュー1対1ではなくイメージ集として配置） */
+    /* 素材のこだわりバナー */
+    .brand-banner {
+      background: #fff;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 15px rgba(212, 163, 89, 0.12);
+    }
+
+    .brand-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.35rem;
+      color: var(--dark-wood);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .brand-title span.cross {
+      color: var(--accent);
+      margin: 0 8px;
+    }
+
+    .brand-title span.sub-text {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      font-weight: normal;
+    }
+
+    .brand-desc {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: 'Shippori Mincho', serif;
+    }
+
+    /* ギャラリーセクション */
     .gallery-section {
-      margin-bottom: 50px;
+      margin-bottom: 45px;
     }
 
     .section-title {
@@ -98,7 +135,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
       margin-bottom: 8px;
     }
@@ -108,16 +145,17 @@
       border-radius: 8px;
       overflow: hidden;
       aspect-ratio: 4/3;
-      background-color: #eee;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      background-color: #f5f5f5;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      cursor: pointer;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* チラシが切れないように全体を表示 */
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.2s;
     }
 
     .gallery-item:hover img {
@@ -130,7 +168,44 @@
       text-align: right;
     }
 
-    /* メニューリスト */
+    /* 拡大モーダル */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* メニューカード */
     .menu-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -142,75 +217,114 @@
 
     .menu-header {
       border-bottom: 2px solid var(--gold);
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      padding-bottom: 12px;
+      margin-bottom: 25px;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .menu-header h3 {
       font-family: 'Shippori Mincho', serif;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: var(--dark-wood);
     }
 
     .menu-sub-note {
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 500;
+      font-size: 0.85rem;
+      color: #ffffff;
+      background: var(--accent);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 700;
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px 20px;
     }
 
     .menu-item {
       border-bottom: 1px dashed var(--border);
       padding-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .menu-item-name {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 4px;
-      display: flex;
-      justify-content: space-between;
+      color: var(--dark-wood);
+      font-family: 'Shippori Mincho', serif;
+    }
+
+    .menu-item-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     .price-group {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       font-size: 0.9rem;
       color: var(--text-sub);
+      align-items: baseline;
     }
 
     .price-group strong {
       color: var(--accent);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
     }
 
     .spicy-note {
       font-size: 0.75rem;
       color: #d97706;
       margin-top: 4px;
+      font-weight: 700;
     }
 
     .option-box {
       background: #f8f6f2;
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 15px 20px;
-      margin-top: 20px;
+      margin-top: 25px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      gap: 10px;
+      gap: 12px;
       font-size: 0.85rem;
+      font-weight: 500;
     }
 
-    /* 店舗概要 */
+    .pudding-box {
+      margin-top: 15px;
+      text-align: center;
+      background: #fff8ed;
+      border: 1px solid #f0d6b3;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--dark-wood);
+      font-weight: 700;
+    }
+
+    .takeout-note {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* 店舗情報 */
     .info-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -264,10 +378,23 @@
 
   <main class="container">
 
+    <!-- 素材のこだわりバナー -->
+    <section class="brand-banner">
+      <div class="brand-title">
+        博多 華味鳥<span class="sub-text">（はなみどり）</span>
+        <span class="cross">×</span>
+        野上さんの朝採りたまご 味宝卵<span class="sub-text">（みほうらん）</span>
+      </div>
+      <div class="brand-desc">たまご好きのための丼です。</div>
+    </section>
+
     <!-- イメージギャラリー -->
     <section class="gallery-section">
       <h2 class="section-title">お品書きの一例</h2>
       <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="./images/toritotamago-fuji5.jpg" alt="メニューチラシ">
+        </div>
         <div class="gallery-item">
           <img src="./images/toritotamago-fuji.png" alt="看板メニュー丼イメージ">
         </div>
@@ -277,9 +404,6 @@
         <div class="gallery-item">
           <img src="./images/toritotamago-fuji3.jpg" alt="ボリューム満点チキン南蛮丼">
         </div>
-        <div class="gallery-item">
-          <img src="./images/toritotamago-fuji1.jpg" alt="店頭メニュー看板">
-        </div>
       </div>
       <p class="image-note">※写真はイメージ・盛り付け例です。時期や仕入れにより異なる場合がございます。</p>
     </section>
@@ -288,69 +412,112 @@
     <section class="menu-card">
       <div class="menu-header">
         <h3>お品書き</h3>
-        <span class="menu-sub-note">全セット：みそ汁・ミニ茶碗蒸し付き</span>
+        <span class="menu-sub-note">全てのセットメニューに みそ汁とミニ茶碗蒸し付き</span>
       </div>
 
       <div class="menu-grid">
+        <!-- たまご丼 -->
         <div class="menu-item">
-          <div class="menu-item-name">たまご丼</div>
-          <div class="price-group">
-            <span>単品 550円</span>
-            <span>セット <strong>700円</strong></span>
+          <div>
+            <div class="menu-item-name">たまご丼セット</div>
+            <p class="menu-item-desc">味宝卵の美味しさをシンプルかつ贅沢に堪能できる一品。</p>
           </div>
-          <div class="spicy-note">★ +30円でピリ辛に変更可能</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-name">親子丼</div>
-          <div class="price-group">
-            <span>単品 700円</span>
-            <span>セット <strong>850円</strong></span>
-          </div>
-          <div class="spicy-note">★ +30円でピリ辛に変更可能</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-name">鶏そぼろ丼</div>
-          <div class="price-group">
-            <span>単品 700円</span>
-            <span>セット <strong>850円</strong></span>
-          </div>
-          <div class="spicy-note">★ +30円でピリ辛に変更可能</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-name">チキンカツ丼セット</div>
-          <div class="price-group">
-            <span>単品 800円</span>
-            <span>セット <strong>950円</strong></span>
+          <div>
+            <div class="price-group">
+              <span>単品 550円</span>
+              <span>セット <strong>700円</strong></span>
+            </div>
+            <div class="spicy-note">★ +30円でピリ辛にできます</div>
           </div>
         </div>
 
+        <!-- 親子丼 -->
         <div class="menu-item">
-          <div class="menu-item-name">チキン南蛮丼セット</div>
-          <div class="price-group">
-            <span>単品 800円</span>
-            <span>セット <strong>950円</strong></span>
+          <div>
+            <div class="menu-item-name">親子丼セット</div>
+            <p class="menu-item-desc">華味鳥のもも肉と味宝卵を使用。鶏の旨みとふわとろ玉子の親子丼です。</p>
+          </div>
+          <div>
+            <div class="price-group">
+              <span>単品 700円</span>
+              <span>セット <strong>850円</strong></span>
+            </div>
+            <div class="spicy-note">★ +30円でピリ辛にできます</div>
           </div>
         </div>
 
+        <!-- 鶏そぼろ丼 -->
         <div class="menu-item">
-          <div class="menu-item-name">鶏てりたま丼セット</div>
-          <div class="price-group">
-            <span>単品 800円</span>
-            <span>セット <strong>950円</strong></span>
+          <div>
+            <div class="menu-item-name">鶏そぼろ丼セット</div>
+            <p class="menu-item-desc">自慢の自家製鶏そぼろに、炒り卵、仕上げに手作り温玉をのせています。</p>
+          </div>
+          <div>
+            <div class="price-group">
+              <span>単品 700円</span>
+              <span>セット <strong>850円</strong></span>
+            </div>
+            <div class="spicy-note">★ +30円でピリ辛にできます</div>
+          </div>
+        </div>
+
+        <!-- チキンカツ丼 -->
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">チキンカツ丼セット</div>
+            <p class="menu-item-desc">ここでしか味わえない出汁感サクサクのチキンカツ丼。サクサク感と出汁の染み込んだ衣が旨さの魅力。</p>
+          </div>
+          <div>
+            <div class="price-group">
+              <span>単品 800円</span>
+              <span>セット <strong>950円</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- チキン南蛮丼 -->
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">チキン南蛮丼セット</div>
+            <p class="menu-item-desc">自家製タルタルソースと旨みの効いた甘酢で仕上げたボリュームのある一食。華味鳥を使用。</p>
+          </div>
+          <div>
+            <div class="price-group">
+              <span>単品 800円</span>
+              <span>セット <strong>950円</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 鶏てりたま丼 -->
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">鶏てりたま丼セット</div>
+            <p class="menu-item-desc">ジューシーなもも肉に甘辛ダレを絡めた一品。温玉をそえて「旨み」をプラス！</p>
+          </div>
+          <div>
+            <div class="price-group">
+              <span>単品 800円</span>
+              <span>セット <strong>950円</strong></span>
+            </div>
+            <div class="spicy-note">★ +30円でピリ辛にできます</div>
           </div>
         </div>
       </div>
 
+      <!-- 単品・オプション -->
       <div class="option-box">
-        <span>みそ汁：100円</span>
-        <span>温泉卵：100円</span>
-        <span>ミニ茶碗蒸し：150円</span>
-        <span>こだわりプリン：250円</span>
+        <span>単品 みそ汁…100円</span>
+        <span>温泉卵…100円</span>
+        <span>ミニ茶碗蒸し…150円</span>
       </div>
-      <p style="font-size: 0.75rem; color: var(--text-sub); margin-top: 10px; text-align: center;">※お持ち帰りも可能です（お持ち帰りの場合、みそ汁・茶碗蒸しは付きません）。</p>
+
+      <!-- デザート -->
+      <div class="pudding-box">
+        野上養鶏場の味宝卵使用 こだわりプリン 250円
+      </div>
+
+      <p class="takeout-note">TAKE OUT お持ち帰りできます（みそ汁・茶碗蒸しはつきません）</p>
     </section>
 
     <!-- 店舗情報 -->
@@ -376,6 +543,34 @@
     </section>
 
   </main>
+
+  <!-- 画像拡大用モーダル -->
+  <div class="modal" id="imageModal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img id="modalImg" src="" alt="拡大画像">
+  </div>
+
+  <script>
+    // 画像をクリックしたら拡大表示するスクリプト
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+
+    galleryItems.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.classList.add('active');
+        modalImg.src = img.src;
+      });
+    });
+
+    // モーダルまたは閉じるボタンをクリックしたら閉じる
+    modal.addEventListener('click', (e) => {
+      if (e.target !== modalImg) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>
