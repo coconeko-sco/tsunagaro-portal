@@ -24,6 +24,16 @@
       "map_url": "https://maps.app.goo.gl/EmBGbGtWDF1XSFtcA"
     },
     {
+      "category": "イベント",
+      "title": "筑豊戦隊ワヤジャー交流會 in 飯塚",
+      "description": "「腹がちぎれるほど笑おう」をモットーに開催！ソフトバレー大会＆景品付きおもしろゲームで盛り上がろう！個人・チーム問わず参加大歓迎！",
+      "location": "サンアビリティーズいいづか",
+      "date": "2027年10月18日(日)",
+      "badge": "参加募集",
+      "image_url": "./wayajer/images/wayajer-hero.jpg",
+      "href": "./wayajer/wayajer.html"
+    },
+    {
       "category": "グルメ",
       "title": "鶏とたまご料理の店 藤｜ふわとろ卵とこだわり丼の専門店",
       "description": "銘柄鶏「華味鳥」と野上養鶏場の「味宝卵」を使用。出汁のきいた味噌汁・茶碗蒸しセットで楽しむ絶品どんぶり。",
