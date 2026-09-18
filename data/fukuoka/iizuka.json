@@ -1,7 +1,8 @@
 {
   "page_title": "飯塚のおすすめ",
   "hero_image": "./images/iizuka-hero.jpg",
-  "hero_description": "2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。","cards": [
+  "hero_description": "2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。",
+  "cards": [
     {
       "category": "イベント",
       "title": "4MINI BIKE MEETING in カホテラス",
@@ -10,6 +11,16 @@
       "date": "開催情報を確認",
       "image_url": "./4mini-kahoterasu/images/4mini-group-photo.jpg",
       "href": "./4mini-kahoterasu/4mini-kahoterasu.html"
+    },
+    {
+      "category": "イベント",
+      "title": "筑豊戦隊ワヤジャー交流會 in 飯塚",
+      "description": "「腹がちぎれるほど笑おう」をモットーに開催！ソフトバレー大会＆景品付きおもしろゲームで盛り上がろう！個人・チーム問わず参加大歓迎！",
+      "location": "サンアビリティーズいいづか",
+      "date": "2027年10月18日(日)",
+      "badge": "参加募集",
+      "image_url": "./wayajer/images/wayajer-hero.jpg",
+      "href": "./wayajer/wayajer.html"
     },
     {
       "category": "グルメ",
@@ -22,16 +33,6 @@
       "rating": 4.1,
       "reviews_count": 491,
       "map_url": "https://maps.app.goo.gl/EmBGbGtWDF1XSFtcA"
-    },
-    {
-      "category": "イベント",
-      "title": "筑豊戦隊ワヤジャー交流會 in 飯塚",
-      "description": "「腹がちぎれるほど笑おう」をモットーに開催！ソフトバレー大会＆景品付きおもしろゲームで盛り上がろう！個人・チーム問わず参加大歓迎！",
-      "location": "サンアビリティーズいいづか",
-      "date": "2027年10月18日(日)",
-      "badge": "参加募集",
-      "image_url": "./wayajer/images/wayajer-hero.jpg",
-      "href": "./wayajer/wayajer.html"
     },
     {
       "category": "グルメ",
