@@ -41,7 +41,31 @@
             transform: scale(1.05);
         }
 
-        /* 企画景品画像用スタイル（拡大なし・静止表示） */
+        /* 過去チラシギャラリー用スタイル（4枚並び対応） */
+        .poster-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .poster-gallery .poster-item {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .poster-gallery .poster-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .poster-gallery .poster-item img:hover {
+            transform: scale(1.03);
+        }
+
+        /* 企画景品画像用スタイル（標準表示） */
         .prize-img {
             margin-top: 15px;
             text-align: center;
@@ -50,6 +74,26 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+
+        /* レスポンシブ対応：端末に依存しない上部切り抜き枠 */
+        .crop-box {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* 画面幅に応じて常に16:9比率で上部表示 */
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .crop-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top; /* 常に画像の上端を基準にしてトリミング */
+            transition: transform 0.2s ease;
+        }
+        .crop-box img:hover {
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -107,6 +151,12 @@
                 </ul>
                 <div class="prize-img">
                     <img src="images/award-trophies.jpg" alt="アワード・レース用楯・景品">
+                </div>
+                <!-- どの端末でも綺麗に収まる上部トリミング枠 -->
+                <div class="prize-img">
+                    <div class="crop-box">
+                        <img src="images/4mini-basket-shoot.jpg" alt="会場アトラクション風景">
+                    </div>
                 </div>
             </section>
 
@@ -187,12 +237,21 @@
             <section class="event-section">
                 <h2>過去の開催実績</h2>
                 <div class="past-info">
-                    <p><strong>2025年9月28日（日）開催</strong><br>会場：カホテラス<br>新会場となって初の開催も多くの4MINIオーナー様・ファンの皆様にご参加いただき、盛況のうちに終了しました。</p>
+                    <p><strong>これまでの開催記録</strong><br>日王の湯からスタートし、カホテラスへと会場を移しながら多くの4MINIオーナー様・ファンの皆様にご参加いただいています。</p>
                 </div>
-                <!-- 過去イベントギャラリー -->
+                
+                <!-- 過去イベントスナップ（上） -->
                 <div class="past-gallery">
                     <div class="gallery-item"><img src="images/4mini-group-photo.jpg" alt="集合写真"></div>
                     <div class="gallery-item"><img src="images/past-stage.jpg" alt="本部ステージ風景"></div>
+                </div>
+
+                <!-- 過去フライヤーポスター (1〜4)（下） -->
+                <div class="poster-gallery">
+                    <div class="poster-item"><img src="images/4mini-event-flyer1.jpg" alt="第1回ミーティングポスター"></div>
+                    <div class="poster-item"><img src="images/4mini-event-flyer2.jpg" alt="第2回ミーティングポスター"></div>
+                    <div class="poster-item"><img src="images/4mini-event-flyer3.jpg" alt="第3回ミーティングポスター"></div>
+                    <div class="poster-item"><img src="images/4mini-event-flyer4.jpg" alt="第4回ミーティングポスター"></div>
                 </div>
             </section>
         </div>
@@ -207,12 +266,12 @@
     </div>
 
     <script>
-        // 画像モーダル処理（ポスター・出店・過去ギャラリーのみ対象）
+        // 画像モーダル処理（ポスター・出店・過去ギャラリー・チラシ・切り抜き枠画像対象）
         const modal = document.getElementById('image-modal');
         const modalImg = document.getElementById('modal-img');
         const closeBtn = document.getElementsByClassName('modal-close')[0];
 
-        document.querySelectorAll('.charity-img img, .vendor-img img, .past-gallery img').forEach(img => {
+        document.querySelectorAll('.charity-img img, .vendor-img img, .past-gallery img, .poster-gallery img, .crop-box img').forEach(img => {
             img.addEventListener('click', function() {
                 modal.style.display = 'flex';
                 modalImg.src = this.src;
