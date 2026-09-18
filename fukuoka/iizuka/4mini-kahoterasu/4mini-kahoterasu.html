@@ -95,6 +95,32 @@
         .crop-box img:hover {
             transform: scale(1.02);
         }
+
+        /* コンパクトかつシャープな最下部ポータルエリア */
+        .site-portal-footer {
+            text-align: center;
+            padding: 12px 10px; /* 上下余白をスリムに縮小 */
+            background: #0e0e0e;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 5px;
+        }
+        .site-portal-footer a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.8em;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+        .site-portal-footer a span {
+            color: #fff;
+            font-weight: 600;
+        }
+        .site-portal-footer a:hover {
+            color: #fff;
+        }
+        .site-portal-footer a:hover span {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -258,6 +284,11 @@
 
         <footer class="event-footer">4MINI BIKE MEETING in カホテラス 実行委員会</footer>
     </main>
+
+    <!-- 最下部：余白を詰めたスリムなポータル案内 -->
+    <div class="site-portal-footer">
+        <a href="../../../index.html">地域情報ポータル <span>「つながろ」 TOPへ</span> ↵</a>
+    </div>
 
     <!-- 画像全画面拡大用モーダル -->
     <div id="image-modal" class="modal">
