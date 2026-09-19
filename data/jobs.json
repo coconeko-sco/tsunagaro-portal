@@ -100,7 +100,7 @@
       "job_page_url": "https://tsunagaro-portal.com/jobs/tagawa/job-002.html"
     }
   },
-{
+  {
     "id": "job-003",
     "store_id": "store-fukuchi-01",
     "status": "published",
@@ -146,6 +146,54 @@
       "official_line_url": null,
       "contact_person": "採用担当",
       "job_page_url": "https://tsunagaro-portal.com/jobs/fukuchi/job-003.html"
+    }
+  },
+  {
+    "id": "job-004",
+    "store_id": "store-iizuka-02",
+    "status": "published",
+    "created_at": "2026-09-17T13:06:03Z",
+    "basic_info": {
+      "store_name": "ライフフード株式会社",
+      "branch_name": "",
+      "area": "飯塚市",
+      "address": "福岡県飯塚市建花寺975-1",
+      "category": "飲食・調理",
+      "title": "【飯塚市】介護施設での配膳・盛り付け・調理補助／未経験OK・週3日・1日4h〜OK",
+      "employment_type": "パート・アルバイト",
+      "salary": {
+        "type": "時給",
+        "amount": 1057,
+        "detail": "時給 1,057円〜1,300円（所定労働時間超過分は別途残業代支給／交通費上限10,000円）"
+      }
+    },
+    "work_conditions": {
+      "working_hours": "05:00〜18:00（シフトによる / 4時間以上の勤務の場合30〜60分休憩）",
+      "shift_detail": "週3日〜OK / 1日4時間OK（1日8時間勤務も可能）",
+      "holidays": "シフト制 / 育休制度あり / 入社半年後〜有休10日付与",
+      "overtime": "所定労働時間超過分は別途残業代支給"
+    },
+    "environment": {
+      "access": "九州旅客鉄道「新飯塚駅」より車で18分",
+      "photos": [],
+      "store_call_hours": {
+        "recommended_time": "14:00〜17:00（仕込み・ピーク外）",
+        "avoid_time": "05:00〜09:00（朝食調理ピーク）"
+      }
+    },
+    "tags": {
+      "fashion": ["まかないあり"],
+      "target": ["未経験歓迎", "主婦・主夫活躍中", "20代活躍中", "30代・40代活躍中", "50代・シニア応援"],
+      "work_style": ["週1〜2日〜OK", "短時間OK"],
+      "facility": ["車・バイク通勤OK", "資格取得支援あり", "社員登用あり"]
+    },
+    "management_info": {
+      "phone_public": true,
+      "phone_number": "0947-23-2699",
+      "notification_email": "",
+      "official_line_url": null,
+      "contact_person": "採用担当",
+      "job_page_url": "https://tsunagaro-portal.com/jobs/iizuka/job-004.html"
     }
   }
 ]
