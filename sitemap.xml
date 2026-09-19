@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- トップページ -->
+  <url>
+    <loc>https://tsunagaro-portal.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <!-- 飯塚エリア -->
+  <url>
+    <loc>https://tsunagaro-portal.com/fukuoka/iizuka/iizuka.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <!-- 4mini イベント -->
+  <url>
+    <loc>https://tsunagaro-portal.com/fukuoka/iizuka/4mini-kahoterasu/4mini-kahoterasu.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <!-- 鶏とたまご -->
+  <url>
+    <loc>https://tsunagaro-portal.com/fukuoka/iizuka/toritotamago-fuji/toritotamago-fuji.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <!-- ワヤジャー -->
+  <url>
+    <loc>https://tsunagaro-portal.com/fukuoka/iizuka/wayajer/wayajer.html</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
