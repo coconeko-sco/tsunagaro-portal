@@ -1,89 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-6LHJQFWKTQ');
-    </script>
-    <title>田川のおすすめ | つながろ</title>
-    <link rel="stylesheet" href="../../style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>田川エリア | つながろ</title>
+    <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
     <header class="topbar">
         <div class="topbar-inner">
-            <div class="brand-group">
-                <div class="brand">つながろ</div>
-            </div>
-            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="menu-panel" id="site-menu" hidden>
+            <div class="brand">つながろ 田川</div>
+            <nav class="menu-panel">
                 <a href="../../index.html">TOP</a>
-                <a href="../iizuka/iizuka.html">飯塚</a>
-                <a href="../tagawa/tagawa.html">田川</a>
-                <a href="#">直方</a>
-                <a href="../../jobs/jobs.html">求人</a>
-                <a href="../../akinai/akinai.html">商いマッチ</a>
-                <a href="../../tools/tools.html">ツール</a>
             </nav>
         </div>
     </header>
-
     <main class="container">
-        <section class="hero">
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&auto=format&fit=crop&q=80" alt="田川のおすすめ" />
-            </div>
-            <div class="hero-copy">
-                <h1>田川のおすすめ</h1>
-                <p>地元で愛されるグルメやおすすめスポットなど、田川の魅力を発信中！</p>
-            </div>
-        </section>
-
-        <section class="card-list">
-                        <article class="card">
-                <img src="../../fukuoka/tagawa/images/ippo.jpeg" alt="居酒屋一歩｜旬の鮮魚と刺身盛りが自慢！宴会にも最適な人気居酒屋" class="card-image">
-                <div class="card-body">
-                    <div class="card-tags">
-                        <span class="category-tag">グルメ</span>
-                        
-                    </div>
-                    <h3><a href="https://www.lifefood.info/ippo/" target="_blank" rel="noopener noreferrer">居酒屋一歩｜旬の鮮魚と刺身盛りが自慢！宴会にも最適な人気居酒屋</a></h3>
-                    <p>店主が目利きした新鮮な魚介と美味しい料理が楽しめる居酒屋。アットホームな雰囲気で、個室や団体宴会にも幅広く対応！</p>
-                    
-                    <div class="card-meo">
-                        <span class="meo-rating">★ 3.9 (76件)</span>
-                        <a href="https://maps.app.goo.gl/7eB4VunrVCZNuYJm9" target="_blank" rel="noopener noreferrer" class="meo-map-btn">📍 Googleマップ</a>
-                    </div>
-                    <div class="card-footer">
-                        <span>📍 田川郡福智町赤池510-112</span>
-                        <span>🕒 17:00〜23:00（L.O. 22:30）</span>
-                        <a href="https://www.lifefood.info/ippo/" target="_blank" rel="noopener noreferrer" class="card-link-btn">詳細を見る →</a>
-                    </div>
-                </div>
-            </article>
-        </section>
+        <h1>田川エリアのお店一覧</h1>
+        <div class="shop-list">
+            <p>掲載店舗はまだありません。</p>
+        </div>
     </main>
-
-    <script>
-        const menuButton = document.querySelector('.menu-button');
-        const siteMenu = document.querySelector('#site-menu');
-
-        menuButton.addEventListener('click', () => {
-            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', String(!isOpen));
-            menuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
-            siteMenu.hidden = isOpen;
-        });
-    </script>
 </body>
 </html>
