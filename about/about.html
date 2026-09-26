@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6LHJQFWKTQ');
+    </script>
+    <title>「つながろ」について - つながろ</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand-group">
+                <a href="../index.html" class="brand">つながろ</a>
+                <span class="coming-soon">Coming soon...</span>
+            </div>
+            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="menu-panel" id="site-menu" hidden>
+                <a href="../index.html">トップ</a>
+                <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
+                <a href="../fukuoka/tagawa/tagawa.html">田川</a>
+                <a href="#">直方</a>
+                <a href="../jobs/jobs.html">求人</a>
+                <a href="../akinai/akinai.html">商いマッチ</a>
+                <a href="../tools/tools.html">ツール</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>「つながろ」について</h1>
+            <p>「つながろ」は、地域のお店と人をつなぎ、街の巡りをよくするためのポータルサイトです。</p>
+        </section>
+
+        <section class="portal-section" style="background: #ffffff; border: 1px solid #ebeff5; border-radius: 22px; padding: 28px 24px; box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);">
+            <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 20px; color: #1e293b; border-bottom: 2px solid #ebeff5; padding-bottom: 12px;">運営情報</h2>
+            
+            <dl class="info-dl" style="margin-bottom: 24px;">
+                <dt>サービス名</dt>
+                <dd>つながろ</dd>
+                <dt>運営</dt>
+                <dd>つながろ運営事務局</dd>
+                <dt>拠点</dt>
+                <dd>福岡県飯塚市</dd>
+                <dt>お問い合わせ</dt>
+                <dd>
+                    <button type="button" class="footer-link-btn" onclick="openModal('contact-modal')" style="color: #ff7a3d; padding: 0; font-weight: bold; text-decoration: underline;">
+                        お問い合わせフォーム（ダミー）
+                    </button>
+                </dd>
+            </dl>
+
+            <p class="modal-note" style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin: 0; background: #f8fafc; padding: 14px 16px; border-radius: 10px;">
+                ※掲載情報は変更されている場合があります。最新の営業情報は各店舗へ直接ご確認ください。
+            </p>
+        </section>
+    </main>
+
+    <!-- フッター領域 -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="about.html" class="footer-link">つながろについて</a>
+            <span class="footer-divider">|</span>
+            <button type="button" class="footer-btn" onclick="openModal('contact-modal')">お問い合わせ</button>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+            <span class="footer-divider">|</span>
+            <span class="copyright">&copy; 2026 つながろ. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- モーダル：お問い合わせ（ダミー） -->
+    <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
+        <div class="modal-content">
+            <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>
+            <h2>お問い合わせ</h2>
+            <p class="modal-lead">ご質問・ご掲載に関するご相談は、下記フォームよりお問い合わせください。（※ダミーフォームです）</p>
+            <form class="dummy-form" onsubmit="event.preventDefault(); alert('現在準備中です。');">
+                <div class="form-group">
+                    <label>お名前（必須）</label>
+                    <input type="text" placeholder="山田 太郎" required />
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス（必須）</label>
+                    <input type="email" placeholder="example@tsunagaro-portal.com" required />
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容</label>
+                    <textarea rows="4" placeholder="ご質問や掲載のご依頼内容をご記入ください。"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">送信する（ダミー）</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const siteMenu = document.querySelector('#site-menu');
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', String(!isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
+            siteMenu.hidden = isOpen;
+        });
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = false;
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = true;
+        }
+
+        function closeModalOnOverlay(event, id) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(id);
+            }
+        }
+    </script>
+</body>
+</html>

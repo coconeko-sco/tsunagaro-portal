@@ -17,17 +17,17 @@
 </head>
 <body>
     <header class="topbar">
-        <div class="topbar-inner">
+        <div class="topbar-inner" style="position: relative;">
             <div class="brand-group">
                 <div class="brand">つながろ</div>
                 <span class="coming-soon">Coming soon...</span>
             </div>
-            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+            <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <nav class="menu-panel" id="site-menu" hidden>
+            <nav class="nav-menu" id="nav-menu">
                 <a href="fukuoka/iizuka/iizuka.html">飯塚</a>
                 <a href="fukuoka/tagawa/tagawa.html">田川</a>
                 <a href="#">直方</a>
@@ -89,16 +89,28 @@
         </section>
     </main>
 
-    <script>
-        const menuButton = document.querySelector('.menu-button');
-        const siteMenu = document.querySelector('#site-menu');
+<!-- フッター -->
+    <footer style="margin-top: 60px; padding: 24px 16px; border-top: 1px solid #ebeff5; text-align: center; font-size: 0.85rem; color: #64748b;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
+            <a href="about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
+            <span style="color: #cbd5e1;">|</span>
+            <a target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
+            <span style="color: #cbd5e1;">|</span>
+            <a href="about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
+        <p style="margin: 0; font-size: 0.75rem; color: #94a3b8;">&copy; 2026</p>
+        </div>
 
-        menuButton.addEventListener('click', () => {
-            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', String(!isOpen));
-            menuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
-            siteMenu.hidden = isOpen;
-        });
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (toggleBtn && navMenu) {
+            toggleBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
     </script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9b9601cf85b7444f8f4e2f71a7356b62","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>

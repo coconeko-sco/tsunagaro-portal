@@ -3,23 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>飯塚エリア | つながろ</title>
+    <title>飯塚のおすすめ | つながろ</title>
     <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
     <header class="topbar">
-        <div class="topbar-inner">
+        <div class="topbar-inner" style="position: relative;">
             <div class="brand">つながろ 飯塚</div>
-            <nav class="menu-panel">
+            <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
                 <a href="../../index.html">TOP</a>
+<a href="../../fukuoka/iizuka/iizuka.html">飯塚</a>
+<a href="../../fukuoka/tagawa/tagawa.html">田川</a>
+<a href="../../fukuoka/noogata/noogata.html">直方</a>
+<a href="../../jobs/jobs.html">求人</a>
+<a href="../../akinai/akinai.html">商いマッチ</a>
+<a href="../../tools/tools.html">便利ツール</a>
             </nav>
         </div>
     </header>
+
     <main class="container">
-        <h1>飯塚エリアのお店一覧</h1>
-        <div class="shop-list">
-            <p>掲載店舗はまだありません。</p>
+        <section class="hero">
+            <img src="./images/iizuka-hero.jpg" alt="" class="card-img" style="height: 240px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; width: 100%;" onerror="this.style.display='none'">
+            <h1>飯塚のおすすめ</h1>
+            <p>2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。</p>
+        </section>
+
+        <div class="region-grid">
+            
+            <article class="region-card">
+                <img src="./4mini-kahoterasu/images/4mini-group-photo.jpg" alt="4MINI BIKE MEETING in カホテラス" class="card-img" onerror="this.style.display='none'">
+                <span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">イベント</span>
+                <h3>4MINI BIKE MEETING in カホテラス</h3>
+                <p>カホテラスで開催される4ミニバイクのミーティング。詳しい内容はこちらから確認できます。</p>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 カホテラス | 🕒 開催情報を確認</p>
+                <a href="./4mini-kahoterasu/4mini-kahoterasu.html" >詳細を見る</a>
+            </article>
+
+            <article class="region-card">
+                <img src="./images/ebiten.jpeg" alt="てんぷら屋 藤｜揚げたてサクサク天ぷら" class="card-img" onerror="this.style.display='none'">
+                <span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">グルメ</span>
+                <h3>てんぷら屋 藤｜揚げたてサクサク天ぷら</h3>
+                <p>職人が目の前で一品ずつ揚げる本格天ぷら店。福岡の銘柄鶏「華味鳥」を使ったささみのとり天は絶品！ごはん・味噌汁・茶碗蒸し付き。</p>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 飯塚市勢田（国道200号沿い） | 🕒 11:00〜14:30 / 16:30〜20:30</p>
+                <a href="https://www.lifefood.info/?utm_source=GBP&utm_medium=organic" target="_blank" rel="noopener">詳細を見る</a>
+            </article>
+
+            <article class="region-card">
+                <img src="./toritotamago-fuji/images/toritotamago-fuji.png" alt="鶏とたまご料理の店 藤｜ふわとろ卵とこだわり丼の専門店" class="card-img" onerror="this.style.display='none'">
+                <span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">グルメ</span>
+                <h3>鶏とたまご料理の店 藤｜ふわとろ卵とこだわり丼の専門店</h3>
+                <p>銘柄鶏「華味鳥」と野上養鶏場の「味宝卵」を使用。出汁のきいた味噌汁・茶碗蒸しセットで楽しむ絶品どんぶり。</p>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 ゆめタウン飯塚 2F フードコート | 🕒 10:00〜21:00</p>
+                <a href="./toritotamago-fuji/toritotamago-fuji.html" >詳細を見る</a>
+            </article>
+
+            <article class="region-card">
+                <img src="./images/coconeko.JPG" alt="【休業中】ココネコ｜愛猫への情熱を凝縮した飼育記録" class="card-img" onerror="this.style.display='none'">
+                <span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">更新休止中</span>
+                <h3>【休業中】ココネコ｜愛猫への情熱を凝縮した飼育記録</h3>
+                <p>1ページに数時間を費やし、食事からトイレケアまで徹底的にこだわり抜いた愛猫ブログ。※現在は更新休止中のため問い合わせ等は受け付けておりません。</p>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 ウェブサイト（過去ログ） | 🕒 アーカイブ公開中</p>
+                <a href="https://coconeko.blog/" target="_blank" rel="noopener">詳細を見る</a>
+            </article>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../../about/about.html" class="footer-link">つながろについて</a>
+            <span class="footer-divider">|</span>
+            <button type="button" class="footer-btn" onclick="openModal('contact-modal')">お問い合わせ</button>
+            <span class="footer-divider">|</span>
+            <a href="../../about/privacy.html" class="footer-link">プライバシーポリシー</a>
+            <span class="footer-divider">|</span>
+            <span class="copyright">&copy; 2026 つながろ. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
+        <div class="modal-content">
+            <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>
+            <h2>お問い合わせ</h2>
+            <p class="modal-lead">ご質問・ご掲載に関するご相談は、下記フォームよりお問い合わせください。（※ダミーフォームです）</p>
+            <form class="dummy-form" onsubmit="event.preventDefault(); alert('現在準備中です。');">
+                <div class="form-group">
+                    <label>お名前（必須）</label>
+                    <input type="text" placeholder="山田 太郎" required />
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス（必須）</label>
+                    <input type="email" placeholder="example@tsunagaro-portal.com" required />
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容</label>
+                    <textarea rows="4" placeholder="ご質問や掲載のご依頼内容をご記入ください。"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">送信する（ダミー）</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (toggleBtn && navMenu) {
+            toggleBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = false;
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = true;
+        }
+
+        function closeModalOnOverlay(event, id) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(id);
+            }
+        }
+    </script>
 </body>
 </html>

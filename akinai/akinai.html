@@ -3,41 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>あきない一覧 | つながろ</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6LHJQFWKTQ');
+    </script>
+    <title>つながろ あきない | 地域密着の商いマッチング</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header class="topbar">
         <div class="topbar-inner">
-            <div class="brand">つながろ あきない</div>
-            <nav class="menu-panel">
+            <div class="brand-group">
+                <div class="brand">つながろ あきない</div>
+                <span class="coming-soon">Coming soon...</span>
+            </div>
+            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="menu-panel" id="site-menu" hidden>
                 <a href="../index.html">TOP</a>
+                <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
+                <a href="../fukuoka/tagawa/tagawa.html">田川</a>
+                <a href="../jobs/jobs.html">求人</a>
+                <a href="../akinai/akinai.html">商いマッチ</a>
+                <a href="../tools/tools.html">便利ツール</a>
             </nav>
         </div>
     </header>
+
     <main class="container">
         <h1>あきない情報一覧</h1>
         <div class="akinai-grid">
             
     <article class="akinai-card">
-        <span class="category-badge">item</span>
-        <h3>【飯塚市】業務用電子レンジ（パナソニック・2021年製）</h3>
-        <p></p>
+        <img src="https://placehold.co/600x400/e2e8f0/475569?text=Microwave+01" alt="【飯塚市】業務用電子レンジ（パナソニック・2021年製）" class="akinai-img">
+        <div class="akinai-card-body">
+            <div class="akinai-meta">
+                <span class="category-badge">item</span>
+                <span class="price-badge">15,000円</span>
+            </div>
+            <h3>【飯塚市】業務用電子レンジ（パナソニック・2021年製）</h3>
+            <p class="store-info">飯塚市本町（居酒屋 テスト店A）</p>
+            <p class='spec-info'>幅510×奥行470×高さ337mm / 単相200V</p>
+            <p class='desc-info'>店舗リニューアルのため出品。動作確認済み（現状渡し・現物確認必須）</p>
+        </div>
     </article>
     
     <article class="akinai-card">
-        <span class="category-badge">item</span>
-        <h3>【飯塚市】店舗用木製テーブル＆椅子4脚セット（無料）</h3>
-        <p></p>
+        <img src="https://placehold.co/600x400/e2e8f0/475569?text=Table+and+Chairs" alt="【飯塚市】店舗用木製テーブル＆椅子4脚セット（無料）" class="akinai-img">
+        <div class="akinai-card-body">
+            <div class="akinai-meta">
+                <span class="category-badge">item</span>
+                <span class="price-badge">0円（あげます）</span>
+            </div>
+            <h3>【飯塚市】店舗用木製テーブル＆椅子4脚セット（無料）</h3>
+            <p class="store-info">飯塚市吉原町（カフェ テスト店B）</p>
+            <p class='spec-info'>テーブル：幅1200×奥行750×高さ700mm</p>
+            <p class='desc-info'>使用感・小傷あり。まだ十分使えます。まとめて引き取れる方優先。</p>
+        </div>
     </article>
     
     <article class="akinai-card">
-        <span class="category-badge">space</span>
-        <h3>【飯塚市】飲食店 昼の時間帯の間借りキッチン（仕込み・ゴーストキッチン可）</h3>
-        <p></p>
+        <img src="https://placehold.co/600x400/e2e8f0/475569?text=Kitchen+Space+01" alt="【飯塚市】飲食店 昼の時間帯の間借りキッチン（仕込み・ゴーストキッチン可）" class="akinai-img">
+        <div class="akinai-card-body">
+            <div class="akinai-meta">
+                <span class="category-badge">space</span>
+                <span class="price-badge">月額 35,000円</span>
+            </div>
+            <h3>【飯塚市】飲食店 昼の時間帯の間借りキッチン（仕込み・ゴーストキッチン可）</h3>
+            <p class="store-info">飯塚市幸袋（飲食店 テスト店C）</p>
+            <p class='spec-info'>07:00 〜 15:00（毎週火曜日・定休日）</p>
+            <p class='desc-info'>仕込み専用 / デリバリー・テイクアウト専門 / 昼営業（要相談）</p>
+        </div>
     </article>
     
         </div>
     </main>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const siteMenu = document.querySelector('#site-menu');
+        if (menuButton) {
+            menuButton.addEventListener('click', () => {
+                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', String(!isOpen));
+                siteMenu.hidden = isOpen;
+            });
+        }
+    </script>
 </body>
 </html>

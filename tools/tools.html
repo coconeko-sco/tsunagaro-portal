@@ -3,23 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>便利ツール一覧 | つながろ</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6LHJQFWKTQ');
+    </script>
+    <title>ポータル連携ツール（順次公開予定） | つながろ</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header class="topbar">
         <div class="topbar-inner">
-            <div class="brand">つながろ ツール</div>
-            <nav class="menu-panel">
+            <div class="brand-group">
+                <div class="brand">つながろ ツール</div>
+                <span class="coming-soon">Coming soon...</span>
+            </div>
+            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="menu-panel" id="site-menu" hidden>
                 <a href="../index.html">TOP</a>
+                <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
+                <a href="../fukuoka/tagawa/tagawa.html">田川</a>
+                <a href="../jobs/jobs.html">求人</a>
+                <a href="../akinai/akinai.html">商いマッチ</a>
+                <a href="../tools/tools.html">便利ツール</a>
             </nav>
         </div>
     </header>
+
     <main class="container">
-        <h1>便利ツール一覧</h1>
+        <h1>ポータル連携ツール（順次公開予定）</h1>
+        <p class="lead-text" style="margin-bottom:24px; color:#555; line-height:1.6;">現場の日常業務をちょっと楽にする、店舗・事業者向けのお助けツールです。まずは以下の3機能をベースに運用を開始し、地域の声に合わせてじっくり育てていきます。</p>
         <div class="tool-grid">
-            <p>利用可能なツールはありません。</p>
+            
+    <div class="tool-card">
+        <div class="tool-card-header">
+            <span class="category-badge">Coming soon...</span>
+            <h3 style="margin-top: 8px;">買い出し・業務仕分け</h3>
         </div>
+        <p>毎日の買い出しリスト作成や、バラバラになりがちな業務タスクの整理・自動分類をサポートします。</p>
+        
+        <a href="#" class="btn" style="margin-top:12px; display:inline-block;">使ってみる</a>
+    </div>
+    
+    <div class="tool-card">
+        <div class="tool-card-header">
+            <span class="category-badge">Coming soon...</span>
+            <h3 style="margin-top: 8px;">請求書・レシート自動整理</h3>
+        </div>
+        <p>送られてきた請求書や紙のレシートデータを集約し、保管・整理の手間を減らす機能です。</p>
+        
+        <a href="#" class="btn" style="margin-top:12px; display:inline-block;">使ってみる</a>
+    </div>
+    
+    <div class="tool-card">
+        <div class="tool-card-header">
+            <span class="category-badge">Coming soon...</span>
+            <h3 style="margin-top: 8px;">周辺イベント・地域情報キャッチ</h3>
+        </div>
+        <p>自分の店舗周辺で開催されるイベント予定や天候など、営業に影響する地域の動向を自動で受け取れます。</p>
+        
+        <a href="#" class="btn" style="margin-top:12px; display:inline-block;">使ってみる</a>
+    </div>
+    
+        </div>
+        
+        <section class="tools-footer-msg" style="margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 12px; text-align: center;">
+            <h2 style="font-size: 1.2rem; margin-bottom: 8px; color: #334155;">現場の「あったら助かる」を形にしていきます</h2>
+            <p style="color: #64748b; font-size: 0.95rem; margin: 0; line-height: 1.6;">「ここが面倒」「こんな通知が欲しい」といったお店ごとのリアルな意見を反映しながら、機能を順次拡張していく予定です。</p>
+        </section>
+        
     </main>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const siteMenu = document.querySelector('#site-menu');
+        if (menuButton) {
+            menuButton.addEventListener('click', () => {
+                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', String(!isOpen));
+                siteMenu.hidden = isOpen;
+            });
+        }
+    </script>
 </body>
 </html>

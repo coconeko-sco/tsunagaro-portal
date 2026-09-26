@@ -1,7 +1,17 @@
 {
+  "city_name": "飯塚",
   "page_title": "飯塚のおすすめ",
   "hero_image": "./images/iizuka-hero.jpg",
   "hero_description": "2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。",
+  "nav_menu": [
+    {"title": "TOP", "url": "../../index.html"},
+    {"title": "飯塚", "url": "../../fukuoka/iizuka/iizuka.html"},
+    {"title": "田川", "url": "../../fukuoka/tagawa/tagawa.html"},
+    {"title": "直方", "url": "../../fukuoka/noogata/noogata.html"},
+    {"title": "求人", "url": "../../jobs/jobs.html"},
+    {"title": "商いマッチ", "url": "../../akinai/akinai.html"},
+    {"title": "便利ツール", "url": "../../tools/tools.html"}
+  ],
   "cards": [
     {
       "category": "イベント",

@@ -3,23 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>田川エリア | つながろ</title>
+    <title>田川のおすすめ | つながろ</title>
     <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
     <header class="topbar">
-        <div class="topbar-inner">
+        <div class="topbar-inner" style="position: relative;">
             <div class="brand">つながろ 田川</div>
-            <nav class="menu-panel">
+            <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
                 <a href="../../index.html">TOP</a>
+<a href="../../fukuoka/iizuka/iizuka.html">飯塚</a>
+<a href="../../fukuoka/tagawa/tagawa.html">田川</a>
+<a href="../../fukuoka/noogata/noogata.html">直方</a>
+<a href="../../jobs/jobs.html">求人</a>
+<a href="../../akinai/akinai.html">商いマッチ</a>
+<a href="../../tools/tools.html">便利ツール</a>
             </nav>
         </div>
     </header>
+
     <main class="container">
-        <h1>田川エリアのお店一覧</h1>
-        <div class="shop-list">
-            <p>掲載店舗はまだありません。</p>
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&auto=format&fit=crop&q=80" alt="" class="card-img" style="height: 240px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; width: 100%;" onerror="this.style.display='none'">
+            <h1>田川のおすすめ</h1>
+            <p>地元で愛されるグルメやおすすめスポットなど、田川の魅力を発信中！</p>
+        </section>
+
+        <div class="region-grid">
+            
+            <article class="region-card">
+                <img src="./images/ippo.jpeg" alt="居酒屋一歩｜旬の鮮魚と刺身盛りが自慢！宴会にも最適な人気居酒屋" class="card-img" onerror="this.style.display='none'">
+                <span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">グルメ</span>
+                <h3>居酒屋一歩｜旬の鮮魚と刺身盛りが自慢！宴会にも最適な人気居酒屋</h3>
+                <p>店主が目利きした新鮮な魚介と美味しい料理が楽しめる居酒屋。アットホームな雰囲気で、個室や団体宴会にも幅広く対応！</p>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 田川郡福智町赤池510-112 | 🕒 17:00〜23:00（L.O. 22:30）</p>
+                <a href="https://www.lifefood.info/ippo/" target="_blank" rel="noopener">詳細を見る</a>
+            </article>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../../about/about.html" class="footer-link">つながろについて</a>
+            <span class="footer-divider">|</span>
+            <button type="button" class="footer-btn" onclick="openModal('contact-modal')">お問い合わせ</button>
+            <span class="footer-divider">|</span>
+            <a href="../../about/privacy.html" class="footer-link">プライバシーポリシー</a>
+            <span class="footer-divider">|</span>
+            <span class="copyright">&copy; 2026 つながろ. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
+        <div class="modal-content">
+            <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>
+            <h2>お問い合わせ</h2>
+            <p class="modal-lead">ご質問・ご掲載に関するご相談は、下記フォームよりお問い合わせください。（※ダミーフォームです）</p>
+            <form class="dummy-form" onsubmit="event.preventDefault(); alert('現在準備中です。');">
+                <div class="form-group">
+                    <label>お名前（必須）</label>
+                    <input type="text" placeholder="山田 太郎" required />
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス（必須）</label>
+                    <input type="email" placeholder="example@tsunagaro-portal.com" required />
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容</label>
+                    <textarea rows="4" placeholder="ご質問や掲載のご依頼内容をご記入ください。"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">送信する（ダミー）</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (toggleBtn && navMenu) {
+            toggleBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = false;
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = true;
+        }
+
+        function closeModalOnOverlay(event, id) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(id);
+            }
+        }
+    </script>
 </body>
 </html>

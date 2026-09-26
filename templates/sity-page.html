@@ -1,69 +1,97 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-6LHJQFWKTQ');
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{CITY_NAME}}のおすすめ | つながろ</title>
-    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
     <header class="topbar">
-        <div class="topbar-inner">
-            <div class="brand-group">
-                <div class="brand">つながろ</div>
-            </div>
-            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
+        <div class="topbar-inner" style="position: relative;">
+            <div class="brand">つながろ {{CITY_NAME}}</div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <nav class="menu-panel" id="site-menu" hidden>
-                <a href="../../index.html">TOP</a>
-                <a href="../iizuka/iizuka.html">飯塚</a>
-                <a href="../tagawa/tagawa.html">田川</a>
-                <a href="#">直方</a>
-                <a href="../../jobs/jobs.html">求人</a>
-                <a href="../../akinai/akinai.html">商いマッチ</a>
-                <a href="../../tools/tools.html">ツール</a>
+            <nav class="nav-menu" id="nav-menu">
+                {{NAV_MENU_HTML}}
             </nav>
         </div>
     </header>
 
     <main class="container">
         <section class="hero">
-            <div class="hero-image">
-                <img src="{{HERO_IMAGE}}" alt="{{CITY_NAME}}のおすすめ" />
-            </div>
-            <div class="hero-copy">
-                <h1>{{CITY_NAME}}のおすすめ</h1>
-                <p>{{HERO_DESCRIPTION}}</p>
-            </div>
+            <img src="{{HERO_IMAGE}}" alt="" class="card-img" style="height: 240px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; width: 100%;" onerror="this.style.display='none'">
+            <h1>{{CITY_NAME}}のおすすめ</h1>
+            <p>{{HERO_DESCRIPTION}}</p>
         </section>
 
-        <section class="card-list">
+        <div class="region-grid">
             {{CARD_LIST_HTML}}
-        </section>
+        </div>
     </main>
 
-    <script>
-        const menuButton = document.querySelector('.menu-button');
-        const siteMenu = document.querySelector('#site-menu');
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="../../about/about.html" class="footer-link">つながろについて</a>
+            <span class="footer-divider">|</span>
+            <button type="button" class="footer-btn" onclick="openModal('contact-modal')">お問い合わせ</button>
+            <span class="footer-divider">|</span>
+            <a href="../../about/privacy.html" class="footer-link">プライバシーポリシー</a>
+            <span class="footer-divider">|</span>
+            <span class="copyright">&copy; 2026 つながろ. All rights reserved.</span>
+        </div>
+    </footer>
 
-        menuButton.addEventListener('click', () => {
-            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', String(!isOpen));
-            menuButton.setAttribute('aria-label', isOpen ? 'メニューを開く' : 'メニューを閉じる');
-            siteMenu.hidden = isOpen;
-        });
+    <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
+        <div class="modal-content">
+            <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>
+            <h2>お問い合わせ</h2>
+            <p class="modal-lead">ご質問・ご掲載に関するご相談は、下記フォームよりお問い合わせください。（※ダミーフォームです）</p>
+            <form class="dummy-form" onsubmit="event.preventDefault(); alert('現在準備中です。');">
+                <div class="form-group">
+                    <label>お名前（必須）</label>
+                    <input type="text" placeholder="山田 太郎" required />
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス（必須）</label>
+                    <input type="email" placeholder="example@tsunagaro-portal.com" required />
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容</label>
+                    <textarea rows="4" placeholder="ご質問や掲載のご依頼内容をご記入ください。"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">送信する（ダミー）</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (toggleBtn && navMenu) {
+            toggleBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = false;
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.hidden = true;
+        }
+
+        function closeModalOnOverlay(event, id) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(id);
+            }
+        }
     </script>
 </body>
 </html>
