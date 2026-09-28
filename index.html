@@ -3,6 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 検索結果用の説明文（英語対策・メタディスクリプション） -->
+    <meta name="description" content="飯塚・田川・直方など筑豊エリアの地域情報や求人、商いマッチなどのサポート情報をまとめたポータルサイト『つながろ』です。" />
+
+    <!-- Google検索やSNS用の設定 -->
+    <meta property="og:site_name" content="つながろ" />
+    <meta property="og:title" content="つながろ - 地域を選ぶ" />
+    <meta property="og:description" content="筑豊エリアの地域情報・求人・店舗サポート情報ポータル" />
+
+    <!-- ファビコンの設定 -->
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<!-- URLとSNSの設定 -->
+    <link rel="canonical" href="https://tsunagaro-portal.com/" />
+    <meta property="og:url" content="https://tsunagaro-portal.com/" />
+    <meta property="og:image" content="https://tsunagaro-portal.com/favicon.ico" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google検索対策 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "つながろ",
+      "url": "https://tsunagaro-portal.com/",
+      "image": "https://tsunagaro-portal.com/favicon.ico",
+      "areaServed": ["飯塚市", "田川市", "直方市", "福岡県"]
+    }
+    </script>
+    
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
     <script>
@@ -91,17 +123,16 @@
 
 <!-- フッター -->
     <footer style="margin-top: 60px; padding: 24px 16px; border-top: 1px solid #ebeff5; text-align: center; font-size: 0.85rem; color: #64748b;">
-        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;">
             <a href="about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
             <span style="color: #cbd5e1;">|</span>
-            <a target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
-            <span style="color: #cbd5e1;">|</span>
             <a href="about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
-        <p style="margin: 0; font-size: 0.75rem; color: #94a3b8;">&copy; 2026</p>
+            <span style="color: #cbd5e1;">|</span>
+            <a href="#" target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
+            <span style="color: #cbd5e1;">|</span>
+            <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
         </div>
-
     </footer>
-
     <script>
         const toggleBtn = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');

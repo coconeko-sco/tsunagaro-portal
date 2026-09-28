@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>飯塚のおすすめ | つながろ</title>
     <link rel="stylesheet" href="../../style.css">
+    <!-- 検索・URL・ファビコン設定 -->
+    <meta name="description" content="飯塚の地域情報・求人・サポート情報をまとめたページです。" />
+    <link rel="canonical" href="https://tsunagaro-portal.com/fukuoka/{{CITY_ID}}/{{CITY_ID}}.html" />
+    <meta property="og:site_name" content="つながろ" />
+    <meta property="og:title" content="飯塚 - つながろ" />
+    <meta property="og:description" content="飯塚の地域情報・求人・店舗サポート情報" />
+    <meta property="og:url" content="https://tsunagaro-portal.com/fukuoka/{{CITY_ID}}/{{CITY_ID}}.html" />
+    <meta property="og:image" content="https://tsunagaro-portal.com/favicon.ico" />
+    <meta property="og:type" content="article" />
+
+    <link rel="icon" href="https://tsunagaro-portal.com/favicon.ico" sizes="any" />
+    <link rel="icon" href="https://tsunagaro-portal.com/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="https://tsunagaro-portal.com/apple-touch-icon.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "つながろ（飯塚）",
+      "url": "https://tsunagaro-portal.com/fukuoka/{{CITY_ID}}/{{CITY_ID}}.html",
+      "image": "https://tsunagaro-portal.com/favicon.ico",
+      "areaServed": "飯塚"
+    }
+    </script>
+    
 </head>
 <body>
     <header class="topbar">
@@ -74,18 +99,18 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <a href="../../about/about.html" class="footer-link">つながろについて</a>
-            <span class="footer-divider">|</span>
-            <button type="button" class="footer-btn" onclick="openModal('contact-modal')">お問い合わせ</button>
-            <span class="footer-divider">|</span>
-            <a href="../../about/privacy.html" class="footer-link">プライバシーポリシー</a>
-            <span class="footer-divider">|</span>
-            <span class="copyright">&copy; 2026 つながろ. All rights reserved.</span>
+<!-- フッター -->
+    <footer style="margin-top: 60px; padding: 24px 16px; border-top: 1px solid #ebeff5; text-align: center; font-size: 0.85rem; color: #64748b;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;">
+            <a href="../../about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
+            <span style="color: #cbd5e1;">|</span>
+            <a href="../../about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
+            <span style="color: #cbd5e1;">|</span>
+            <a href="#" target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
+            <span style="color: #cbd5e1;">|</span>
+            <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
         </div>
     </footer>
-
     <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
         <div class="modal-content">
             <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>

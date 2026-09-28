@@ -889,3 +889,52 @@ def main():
 
 if __name__ == "__main__":
     main()
+/* =========================================
+   フッター
+========================================= */
+.site-footer {
+    margin-top: 60px;
+    padding: 24px 16px;
+    border-top: 1px solid #ebeff5;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--brand, #ff7a3d);
+}
+
+.footer-links .line-link {
+    color: #06c755; /* LINEカラー */
+    font-weight: bold;
+}
+
+.footer-links .line-link:hover {
+    color: #05a044;
+}
+
+.footer-divider {
+    color: #cbd5e1;
+}
+
+.footer-copy {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
