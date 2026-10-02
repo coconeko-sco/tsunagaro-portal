@@ -32,24 +32,12 @@
     
 </head>
 <body>
-    <header class="topbar">
-        <div class="topbar-inner" style="position: relative;">
-            <div class="brand">つながろ {{CITY_NAME}}</div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                {{NAV_MENU_HTML}}
-            </nav>
-        </div>
-    </header>
+    {% include 'components/header.html' %}
 
     <main class="container">
         <section class="hero">
             <img src="{{HERO_IMAGE}}" alt="" class="card-img" style="height: 240px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; width: 100%;" onerror="this.style.display='none'">
-            <h1>{{CITY_NAME}}のおすすめ</h1>
+            <h1>{{CITY_NAME}}のおすすめ {% if is_coming_soon %}<span class="badge">Coming Soon</span>{% endif %}</h1>
             <p>{{HERO_DESCRIPTION}}</p>
         </section>
 
@@ -58,18 +46,7 @@
         </div>
     </main>
 
-<!-- フッター -->
-    <footer style="margin-top: 60px; padding: 24px 16px; border-top: 1px solid #ebeff5; text-align: center; font-size: 0.85rem; color: #64748b;">
-        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;">
-            <a href="../../about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="../../about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="#" target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
-            <span style="color: #cbd5e1;">|</span>
-            <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
-        </div>
-    </footer>
+    {% include 'components/footer.html' %}
     <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
         <div class="modal-content">
             <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>

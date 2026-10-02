@@ -3,43 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>つながろ あきない | つながろ</title>
+    <link rel="stylesheet" href="../style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6LHJQFWKTQ');
     </script>
-    <title>つながろ あきない | 地域密着の商いマッチング</title>
-    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header class="topbar">
-        <div class="topbar-inner">
-            <div class="brand-group">
-                <div class="brand">つながろ あきない</div>
-                <span class="coming-soon">Coming soon...</span>
-            </div>
-            <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="menu-panel" id="site-menu" hidden>
-                <a href="../index.html">TOP</a>
-                <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
-                <a href="../fukuoka/tagawa/tagawa.html">田川</a>
-                <a href="../jobs/jobs.html">求人</a>
-                <a href="../akinai/akinai.html">商いマッチ</a>
-                <a href="../tools/tools.html">便利ツール</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container">
-        <h1>あきない情報一覧</h1>
-        <div class="akinai-grid">
+    <div class="topbar-inner" style="position: relative;">
+        <div class="brand-group">
+            <div class="brand">つながろ</div>
             
+                <span class="coming-soon">Coming soon...</span>
+            
+        </div>
+        <button class="menu-toggle menu-button" id="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu menu-panel" id="nav-menu" hidden>
+            <a href="../index.html">TOP</a>
+            <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
+            <a href="../fukuoka/tagawa/tagawa.html">田川</a>
+            <a href="../jobs/jobs.html">求人</a>
+            <a href="../akinai/akinai.html">商いマッチ</a>
+            <a href="../tools/tools.html">便利ツール</a>
+        </nav>
+    </div>
+</header>
+    
+    <main class="container">
+        <h1>あきない情報一覧 <span class="badge" style="background:#f97316; color:#fff; padding:2px 8px; border-radius:4px; font-size:0.8rem; vertical-align:middle;">Coming Soon</span></h1>
+        <div class="content-area">
+            <div class="akinai-grid">
     <article class="akinai-card">
         <img src="https://placehold.co/600x400/e2e8f0/475569?text=Microwave+01" alt="【飯塚市】業務用電子レンジ（パナソニック・2021年製）" class="akinai-img">
         <div class="akinai-card-body">
@@ -81,20 +84,20 @@
             <p class='desc-info'>仕込み専用 / デリバリー・テイクアウト専門 / 昼営業（要相談）</p>
         </div>
     </article>
-    
+    </div>
         </div>
     </main>
 
-    <script>
-        const menuButton = document.querySelector('.menu-button');
-        const siteMenu = document.querySelector('#site-menu');
-        if (menuButton) {
-            menuButton.addEventListener('click', () => {
-                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-                menuButton.setAttribute('aria-expanded', String(!isOpen));
-                siteMenu.hidden = isOpen;
-            });
-        }
-    </script>
+    <footer style="margin-top: 60px; padding: 24px 16px; border-top: 1px solid #ebeff5; text-align: center; font-size: 0.85rem; color: #64748b;">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;">
+        <a href="../about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
+        <span style="color: #cbd5e1;">|</span>
+        <a href="../about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
+        <span style="color: #cbd5e1;">|</span>
+        <a href="#" target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
+        <span style="color: #cbd5e1;">|</span>
+        <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
+    </div>
+</footer>
 </body>
 </html>
