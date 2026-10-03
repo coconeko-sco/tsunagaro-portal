@@ -1,17 +1,15 @@
 <header class="topbar">
-    <div class="topbar-inner" style="position: relative;">
+    <div class="topbar-inner">
         <div class="brand-group">
             <div class="brand">つながろ</div>
-            {% if is_coming_soon %}
-                <span class="coming-soon">Coming soon...</span>
-            {% endif %}
+            {% if is_coming_soon %}<span class="coming-soon">Coming soon...</span>{% endif %}
         </div>
-        <button class="menu-toggle menu-button" id="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- .menu-button に統一 -->
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+            <span></span><span></span><span></span>
         </button>
-        <nav class="nav-menu menu-panel" id="nav-menu" hidden>
+        <!-- .menu-panel / #site-menu に統一 -->
+        <nav class="menu-panel" id="site-menu" hidden>
             <a href="{{ root_path }}/index.html">TOP</a>
             <a href="{{ root_path }}/fukuoka/iizuka/iizuka.html">飯塚</a>
             <a href="{{ root_path }}/fukuoka/tagawa/tagawa.html">田川</a>

@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>つながろ求人 | つながろ</title>
+    <meta name="description" content="">
+    
+    <!-- ファビコン -->
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    
+    <!-- SNS/SEO -->
+    <meta property="og:site_name" content="つながろ" />
+    <meta property="og:title" content="つながろ求人 - つながろ" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <link rel="canonical" href="" />
+    
     <link rel="stylesheet" href="../style.css">
-    <!-- Google tag (gtag.js) -->
+    
+    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,17 +31,17 @@
 </head>
 <body>
     <header class="topbar">
-    <div class="topbar-inner" style="position: relative;">
+    <div class="topbar-inner">
         <div class="brand-group">
             <div class="brand">つながろ</div>
             
         </div>
-        <button class="menu-toggle menu-button" id="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- .menu-button に統一 -->
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+            <span></span><span></span><span></span>
         </button>
-        <nav class="nav-menu menu-panel" id="nav-menu" hidden>
+        <!-- .menu-panel / #site-menu に統一 -->
+        <nav class="menu-panel" id="site-menu" hidden>
             <a href="../index.html">TOP</a>
             <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
             <a href="../fukuoka/tagawa/tagawa.html">田川</a>
@@ -518,5 +533,15 @@
         <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
     </div>
 </footer>
+
+    <script>
+        const btn = document.querySelector('.menu-button');
+        const menu = document.getElementById('site-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.hidden = !menu.hidden;
+            });
+        }
+    </script>
 </body>
 </html>

@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | つながろ</title>
+    <meta name="description" content="{{ description }}">
+    
+    <!-- ファビコン -->
+    <link rel="icon" href="{{ root_path }}/favicon.ico" sizes="any" />
+    <link rel="icon" href="{{ root_path }}/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="{{ root_path }}/apple-touch-icon.png" />
+    
+    <!-- SNS/SEO -->
+    <meta property="og:site_name" content="つながろ" />
+    <meta property="og:title" content="{{ title }} - つながろ" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:url" content="{{ canonical_url }}" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+    
     <link rel="stylesheet" href="{{ root_path }}/style.css">
-    <!-- Google tag (gtag.js) -->
+    
+    <!-- Google Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -25,5 +40,15 @@
     </main>
 
     {% include 'components/footer.html' %}
+
+    <script>
+        const btn = document.querySelector('.menu-button');
+        const menu = document.getElementById('site-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.hidden = !menu.hidden;
+            });
+        }
+    </script>
 </body>
 </html>
