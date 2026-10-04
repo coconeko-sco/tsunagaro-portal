@@ -71,14 +71,30 @@
     </div>
 
     <script>
+        // ハンバーガーメニューの開閉処理（クラスとaria属性を連動）
         const toggleBtn = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
+
         if (toggleBtn && navMenu) {
-            toggleBtn.addEventListener('click', () => {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // イベントのバブリングを防止
                 navMenu.classList.toggle('active');
+                
+                // aria-expanded属性も連動させてアクセシビリティを高める
+                const isOpen = navMenu.classList.contains('active');
+                toggleBtn.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            // メニュー外をクリックしたら閉じる仕組み
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         }
 
+        // お問い合わせモーダル関連（そのまま維持）
         function openModal(id) {
             const modal = document.getElementById(id);
             if (modal) modal.hidden = false;

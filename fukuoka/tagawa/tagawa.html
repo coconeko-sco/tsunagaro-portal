@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../../style.css">
     <!-- 検索・URL・ファビコン設定 -->
     <meta name="description" content="田川の地域情報・求人・サポート情報をまとめたページです。" />
-    <link rel="canonical" href="https://tsunagaro-portal.com/fukuoka//.html" />
+    <link rel="canonical" href="https://tsunagaro-portal.com/fukuoka/tagawa/tagawa.html" />
     <meta property="og:site_name" content="つながろ" />
     <meta property="og:title" content="田川 - つながろ" />
     <meta property="og:description" content="田川の地域情報・求人・店舗サポート情報" />
-    <meta property="og:url" content="https://tsunagaro-portal.com/fukuoka//.html" />
+    <meta property="og:url" content="https://tsunagaro-portal.com/fukuoka/tagawa/tagawa.html" />
     <meta property="og:image" content="https://tsunagaro-portal.com/favicon.ico" />
     <meta property="og:type" content="article" />
 
@@ -24,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "つながろ（田川）",
-      "url": "https://tsunagaro-portal.com/fukuoka//.html",
+      "url": "https://tsunagaro-portal.com/fukuoka/tagawa/tagawa.html",
       "image": "https://tsunagaro-portal.com/favicon.ico",
       "areaServed": "田川"
     }
@@ -110,14 +110,30 @@
     </div>
 
     <script>
+        // ハンバーガーメニューの開閉処理（クラスとaria属性を連動）
         const toggleBtn = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
+
         if (toggleBtn && navMenu) {
-            toggleBtn.addEventListener('click', () => {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // イベントのバブリングを防止
                 navMenu.classList.toggle('active');
+                
+                // aria-expanded属性も連動させてアクセシビリティを高める
+                const isOpen = navMenu.classList.contains('active');
+                toggleBtn.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            // メニュー外をクリックしたら閉じる仕組み
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         }
 
+        // お問い合わせモーダル関連（そのまま維持）
         function openModal(id) {
             const modal = document.getElementById(id);
             if (modal) modal.hidden = false;

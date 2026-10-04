@@ -837,7 +837,7 @@ a { text-decoration: none; color: inherit; }
     display: none !important;
 }
 
-/* hidden属性が外れたら表示する */
-.menu-panel:not([hidden]), .nav-menu:not([hidden]) {
+/* activeクラスがついた時だけ表示する */
+.menu-panel.active, .nav-menu.active {
     display: flex !important;
 }
