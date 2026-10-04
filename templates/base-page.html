@@ -41,14 +41,22 @@
 
     {% include 'components/footer.html' %}
 
-    <script>
-        const btn = document.querySelector('.menu-button');
-        const menu = document.getElementById('site-menu');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // .menu-button または .menu-toggle のどちらでも見つかるようにする
+        const btn = document.querySelector('.menu-button') || document.querySelector('.menu-toggle');
+        // #site-menu または #nav-menu のどちらでも見つかるようにする
+        const menu = document.getElementById('site-menu') || document.getElementById('nav-menu');
+        
         if (btn && menu) {
             btn.addEventListener('click', () => {
                 menu.hidden = !menu.hidden;
+                // aria-expanded属性があれば連動させる
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!isExpanded));
             });
         }
-    </script>
+    });
+</script>
 </body>
 </html>

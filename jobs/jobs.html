@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>つながろ求人 | つながろ</title>
-    <meta name="description" content="">
+    <meta name="description" content="筑豊エリアの店舗・事業者向け求人情報掲示板。">
     
     <!-- ファビコン -->
     <link rel="icon" href="../favicon.ico" sizes="any" />
@@ -14,9 +14,9 @@
     <!-- SNS/SEO -->
     <meta property="og:site_name" content="つながろ" />
     <meta property="og:title" content="つながろ求人 - つながろ" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <link rel="canonical" href="" />
+    <meta property="og:description" content="筑豊エリアの店舗・事業者向け求人情報掲示板。" />
+    <meta property="og:url" content="https://tsunagaro-portal.com/jobs/jobs.html" />
+    <link rel="canonical" href="https://tsunagaro-portal.com/jobs/jobs.html" />
     
     <link rel="stylesheet" href="../style.css">
     
@@ -31,23 +31,24 @@
 </head>
 <body>
     <header class="topbar">
-    <div class="topbar-inner">
+    <div class="topbar-inner" style="position: relative;">
         <div class="brand-group">
             <div class="brand">つながろ</div>
             
         </div>
-        <!-- .menu-button に統一 -->
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <!-- id="menu-toggle" をここだけに配置 -->
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="メニューを開く">
             <span></span><span></span><span></span>
         </button>
-        <!-- .menu-panel / #site-menu に統一 -->
-        <nav class="menu-panel" id="site-menu" hidden>
+        <!-- class="nav-menu" を class="nav-menu" に統一 -->
+        <nav class="nav-menu" id="nav-menu">
             <a href="../index.html">TOP</a>
-            <a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
-            <a href="../fukuoka/tagawa/tagawa.html">田川</a>
-            <a href="../jobs/jobs.html">求人</a>
-            <a href="../akinai/akinai.html">商いマッチ</a>
-            <a href="../tools/tools.html">便利ツール</a>
+<a href="../fukuoka/iizuka/iizuka.html">飯塚</a>
+<a href="../fukuoka/tagawa/tagawa.html">田川</a>
+<a href="../fukuoka/noogata/noogata.html">直方</a>
+<a href="../jobs/jobs.html">求人</a>
+<a href="../akinai/akinai.html">商いマッチ</a>
+<a href="../tools/tools.html">便利ツール</a>
         </nav>
     </div>
 </header>
@@ -534,14 +535,22 @@
     </div>
 </footer>
 
-    <script>
-        const btn = document.querySelector('.menu-button');
-        const menu = document.getElementById('site-menu');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // .menu-button または .menu-toggle のどちらでも見つかるようにする
+        const btn = document.querySelector('.menu-button') || document.querySelector('.menu-toggle');
+        // #site-menu または #nav-menu のどちらでも見つかるようにする
+        const menu = document.getElementById('site-menu') || document.getElementById('nav-menu');
+        
         if (btn && menu) {
             btn.addEventListener('click', () => {
                 menu.hidden = !menu.hidden;
+                // aria-expanded属性があれば連動させる
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!isExpanded));
             });
         }
-    </script>
+    });
+</script>
 </body>
 </html>

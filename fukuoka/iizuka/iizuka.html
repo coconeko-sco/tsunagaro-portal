@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../../style.css">
     <!-- 検索・URL・ファビコン設定 -->
     <meta name="description" content="飯塚の地域情報・求人・サポート情報をまとめたページです。" />
-    <link rel="canonical" href="https://tsunagaro-portal.com/fukuoka/{{CITY_ID}}/{{CITY_ID}}.html" />
+    <link rel="canonical" href="https://tsunagaro-portal.com/fukuoka//.html" />
     <meta property="og:site_name" content="つながろ" />
     <meta property="og:title" content="飯塚 - つながろ" />
     <meta property="og:description" content="飯塚の地域情報・求人・店舗サポート情報" />
-    <meta property="og:url" content="https://tsunagaro-portal.com/fukuoka/{{CITY_ID}}/{{CITY_ID}}.html" />
+    <meta property="og:url" content="https://tsunagaro-portal.com/fukuoka//.html" />
     <meta property="og:image" content="https://tsunagaro-portal.com/favicon.ico" />
     <meta property="og:type" content="article" />
 
@@ -24,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "つながろ（飯塚）",
-      "url": "https://tsunagaro-portal.com/fukuoka/{{CITY_ID}}/{{CITY_ID}}.html",
+      "url": "https://tsunagaro-portal.com/fukuoka//.html",
       "image": "https://tsunagaro-portal.com/favicon.ico",
       "areaServed": "飯塚"
     }
@@ -33,29 +33,32 @@
 </head>
 <body>
     <header class="topbar">
-        <div class="topbar-inner" style="position: relative;">
-            <div class="brand">つながろ 飯塚</div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="../../index.html">TOP</a>
+    <div class="topbar-inner" style="position: relative;">
+        <div class="brand-group">
+            <div class="brand">つながろ</div>
+            
+        </div>
+        <!-- id="menu-toggle" をここだけに配置 -->
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- class="nav-menu" を class="nav-menu" に統一 -->
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html">TOP</a>
 <a href="../../fukuoka/iizuka/iizuka.html">飯塚</a>
 <a href="../../fukuoka/tagawa/tagawa.html">田川</a>
 <a href="../../fukuoka/noogata/noogata.html">直方</a>
 <a href="../../jobs/jobs.html">求人</a>
 <a href="../../akinai/akinai.html">商いマッチ</a>
 <a href="../../tools/tools.html">便利ツール</a>
-            </nav>
-        </div>
-    </header>
+        </nav>
+    </div>
+</header>
 
     <main class="container">
         <section class="hero">
             <img src="./images/iizuka-hero.jpg" alt="" class="card-img" style="height: 240px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; width: 100%;" onerror="this.style.display='none'">
-            <h1>飯塚のおすすめ</h1>
+            <h1>飯塚のおすすめ </h1>
             <p>2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。</p>
         </section>
 
@@ -99,18 +102,17 @@
         </div>
     </main>
 
-<!-- フッター -->
     <footer style="margin-top: 60px; padding: 24px 16px; border-top: 1px solid #ebeff5; text-align: center; font-size: 0.85rem; color: #64748b;">
-        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;">
-            <a href="../../about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="../../about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="#" target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
-            <span style="color: #cbd5e1;">|</span>
-            <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
-        </div>
-    </footer>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: nowrap; white-space: nowrap;">
+        <a href="../../about/about.html" style="color: #64748b; text-decoration: none;">「つながろ」について</a>
+        <span style="color: #cbd5e1;">|</span>
+        <a href="../../about/privacy.html" style="color: #64748b; text-decoration: none;">プライバシーポリシー</a>
+        <span style="color: #cbd5e1;">|</span>
+        <a href="#" target="_blank" rel="noopener" style="color: #06c755; text-decoration: none; font-weight: bold;">公式LINE（ダミー）</a>
+        <span style="color: #cbd5e1;">|</span>
+        <span style="font-size: 0.75rem; color: #94a3b8;">&copy; 2026 つながろ</span>
+    </div>
+</footer>
     <div id="contact-modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'contact-modal')">
         <div class="modal-content">
             <button type="button" class="modal-close" onclick="closeModal('contact-modal')">&times;</button>

@@ -38,10 +38,10 @@
             padding-bottom: 8px;
         }
 
-        /* --- 【追加】ステータスバナー用CSS --- */
+        /* --- ステータスバナー用CSS --- */
         .status-card {
             background-color: var(--card-bg);
-            border: 2px solid #27ae60;
+            border: 2px solid #7f8c8d;
             border-radius: 8px;
             padding: 16px;
             margin-bottom: 20px;
@@ -51,7 +51,7 @@
         }
         .status-badge {
             display: inline-block;
-            background-color: #27ae60;
+            background-color: #7f8c8d;
             color: #ffffff;
             font-weight: bold;
             font-size: 1.1rem;
@@ -128,10 +128,10 @@
         <div class="header-catch">惜しみない情熱を注ぐご主人の作るたこ焼き</div>
         <h1>たこ道楽 仁保店</h1>
 
-        <!-- 【追加】リアルタイム営業ステータス表示枠 -->
+        <!-- リアルタイム営業ステータス表示枠（初期表示：常時自然な営業案内） -->
         <div class="status-card" id="statusCard">
-            <div class="status-badge" id="statusBadge">営業中</div>
-            <p class="status-message" id="statusMessage">元気に営業中！あつあつのたこ焼き準備できてます！</p>
+            <div class="status-badge" id="statusBadge">営業案内</div>
+            <p class="status-message" id="statusMessage">10:00 〜 19:00（毎月第1・第3水曜定休）</p>
             <div class="status-updated" id="statusUpdated"></div>
         </div>
 
@@ -175,31 +175,35 @@
         </div>
     </div>
 
-    <!-- 【追加】Cloudflare Workerからステータスを取得・表示切り替えするスクリプト -->
+    <!-- Cloudflare Workerからステータスを取得・表示切り替えするスクリプト -->
     <script>
         async function fetchStatus() {
-            try {
-                // Cloudflare WorkerのAPIエンドポイント（後で正しいURLに差し替えます）
-                const res = await fetch('https://tsunagaro-api.coconekosco.workers.dev/api/status/takodouraku-niho');
-                if (!res.ok) return;
-                const data = await res.json();
+            const badge = document.getElementById('statusBadge');
+            const message = document.getElementById('statusMessage');
+            const updated = document.getElementById('statusUpdated');
+            const card = document.getElementById('statusCard');
 
-                const badge = document.getElementById('statusBadge');
-                const message = document.getElementById('statusMessage');
-                const updated = document.getElementById('statusUpdated');
-                const card = document.getElementById('statusCard');
+            try {
+                // Cloudflare WorkerのAPIエンドポイント
+                const res = await fetch('https://tsunagaro-api.coconekosco.workers.dev/api/status/takodouraku-niho');
+                if (!res.ok) throw new Error('通信エラー');
+                const data = await res.json();
 
                 if (data.status) badge.textContent = data.status;
                 if (data.message) message.textContent = data.message;
                 if (data.updatedAt) updated.textContent = '更新時間: ' + data.updatedAt;
 
-                // ステータスに応じた枠線・バッジの色変更
                 if (data.color) {
                     badge.style.backgroundColor = data.color;
                     card.style.borderColor = data.color;
                 }
             } catch (e) {
-                console.log('ステータス取得待機中またはデフォルト表示');
+                // 通信エラー時・Worker未動作用フォールバック
+                badge.textContent = '営業案内';
+                badge.style.backgroundColor = '#7f8c8d';
+                card.style.borderColor = '#7f8c8d';
+                message.textContent = '10:00 〜 19:00（毎月第1・第3水曜定休）';
+                updated.textContent = '';
             }
         }
 

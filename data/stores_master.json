@@ -1,0 +1,89 @@
+{
+  "global": {
+    "nav_menu": [
+      {"title": "TOP", "url": "../../index.html"},
+      {"title": "飯塚", "url": "../../fukuoka/iizuka/iizuka.html"},
+      {"title": "田川", "url": "../../fukuoka/tagawa/tagawa.html"},
+      {"title": "直方", "url": "../../fukuoka/noogata/noogata.html"},
+      {"title": "求人", "url": "../../jobs/jobs.html"},
+      {"title": "商いマッチ", "url": "../../akinai/akinai.html"},
+      {"title": "便利ツール", "url": "../../tools/tools.html"}
+    ]
+  },
+  "cities": {
+    "iizuka": {
+      "city_name": "飯塚",
+      "page_title": "飯塚のおすすめ",
+      "hero_image": "./images/iizuka-hero.jpg",
+      "hero_description": "2026年9月25日（金）は「第102回 飯塚花火大会」！遠賀川中之島から打ち上がる約6,000発の大花火と、地元の話題スポットをご紹介。"
+    },
+    "tagawa": {
+      "city_name": "田川",
+      "page_title": "田川のおすすめ",
+      "hero_image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&auto=format&fit=crop&q=80",
+      "hero_description": "地元で愛されるグルメやおすすめスポットなど、田川の魅力を発信中！"
+    }
+  },
+  "stores": {
+    "a000001": {
+      "city": "iizuka",
+      "category": "イベント",
+      "title": "4MINI BIKE MEETING in カホテラス",
+      "description": "カホテラスで開催される4ミニバイクのミーティング。詳しい内容はこちらから確認できます。",
+      "location": "カホテラス",
+      "date": "開催情報を確認",
+      "image_url": "./4mini-kahoterasu/images/4mini-group-photo.jpg",
+      "href": "./4mini-kahoterasu/4mini-kahoterasu.html"
+    },
+    "a000002": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "title": "てんぷら屋 藤｜揚げたてサクサク天ぷら",
+      "description": "職人が目の前で一品ずつ揚げる本格天ぷら店。福岡の銘柄鶏「華味鳥」を使ったささみのとり天は絶品！ごはん・味噌汁・茶碗蒸し付き。",
+      "location": "飯塚市勢田（国道200号沿い）",
+      "date": "11:00〜14:30 / 16:30〜20:30",
+      "image_url": "./images/ebiten.jpeg",
+      "href": "https://www.lifefood.info/?utm_source=GBP&utm_medium=organic",
+      "rating": 4.1,
+      "reviews_count": 491,
+      "map_url": "https://maps.app.goo.gl/EmBGbGtWDF1XSFtcA"
+    },
+    "a000003": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "title": "鶏とたまご料理の店 藤｜ふわとろ卵とこだわり丼の専門店",
+      "description": "銘柄鶏「華味鳥」と野上養鶏場の「味宝卵」を使用。出汁のきいた味噌汁・茶碗蒸しセットで楽しむ絶品どんぶり。",
+      "location": "ゆめタウン飯塚 2F フードコート",
+      "date": "10:00〜21:00",
+      "image_url": "./toritotamago-fuji/images/toritotamago-fuji.png",
+      "href": "./toritotamago-fuji/toritotamago-fuji.html",
+      "rating": 2.7,
+      "reviews_count": 3,
+      "map_url": "https://maps.app.goo.gl/uteZFfVPaL9K5TS17"
+    },
+    "a000004": {
+      "city": "iizuka",
+      "category": "ライフスタイル",
+      "title": "【休業中】ココネコ｜愛猫への情熱を凝縮した飼育記録",
+      "description": "1ページに数時間を費やし、食事からトイレケアまで徹底的にこだわり抜いた愛猫ブログ。※現在は更新休止中のため問い合わせ等は受け付けておりません。",
+      "location": "ウェブサイト（過去ログ）",
+      "date": "アーカイブ公開中",
+      "badge": "更新休止中",
+      "image_url": "./images/coconeko.JPG",
+      "href": "https://coconeko.blog/"
+    },
+    "a000005": {
+      "city": "tagawa",
+      "category": "グルメ",
+      "title": "居酒屋一歩｜旬の鮮魚と刺身盛りが自慢！宴会にも最適な人気居酒屋",
+      "description": "店主が目利きした新鮮な魚介と美味しい料理が楽しめる居酒屋。アットホームな雰囲気で、個室や団体宴会にも幅広く対応！",
+      "location": "田川郡福智町赤池510-112",
+      "date": "17:00〜23:00（L.O. 22:30）",
+      "image_url": "./images/ippo.jpeg",
+      "href": "https://www.lifefood.info/ippo/",
+      "rating": 3.9,
+      "reviews_count": 76,
+      "map_url": "https://maps.app.goo.gl/7eB4VunrVCZNuYJm9"
+    }
+  }
+}
