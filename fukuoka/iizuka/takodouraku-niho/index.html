@@ -37,6 +37,40 @@
             border-bottom: 3px solid var(--primary);
             padding-bottom: 8px;
         }
+
+        /* --- 【追加】ステータスバナー用CSS --- */
+        .status-card {
+            background-color: var(--card-bg);
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .status-badge {
+            display: inline-block;
+            background-color: #27ae60;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 4px 16px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+        .status-message {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text);
+            margin: 0;
+        }
+        .status-updated {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            margin-top: 6px;
+        }
+
         .description {
             background-color: var(--card-bg);
             padding: 16px;
@@ -94,6 +128,13 @@
         <div class="header-catch">惜しみない情熱を注ぐご主人の作るたこ焼き</div>
         <h1>たこ道楽 仁保店</h1>
 
+        <!-- 【追加】リアルタイム営業ステータス表示枠 -->
+        <div class="status-card" id="statusCard">
+            <div class="status-badge" id="statusBadge">営業中</div>
+            <p class="status-message" id="statusMessage">元気に営業中！あつあつのたこ焼き準備できてます！</p>
+            <div class="status-updated" id="statusUpdated"></div>
+        </div>
+
         <div class="description">
             <p>幅広い年齢層から支持されるたこ道楽は、しっかりした生地でどこか懐かしい味。惜しみない情熱を注ぐご主人の作るたこ焼きは、何度でも通いたくなる気持ちにさせてくれます。素材を活かすために絶妙なタイミングで焼き上げるプロの技にも脱帽です！</p>
         </div>
@@ -134,5 +175,37 @@
         </div>
     </div>
 
+    <!-- 【追加】Cloudflare Workerからステータスを取得・表示切り替えするスクリプト -->
+    <script>
+        async function fetchStatus() {
+            try {
+                // Cloudflare WorkerのAPIエンドポイント（後で正しいURLに差し替えます）
+                const res = await fetch('https://tsunagaro-api.coconekosco.workers.dev/api/status/takodouraku-niho');
+                if (!res.ok) return;
+                const data = await res.json();
+
+                const badge = document.getElementById('statusBadge');
+                const message = document.getElementById('statusMessage');
+                const updated = document.getElementById('statusUpdated');
+                const card = document.getElementById('statusCard');
+
+                if (data.status) badge.textContent = data.status;
+                if (data.message) message.textContent = data.message;
+                if (data.updatedAt) updated.textContent = '更新時間: ' + data.updatedAt;
+
+                // ステータスに応じた枠線・バッジの色変更
+                if (data.color) {
+                    badge.style.backgroundColor = data.color;
+                    card.style.borderColor = data.color;
+                }
+            } catch (e) {
+                console.log('ステータス取得待機中またはデフォルト表示');
+            }
+        }
+
+        // ページ読み込み時 ＆ 30秒ごとに自動更新
+        fetchStatus();
+        setInterval(fetchStatus, 30000);
+    </script>
 </body>
 </html>
