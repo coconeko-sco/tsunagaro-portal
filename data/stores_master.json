@@ -33,7 +33,7 @@
       "location": "カホテラス",
       "date": "開催情報を確認",
       "image_url": "./4mini-kahoterasu/images/4mini-group-photo.jpg",
-      "href": "./4mini-kahoterasu/"
+      "href": "./4mini-kahoterasu/index.html"
     },
     "a000002": {
       "city": "iizuka",
@@ -56,7 +56,7 @@
       "location": "ゆめタウン飯塚 2F フードコート",
       "date": "10:00〜21:00",
       "image_url": "./toritotamago-fuji/images/toritotamago-fuji.png",
-      "href": "./toritotamago-fuji/",
+      "href": "./toritotamago-fuji/index.html",
       "rating": 2.7,
       "reviews_count": 3,
       "map_url": "https://maps.app.goo.gl/uteZFfVPaL9K5TS17"

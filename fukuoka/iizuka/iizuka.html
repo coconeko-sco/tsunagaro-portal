@@ -70,7 +70,7 @@
                 <h3>4MINI BIKE MEETING in カホテラス</h3>
                 <p>カホテラスで開催される4ミニバイクのミーティング。詳しい内容はこちらから確認できます。</p>
                 <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 カホテラス | 🕒 開催情報を確認</p>
-                <a href="./4mini-kahoterasu/"  style="display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">詳細を見る</a>
+                <a href="./4mini-kahoterasu/index.html"  style="display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">詳細を見る</a>
             </article>
 
             <article class="region-card">
@@ -88,7 +88,7 @@
                 <h3>鶏とたまご料理の店 藤｜ふわとろ卵とこだわり丼の専門店</h3>
                 <p>銘柄鶏「華味鳥」と野上養鶏場の「味宝卵」を使用。出汁のきいた味噌汁・茶碗蒸しセットで楽しむ絶品どんぶり。</p>
                 <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 ゆめタウン飯塚 2F フードコート | 🕒 10:00〜21:00</p>
-                <a href="./toritotamago-fuji/"  style="display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">詳細を見る</a>
+                <a href="./toritotamago-fuji/index.html"  style="display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">詳細を見る</a>
             </article>
 
             <article class="region-card">
@@ -116,19 +116,19 @@
                 <p>ソフトバレーイベント専用特設サイト。（※関係者専用・要パスワード）</p>
                 <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 飯塚市内 | 🕒 2026年10月18日</p>
                 
-                <button type="button" onclick="openModal('pwd_130403571846904328_modal')" style="margin-top: auto; width: 100%; display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border: none; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; cursor: pointer; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">特設ページを開く</button>
+                <button type="button" onclick="openModal('pwd_3086402994685822041_modal')" style="margin-top: auto; width: 100%; display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border: none; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; cursor: pointer; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">特設ページを開く</button>
             
             </article>
 
-            <div id="pwd_130403571846904328_modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'pwd_130403571846904328_modal')">
+            <div id="pwd_3086402994685822041_modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, 'pwd_3086402994685822041_modal')">
                 <div class="modal-content" style="max-width: 360px; text-align: center;">
-                    <button type="button" class="modal-close" onclick="closeModal('pwd_130403571846904328_modal')">&times;</button>
+                    <button type="button" class="modal-close" onclick="closeModal('pwd_3086402994685822041_modal')">&times;</button>
                     <h3 style="margin-bottom: 8px; font-size: 1.1rem;">🔒 パスワード認証</h3>
                     <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 16px;">この先は関係者専用ページです。<br>合言葉を入力してください。</p>
                     <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <input type="password" id="pwd_130403571846904328_input" placeholder="パスワードを入力" style="padding: 10px 12px; font-size: 0.9rem; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; background: #f8fafc; width: 100%; box-sizing: border-box;">
+                        <input type="password" id="pwd_3086402994685822041_input" placeholder="パスワードを入力" style="padding: 10px 12px; font-size: 0.9rem; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; background: #f8fafc; width: 100%; box-sizing: border-box;">
                         <button type="button" onclick="
-                            const pwd = document.getElementById('pwd_130403571846904328_input').value;
+                            const pwd = document.getElementById('pwd_3086402994685822041_input').value;
                             if(pwd === 'Wayaja-4649') {
                                 window.location.href = './wayajer/index.html?key=' + encodeURIComponent(pwd);
                             } else {
