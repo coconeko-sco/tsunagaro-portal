@@ -93,6 +93,7 @@ a { text-decoration: none; color: inherit; }
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .card-img {
     width: 100%;

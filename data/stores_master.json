@@ -89,11 +89,11 @@
       "city": "iizuka",
       "category": "グルメ",
       "entity_id": "a000006",
-      "title": "たこ道楽 仁保店",
+      "title": "たこ焼きマスターテスト店",
       "description": "惜しみない情熱を注ぐご主人の作る絶品たこ焼き。スマートボタンによるリアルタイム営業案内連携テスト中。",
       "location": "飯塚市仁保",
       "date": "10:00 〜 19:00（毎月第1・第3水曜定休）",
-      "image_url": "./takodouraku-niho/index.html",
+      "image_url": "./images/takoyaki.png",
       "href": "./takodouraku-niho/index.html",
       "targets": {
         "portal": true,
@@ -151,6 +151,19 @@
           "fallback_status": null
         }
       }
+    },
+    "a000007": {
+      "city": "iizuka",
+      "entity_id": "a000007",
+      "category": "関係者専用",
+      "title": "ソフトバレーボール交流会「ワヤジャー杯」",
+      "description": "ソフトバレーイベント専用特設サイト。（※関係者専用・要パスワード）",
+      "location": "飯塚市内",
+      "date": "2026年10月18日",
+      "badge": "関係者専用",
+      "image_url": "./wayajer/images/sports_soft_volleyball.png",
+      "href": "./wayajer/index.html",
+      "password": "Wayaja-4649"
     }
   }
 }

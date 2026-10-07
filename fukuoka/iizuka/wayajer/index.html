@@ -258,5 +258,26 @@
     <a href="../../../index.html">地域ポータル「つながろ」</a>
   </div>
 
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const key = urlParams.get('key');
+    
+    // パスワード（マスターJSONやPython側で設定している合言葉と同じもの）
+    const correctPassword = 'Wayaja-4649'; // ←ここの中身を実際の合言葉に合わせてください
+
+    // URLに正しいキーが含まれていない場合のみ、ポップアップを表示する
+    if (key !== correctPassword) {
+        const password = prompt('この先は専用ページです。\n合言葉を入力してください：');
+        
+        if (password === correctPassword) {
+            window.location.replace(window.location.pathname + '?key=' + encodeURIComponent(password));
+        } else {
+            alert('パスワードが違います。ポータルサイトに戻ります。');
+            window.location.href = '../../../index.html';
+        }
+    }
+</script>
+
+
 </body>
 </html>

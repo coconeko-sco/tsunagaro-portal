@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>たこ道楽 仁保店</title>
+    <title>たこ焼きマスターテスト店</title>
     <style>
         :root {
             --primary: #c0392b;
@@ -126,7 +126,7 @@
 
     <div class="container">
         <div class="header-catch">惜しみない情熱を注ぐご主人の作るたこ焼き</div>
-        <h1>たこ道楽 仁保店</h1>
+        <h1>たこ焼きマスターテスト店</h1>
 
         <!-- リアルタイム営業ステータス表示枠（初期表示：常時自然な営業案内） -->
         <div class="status-card" id="statusCard">
@@ -143,13 +143,13 @@
             <h2>INFO基本情報</h2>
             <dl>
                 <dt>名称</dt>
-                <dd>たこ道楽 仁保店<br><small>(タコドウラク ニホテン)</small></dd>
+                <dd>たこ焼きマスターテスト店<br><small>(タコヤキスキ)</small></dd>
                 
                 <dt>電話</dt>
-                <dd>0948-82-4006</dd>
+                <dd>0948-xx-xxxx</dd>
                 
                 <dt>住所</dt>
-                <dd>〒820-0111 福岡県飯塚市有安694-2</dd>
+                <dd>〒820-0xxx 福岡県飯塚市xxxxxx</dd>
                 
                 <dt>営業時間</dt>
                 <dd>[全日] 10:00 〜 19:00</dd>
@@ -184,8 +184,8 @@
             const card = document.getElementById('statusCard');
 
             try {
-                // Cloudflare WorkerのAPIエンドポイント
-                const res = await fetch('https://tsunagaro-api.coconekosco.workers.dev/api/status/takodouraku-niho');
+                // Cloudflare WorkerのAPIエンドポイント（テスト用URLに置き換え）
+                const res = await fetch('https://your-worker-subdomain.workers.dev/api/status/takodouraku-niho');
                 if (!res.ok) throw new Error('通信エラー');
                 const data = await res.json();
 
