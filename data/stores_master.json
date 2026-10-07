@@ -33,7 +33,7 @@
       "location": "カホテラス",
       "date": "開催情報を確認",
       "image_url": "./4mini-kahoterasu/images/4mini-group-photo.jpg",
-      "href": "./4mini-kahoterasu/4mini-kahoterasu.html"
+      "href": "./4mini-kahoterasu/"
     },
     "a000002": {
       "city": "iizuka",
@@ -56,7 +56,7 @@
       "location": "ゆめタウン飯塚 2F フードコート",
       "date": "10:00〜21:00",
       "image_url": "./toritotamago-fuji/images/toritotamago-fuji.png",
-      "href": "./toritotamago-fuji/toritotamago-fuji.html",
+      "href": "./toritotamago-fuji/",
       "rating": 2.7,
       "reviews_count": 3,
       "map_url": "https://maps.app.goo.gl/uteZFfVPaL9K5TS17"
@@ -100,12 +100,19 @@
         "individual_hp": true,
         "meo": false
       },
+      "current": {
+        "action_key": "default",
+        "status": "営業案内",
+        "message": "10:00 〜 19:00\n（毎月第1・第3水曜定休）",
+        "color": "#7f8c8d",
+        "expires_at": null
+      },
       "actions": {
         "default": {
           "status": "営業案内",
           "message": "10:00 〜 19:00\n（毎月第1・第3水曜定休）",
           "color": "#7f8c8d",
-          "timer_minutes": 0,
+          "timer_minutes": null,
           "fallback_status": null
         },
         "btn1_1": {
@@ -115,18 +122,11 @@
           "timer_minutes": 10,
           "fallback_status": "営業中"
         },
-        "btn1_2": {
-          "status": "焼きたて！",
-          "message": "只今たこ焼き焼きたて！すぐにお渡しできます！",
-          "color": "#d35400",
-          "timer_minutes": 20,
-          "fallback_status": "営業中"
-        },
         "btn1_long": {
           "status": "本日終了",
           "message": "本日の営業は終了いたしました。またのご来店をお待ちしております。",
           "color": "#c0392b",
-          "timer_minutes": 0,
+          "timer_minutes": null,
           "fallback_status": null
         },
         "btn2_1": {
@@ -136,22 +136,15 @@
           "timer_minutes": 30,
           "fallback_status": "営業中"
         },
-        "btn2_2": {
-          "status": "仕込み中",
-          "message": "ただいま生地・具材の仕込み中。まもなく再開します！",
-          "color": "#e67e22",
-          "timer_minutes": 30,
-          "fallback_status": "営業中"
-        },
         "btn2_long": {
           "status": "本日完売",
           "message": "本日分はすべて完売いたしました！たくさんのご来店ありがとうございました。",
           "color": "#7f8c8d",
-          "timer_minutes": 0,
+          "timer_minutes": null,
           "fallback_status": null
         }
       }
-    },
+    }
     "a000007": {
       "city": "iizuka",
       "entity_id": "a000007",
