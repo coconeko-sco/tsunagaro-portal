@@ -84,6 +84,73 @@
       "rating": 3.9,
       "reviews_count": 76,
       "map_url": "https://maps.app.goo.gl/7eB4VunrVCZNuYJm9"
+    },
+    "a000006": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "entity_id": "a000006",
+      "title": "たこ道楽 仁保店",
+      "description": "惜しみない情熱を注ぐご主人の作る絶品たこ焼き。スマートボタンによるリアルタイム営業案内連携テスト中。",
+      "location": "飯塚市仁保",
+      "date": "10:00 〜 19:00（毎月第1・第3水曜定休）",
+      "image_url": "./takodouraku-niho/index.html",
+      "href": "./takodouraku-niho/index.html",
+      "targets": {
+        "portal": true,
+        "individual_hp": true,
+        "meo": false
+      },
+      "actions": {
+        "default": {
+          "status": "営業案内",
+          "message": "10:00 〜 19:00\n（毎月第1・第3水曜定休）",
+          "color": "#7f8c8d",
+          "timer_minutes": 0,
+          "fallback_status": null
+        },
+        "btn1_1": {
+          "status": "営業中",
+          "message": "元気に営業中！あつあつのたこ焼き準備できてます！",
+          "color": "#27ae60",
+          "timer_minutes": 10,
+          "fallback_status": "営業中"
+        },
+        "btn1_2": {
+          "status": "焼きたて！",
+          "message": "只今たこ焼き焼きたて！すぐにお渡しできます！",
+          "color": "#d35400",
+          "timer_minutes": 20,
+          "fallback_status": "営業中"
+        },
+        "btn1_long": {
+          "status": "本日終了",
+          "message": "本日の営業は終了いたしました。またのご来店をお待ちしております。",
+          "color": "#c0392b",
+          "timer_minutes": 0,
+          "fallback_status": null
+        },
+        "btn2_1": {
+          "status": "焼き上がり待ち",
+          "message": "只今順番に焼き上げ中！お渡しの目安：約 10分〜15分",
+          "color": "#d35400",
+          "timer_minutes": 30,
+          "fallback_status": "営業中"
+        },
+        "btn2_2": {
+          "status": "仕込み中",
+          "message": "ただいま生地・具材の仕込み中。まもなく再開します！",
+          "color": "#e67e22",
+          "timer_minutes": 30,
+          "fallback_status": "営業中"
+        },
+        "btn2_long": {
+          "status": "本日完売",
+          "message": "本日分はすべて完売いたしました！たくさんのご来店ありがとうございました。",
+          "color": "#7f8c8d",
+          "timer_minutes": 0,
+          "fallback_status": null
+        }
+      }
     }
   }
 }
