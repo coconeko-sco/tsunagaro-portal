@@ -178,6 +178,55 @@
       "href": "./wayajer/index.html",
       "password": "Wayaja-4649",
       "publish": true
+    },
+    "a000008": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "entity_id": "a000008",
+      "line_user_id": "U9f165e5fb3bf9a2b3f78962dc9a26742",
+      "line_user_name": "ゆっぱ〜",
+      "owner_name": "テスト担当者名",
+      "auth_code": "6870",
+      "title": "テスト店舗名",
+      "description": "リアルタイム営業案内連携店舗。",
+      "location": "未設定",
+      "date": "未設定",
+      "image_url": "./images/default-store.png",
+      "href": "#",
+      "publish": false,
+      "current": {
+        "action_key": "default",
+        "status": "営業案内",
+        "message": "10:00 〜 19:00",
+        "color": "#7f8c8d",
+        "expires_at": null
+      },
+      "actions": {
+        "default": {
+          "status": "営業案内",
+          "message": "10:00 〜 19:00",
+          "color": "#7f8c8d",
+          "timer_minutes": null
+        },
+        "button_a": {
+          "status": "営業中",
+          "message": "元気に営業中！",
+          "color": "#27ae60",
+          "timer_minutes": 10
+        },
+        "button_b": {
+          "status": "準備中",
+          "message": "只今準備中",
+          "color": "#d35400",
+          "timer_minutes": 30
+        },
+        "button_c": {
+          "status": "終了",
+          "message": "本日の営業は終了しました",
+          "color": "#c0392b",
+          "timer_minutes": null
+        }
+      }
     }
   }
 }
