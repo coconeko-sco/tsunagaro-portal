@@ -195,10 +195,10 @@
       "href": "#",
       "publish": false,
       "current": {
-        "action_key": "default",
-        "status": "営業案内",
-        "message": "10:00 〜 19:00",
-        "color": "#7f8c8d",
+        "action_key": "button_c",
+        "status": "終了",
+        "message": "本日の営業は終了しました",
+        "color": "#c0392b",
         "expires_at": null
       },
       "actions": {
