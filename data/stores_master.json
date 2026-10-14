@@ -176,8 +176,199 @@
       "badge": "関係者専用",
       "image_url": "./wayajer/images/sports_soft_volleyball.png",
       "href": "./wayajer/index.html",
+<<<<<<< HEAD
       "password": "Wayaja-4649",
       "publish": true
+=======
+      "password": "Wayaja-4649"
+    },
+    "a000008": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "entity_id": "a000008",
+      "line_user_id": "",
+      "auth_code": "9194",
+      "title": "てすと",
+      "description": "スマートボタンによるリアルタイム営業案内連携店舗。",
+      "location": "飯塚市",
+      "date": "10:00 〜 19:00",
+      "image_url": "./images/default-store.png",
+      "href": "#",
+      "current": {
+        "action_key": "default",
+        "status": "営業案内",
+        "message": "10:00 〜 19:00",
+        "color": "#7f8c8d",
+        "expires_at": null
+      },
+      "actions": {
+        "default": {
+          "status": "営業案内",
+          "message": "10:00 〜 19:00",
+          "color": "#7f8c8d",
+          "timer_minutes": null
+        },
+        "button_a": {
+          "status": "営業中",
+          "message": "元気に営業中！",
+          "color": "#27ae60",
+          "timer_minutes": 10
+        },
+        "button_b": {
+          "status": "準備中・待ち",
+          "message": "只今準備中",
+          "color": "#d35400",
+          "timer_minutes": 30
+        },
+        "button_c": {
+          "status": "本日終了",
+          "message": "本日の営業は終了しました",
+          "color": "#c0392b",
+          "timer_minutes": null
+        }
+      }
+    },
+    "a000009": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "entity_id": "a000009",
+      "line_user_id": "",
+      "line_user_name": "不明なユーザー",
+      "auth_code": "3364",
+      "title": "てすと",
+      "description": "リアルタイム営業案内連携店舗。",
+      "location": "未設定",
+      "date": "未設定",
+      "image_url": "./images/default-store.png",
+      "href": "#",
+      "current": {
+        "action_key": "default",
+        "status": "営業案内",
+        "message": "10:00 〜 19:00",
+        "color": "#7f8c8d",
+        "expires_at": null
+      },
+      "actions": {
+        "default": {
+          "status": "営業案内",
+          "message": "10:00 〜 19:00",
+          "color": "#7f8c8d",
+          "timer_minutes": null
+        },
+        "button_a": {
+          "status": "営業中",
+          "message": "元気に営業中！",
+          "color": "#27ae60",
+          "timer_minutes": 10
+        },
+        "button_b": {
+          "status": "準備中",
+          "message": "只今準備中",
+          "color": "#d35400",
+          "timer_minutes": 30
+        },
+        "button_c": {
+          "status": "終了",
+          "message": "本日の営業は終了しました",
+          "color": "#c0392b",
+          "timer_minutes": null
+        }
+      }
+    },
+    "a000010": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "entity_id": "a000010",
+      "line_user_id": "",
+      "line_user_name": "不明なユーザー",
+      "auth_code": "5033",
+      "title": "てすと",
+      "description": "リアルタイム営業案内連携店舗。",
+      "location": "未設定",
+      "date": "未設定",
+      "image_url": "./images/default-store.png",
+      "href": "#",
+      "current": {
+        "action_key": "default",
+        "status": "営業案内",
+        "message": "10:00 〜 19:00",
+        "color": "#7f8c8d",
+        "expires_at": null
+      },
+      "actions": {
+        "default": {
+          "status": "営業案内",
+          "message": "10:00 〜 19:00",
+          "color": "#7f8c8d",
+          "timer_minutes": null
+        },
+        "button_a": {
+          "status": "営業中",
+          "message": "元気に営業中！",
+          "color": "#27ae60",
+          "timer_minutes": 10
+        },
+        "button_b": {
+          "status": "準備中",
+          "message": "只今準備中",
+          "color": "#d35400",
+          "timer_minutes": 30
+        },
+        "button_c": {
+          "status": "終了",
+          "message": "本日の営業は終了しました",
+          "color": "#c0392b",
+          "timer_minutes": null
+        }
+      }
+    },
+    "a000011": {
+      "city": "iizuka",
+      "category": "グルメ",
+      "entity_id": "a000011",
+      "line_user_id": "U9f165e5fb3bf9a2b3f78962dc9a26742",
+      "line_user_name": "ゆっぱ〜",
+      "auth_code": "4451",
+      "title": "テスト店舗名",
+      "description": "リアルタイム営業案内連携店舗。",
+      "location": "未設定",
+      "date": "未設定",
+      "image_url": "./images/default-store.png",
+      "href": "#",
+      "current": {
+        "action_key": "button_a",
+        "status": "営業中",
+        "message": "元気に営業中！",
+        "color": "#27ae60",
+        "expires_at": "2026-10-14T02:48:58.483Z"
+      },
+      "actions": {
+        "default": {
+          "status": "営業案内",
+          "message": "10:00 〜 19:00",
+          "color": "#7f8c8d",
+          "timer_minutes": null
+        },
+        "button_a": {
+          "status": "営業中",
+          "message": "元気に営業中！",
+          "color": "#27ae60",
+          "timer_minutes": 10
+        },
+        "button_b": {
+          "status": "準備中",
+          "message": "只今準備中",
+          "color": "#d35400",
+          "timer_minutes": 30
+        },
+        "button_c": {
+          "status": "終了",
+          "message": "本日の営業は終了しました",
+          "color": "#c0392b",
+          "timer_minutes": null
+        }
+      }
+>>>>>>> cde9c20f0cb0719be7d8fad5b79170a4470fed5e
     }
   }
 }
