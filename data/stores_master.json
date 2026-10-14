@@ -195,11 +195,11 @@
       "href": "#",
       "publish": false,
       "current": {
-        "action_key": "button_b",
-        "status": "準備中",
-        "message": "只今準備中",
-        "color": "#d35400",
-        "expires_at": "2026-10-14T08:15:02.464Z"
+        "action_key": "button_a",
+        "status": "営業中",
+        "message": "元気に営業中！",
+        "color": "#27ae60",
+        "expires_at": "2026-10-14T07:55:05.702Z"
       },
       "actions": {
         "default": {
