@@ -54,7 +54,8 @@
       "location": "カホテラス",
       "date": "開催情報を確認",
       "image_url": "./4mini-kahoterasu/images/4mini-group-photo.jpg",
-      "href": "./4mini-kahoterasu/index.html"
+      "href": "./4mini-kahoterasu/index.html",
+      "publish": true
     },
     "a000002": {
       "city": "iizuka",
@@ -67,7 +68,8 @@
       "href": "https://www.lifefood.info/?utm_source=GBP&utm_medium=organic",
       "rating": 4.1,
       "reviews_count": 491,
-      "map_url": "https://maps.app.goo.gl/EmBGbGtWDF1XSFtcA"
+      "map_url": "https://maps.app.goo.gl/EmBGbGtWDF1XSFtcA",
+      "publish": true
     },
     "a000003": {
       "city": "iizuka",
@@ -80,7 +82,8 @@
       "href": "./toritotamago-fuji/index.html",
       "rating": 2.7,
       "reviews_count": 3,
-      "map_url": "https://maps.app.goo.gl/uteZFfVPaL9K5TS17"
+      "map_url": "https://maps.app.goo.gl/uteZFfVPaL9K5TS17",
+      "publish": true
     },
     "a000004": {
       "city": "iizuka",
@@ -91,7 +94,8 @@
       "date": "アーカイブ公開中",
       "badge": "更新休止中",
       "image_url": "./images/coconeko.JPG",
-      "href": "https://coconeko.blog/"
+      "href": "https://coconeko.blog/",
+      "publish": true
     },
     "a000005": {
       "city": "tagawa",
@@ -104,7 +108,8 @@
       "href": "https://www.lifefood.info/ippo/",
       "rating": 3.9,
       "reviews_count": 76,
-      "map_url": "https://maps.app.goo.gl/7eB4VunrVCZNuYJm9"
+      "map_url": "https://maps.app.goo.gl/7eB4VunrVCZNuYJm9",
+      "publish": true
     },
     "a000006": {
       "city": "iizuka",
@@ -116,6 +121,7 @@
       "date": "10:00 〜 19:00（毎月第1・第3水曜定休）",
       "image_url": "./images/takoyaki.png",
       "href": "./takodouraku-niho/index.html",
+      "publish": true,
       "targets": {
         "portal": true,
         "individual_hp": true,
@@ -136,31 +142,24 @@
           "timer_minutes": null,
           "fallback_status": null
         },
-        "btn1_1": {
+        "button_a": {
           "status": "営業中",
           "message": "元気に営業中！あつあつのたこ焼き準備できてます！",
           "color": "#27ae60",
           "timer_minutes": 10,
           "fallback_status": "営業中"
         },
-        "btn1_long": {
-          "status": "本日終了",
-          "message": "本日の営業は終了いたしました。またのご来店をお待ちしております。",
-          "color": "#c0392b",
-          "timer_minutes": null,
-          "fallback_status": null
-        },
-        "btn2_1": {
+        "button_b": {
           "status": "焼き上がり待ち",
           "message": "只今順番に焼き上げ中！お渡しの目安：約 10分〜15分",
           "color": "#d35400",
           "timer_minutes": 30,
           "fallback_status": "営業中"
         },
-        "btn2_long": {
-          "status": "本日完売",
-          "message": "本日分はすべて完売いたしました！たくさんのご来店ありがとうございました。",
-          "color": "#7f8c8d",
+        "button_c": {
+          "status": "本日終了",
+          "message": "本日の営業は終了いたしました。またのご来店をお待ちしております。",
+          "color": "#c0392b",
           "timer_minutes": null,
           "fallback_status": null
         }
@@ -168,8 +167,8 @@
     },
     "a000007": {
       "city": "iizuka",
-      "entity_id": "a000007",
       "category": "関係者専用",
+      "entity_id": "a000007",
       "title": "ソフトバレーボール交流会「ワヤジャー杯」",
       "description": "ソフトバレーイベント専用特設サイト。（※関係者専用・要パスワード）",
       "location": "飯塚市内",
@@ -177,194 +176,8 @@
       "badge": "関係者専用",
       "image_url": "./wayajer/images/sports_soft_volleyball.png",
       "href": "./wayajer/index.html",
-      "password": "Wayaja-4649"
-    },
-    "a000008": {
-      "city": "iizuka",
-      "category": "グルメ",
-      "entity_id": "a000008",
-      "line_user_id": "",
-      "auth_code": "9194",
-      "title": "てすと",
-      "description": "スマートボタンによるリアルタイム営業案内連携店舗。",
-      "location": "飯塚市",
-      "date": "10:00 〜 19:00",
-      "image_url": "./images/default-store.png",
-      "href": "#",
-      "current": {
-        "action_key": "default",
-        "status": "営業案内",
-        "message": "10:00 〜 19:00",
-        "color": "#7f8c8d",
-        "expires_at": null
-      },
-      "actions": {
-        "default": {
-          "status": "営業案内",
-          "message": "10:00 〜 19:00",
-          "color": "#7f8c8d",
-          "timer_minutes": null
-        },
-        "button_a": {
-          "status": "営業中",
-          "message": "元気に営業中！",
-          "color": "#27ae60",
-          "timer_minutes": 10
-        },
-        "button_b": {
-          "status": "準備中・待ち",
-          "message": "只今準備中",
-          "color": "#d35400",
-          "timer_minutes": 30
-        },
-        "button_c": {
-          "status": "本日終了",
-          "message": "本日の営業は終了しました",
-          "color": "#c0392b",
-          "timer_minutes": null
-        }
-      }
-    },
-    "a000009": {
-      "city": "iizuka",
-      "category": "グルメ",
-      "entity_id": "a000009",
-      "line_user_id": "",
-      "line_user_name": "不明なユーザー",
-      "auth_code": "3364",
-      "title": "てすと",
-      "description": "リアルタイム営業案内連携店舗。",
-      "location": "未設定",
-      "date": "未設定",
-      "image_url": "./images/default-store.png",
-      "href": "#",
-      "current": {
-        "action_key": "default",
-        "status": "営業案内",
-        "message": "10:00 〜 19:00",
-        "color": "#7f8c8d",
-        "expires_at": null
-      },
-      "actions": {
-        "default": {
-          "status": "営業案内",
-          "message": "10:00 〜 19:00",
-          "color": "#7f8c8d",
-          "timer_minutes": null
-        },
-        "button_a": {
-          "status": "営業中",
-          "message": "元気に営業中！",
-          "color": "#27ae60",
-          "timer_minutes": 10
-        },
-        "button_b": {
-          "status": "準備中",
-          "message": "只今準備中",
-          "color": "#d35400",
-          "timer_minutes": 30
-        },
-        "button_c": {
-          "status": "終了",
-          "message": "本日の営業は終了しました",
-          "color": "#c0392b",
-          "timer_minutes": null
-        }
-      }
-    },
-    "a000010": {
-      "city": "iizuka",
-      "category": "グルメ",
-      "entity_id": "a000010",
-      "line_user_id": "",
-      "line_user_name": "不明なユーザー",
-      "auth_code": "5033",
-      "title": "てすと",
-      "description": "リアルタイム営業案内連携店舗。",
-      "location": "未設定",
-      "date": "未設定",
-      "image_url": "./images/default-store.png",
-      "href": "#",
-      "current": {
-        "action_key": "default",
-        "status": "営業案内",
-        "message": "10:00 〜 19:00",
-        "color": "#7f8c8d",
-        "expires_at": null
-      },
-      "actions": {
-        "default": {
-          "status": "営業案内",
-          "message": "10:00 〜 19:00",
-          "color": "#7f8c8d",
-          "timer_minutes": null
-        },
-        "button_a": {
-          "status": "営業中",
-          "message": "元気に営業中！",
-          "color": "#27ae60",
-          "timer_minutes": 10
-        },
-        "button_b": {
-          "status": "準備中",
-          "message": "只今準備中",
-          "color": "#d35400",
-          "timer_minutes": 30
-        },
-        "button_c": {
-          "status": "終了",
-          "message": "本日の営業は終了しました",
-          "color": "#c0392b",
-          "timer_minutes": null
-        }
-      }
-    },
-    "a000011": {
-      "city": "iizuka",
-      "category": "グルメ",
-      "entity_id": "a000011",
-      "line_user_id": "U9f165e5fb3bf9a2b3f78962dc9a26742",
-      "line_user_name": "ゆっぱ〜",
-      "auth_code": "4451",
-      "title": "テスト店舗名",
-      "description": "リアルタイム営業案内連携店舗。",
-      "location": "未設定",
-      "date": "未設定",
-      "image_url": "./images/default-store.png",
-      "href": "#",
-      "current": {
-        "action_key": "button_c",
-        "status": "終了",
-        "message": "本日の営業は終了しました",
-        "color": "#c0392b",
-        "expires_at": null
-      },
-      "actions": {
-        "default": {
-          "status": "営業案内",
-          "message": "10:00 〜 19:00",
-          "color": "#7f8c8d",
-          "timer_minutes": null
-        },
-        "button_a": {
-          "status": "営業中",
-          "message": "元気に営業中！",
-          "color": "#27ae60",
-          "timer_minutes": 10
-        },
-        "button_b": {
-          "status": "準備中",
-          "message": "只今準備中",
-          "color": "#d35400",
-          "timer_minutes": 30
-        },
-        "button_c": {
-          "status": "終了",
-          "message": "本日の営業は終了しました",
-          "color": "#c0392b",
-          "timer_minutes": null
-        }
-      }
+      "password": "Wayaja-4649",
+      "publish": true
     }
   }
 }
