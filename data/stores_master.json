@@ -333,11 +333,11 @@
       "image_url": "./images/default-store.png",
       "href": "#",
       "current": {
-        "action_key": "default",
-        "status": "営業案内",
-        "message": "10:00 〜 19:00",
-        "color": "#7f8c8d",
-        "expires_at": null
+        "action_key": "button_a",
+        "status": "営業中",
+        "message": "元気に営業中！",
+        "color": "#27ae60",
+        "expires_at": "2026-10-14T02:05:33.831Z"
       },
       "actions": {
         "default": {
