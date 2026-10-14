@@ -1,0 +1,64 @@
+name: Auto Build Portal HTML
+
+on:
+  # ① 即時反映：アルゴン（または手動）で stores_master.json が更新された瞬間に発動
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/stores_master.json'
+
+  # ② 定期監視：5分に1度、自動で期限切れチェックを発動
+  schedule:
+    - cron: '*/5 * * * *'
+
+  # 手動テスト用ボタン
+  workflow_dispatch:
+
+# 同時に複数の処理が重なって競合するのを防ぐロック機能
+concurrency:
+  group: portal-build-group
+  cancel-in-progress: false
+
+jobs:
+  build_and_update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # GitHubへHTMLを書き戻す権限
+
+    steps:
+      - name: 1. 最新のコードを取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 2. Pythonの準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 3. 必要なライブラリ(Jinja2)のインストール
+        run: pip install Jinja2
+
+      - name: 4. 期限切れチェックとHTMLビルドを実行
+        run: |
+          # ※スクリプトが置いてあるフォルダパスに合わせて調整してください（例: scripts/build/ など）
+          BUILD_SCRIPT_PATH=$(find . -name "build_sity.py" | head -n 1)
+          SCRIPT_DIR=$(dirname "$BUILD_SCRIPT_PATH")
+          
+          python "$SCRIPT_DIR/check_expired.py"
+          python "$SCRIPT_DIR/build_sity.py"
+
+      - name: 5. 変更があればGitHubへ保存（Cloudflare Pagesへ自動反映）
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add data/stores_master.json fukuoka/
+          
+          # 差分がある時だけコミット＆プッシュする（無駄な通信・競合の防止）
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto update: store status & rebuild HTML [skip ci]"
+            git push origin main
+          else
+            echo "変更がないためコミットをスキップしました"
+          fi
