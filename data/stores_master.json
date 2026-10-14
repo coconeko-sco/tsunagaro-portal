@@ -195,11 +195,11 @@
       "href": "#",
       "publish": false,
       "current": {
-        "action_key": "button_c",
-        "status": "終了",
-        "message": "本日の営業は終了しました",
-        "color": "#c0392b",
-        "expires_at": null
+        "action_key": "button_b",
+        "status": "準備中",
+        "message": "只今準備中",
+        "color": "#d35400",
+        "expires_at": "2026-10-14T08:15:02.464Z"
       },
       "actions": {
         "default": {
