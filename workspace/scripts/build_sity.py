@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from jinja2 import Environment, FileSystemLoader
@@ -6,82 +7,216 @@ from jinja2 import Environment, FileSystemLoader
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parent.parent
 
-# Jinja2環境のセットアップ
 env = Environment(loader=FileSystemLoader(str(ROOT / "templates")))
 
-# 1つの統合マスターJSONファイルを読み込むパスと出力先の設定
 MASTER_JSON_PATH = ROOT / "data" / "stores_master.json"
 OUTPUT_DIR = ROOT / "fukuoka"
 
-# 日本時間 (JST) の定義
 JST = timezone(timedelta(hours=9))
 
-def get_store_priority(store):
+def is_closed_day(closed_days, now_jst):
+    if not closed_days:
+        return False
+    weekday_str = now_jst.strftime("%a")
+    week_of_month = (now_jst.day - 1) // 7 + 1
+    ordinal = {1: "1st", 2: "2nd", 3: "3rd", 4: "4th", 5: "5th"}.get(week_of_month, "")
+    nth_weekday = f"{ordinal}_{weekday_str}"
+    return (weekday_str in closed_days) or (nth_weekday in closed_days)
+
+def evaluate_card_state(store, now_jst):
     """
-    カードの並び順（優先度）を判定する関数
-    数値が小さいほどページの上部に表示される（1: 最上位, 2: 通常, 3: 下位, 4: 最下層）
+    カードの階層（tier: 1〜5）と、表示するステータス（status, message, color）を自動計算する
     """
-    badge = store.get("badge", "")
-    date_str = store.get("date", "")
+    # 1. 手動で階層が固定されている場合（例: tier: 5 のココネコ・ワヤジャー杯）
+    fixed_tier = store.get("tier")
+    if fixed_tier == 5:
+        badge = store.get("badge") or store.get("category", "")
+        return {
+            "tier": 5,
+            "status": badge,
+            "message": "",
+            "color": "#64748b",
+            "is_custom_badge": False
+        }
+
+    # 2. イベントカードの場合（event_date があるもの）
+    event_date_str = store.get("event_date")
+    if event_date_str:
+        today_str = now_jst.strftime("%Y-%m-%d")
+        if today_str == event_date_str:
+            return {"tier": 1, "status": "本日開催！", "message": "本日開催中です！", "color": "#e67e22", "is_custom_badge": True}
+        elif today_str < event_date_str:
+            return {"tier": 2, "status": "開催予定", "message": "", "color": "#3498db", "is_custom_badge": True}
+        else:
+            return {"tier": 4, "status": "開催終了", "message": "このイベントは終了しました", "color": "#7f8c8d", "is_custom_badge": True}
+
+    # 3. 店舗カードの場合（営業時間・定休日・LINEボタン判定）
+    closed_days = store.get("closed_days", [])
+    hours_list = store.get("hours", [])
     current = store.get("current", {})
-    status = current.get("status", "")
+    action_key = current.get("action_key", "default")
 
-    # 優先度4（最下層）：更新休止中・アーカイブ
-    if "更新休止中" in badge or "アーカイブ" in date_str or "休業中" in store.get("title", ""):
-        return 4
+    # (A) 定休日チェック
+    if is_closed_day(closed_days, now_jst):
+        return {"tier": 3, "status": "定休日", "message": "本日は定休日です", "color": "#7f8c8d", "is_custom_badge": True}
 
-    # 優先度3（下位）：本日終了など、営業が終わっている状態
-    if status in ["本日終了", "準備中", "定休日"]:
-        return 3
+    # (B) 営業時間リストの解析（中休み・複数回営業対応）
+    now_hm = now_jst.strftime("%H:%M")
+    in_open_period = False
+    next_open_hm = None
+    first_open_hm = None
+    last_close_hm = None
 
-    # 優先度1（最上位）：リアルタイムで「営業中」や「焼き上がり待ち」などアクティブな店舗
-    if status in ["営業中", "焼き上がり待ち"] or (current and current.get("action_key") not in [None, "default"]):
-        return 1
+    for period in hours_list:
+        if "-" not in period:
+            continue
+        start_hm, end_hm = [p.strip() for p in period.split("-", 1)]
+        if first_open_hm is None:
+            first_open_hm = start_hm
+        last_close_hm = end_hm
 
-    # 優先度2（中位）：通常の店舗・これから開催されるイベント等
-    return 2
+        if start_hm <= now_hm < end_hm:
+            in_open_period = True
+            break
+        elif now_hm < start_hm and next_open_hm is None:
+            next_open_hm = start_hm
 
-def build_nav_menu_html(nav_list, root_path):
-    """JSONの nav_menu 配列を <a> タグ群に変換"""
+    # (C) LINEボタン（C：早じまい・本日終了）が押されている場合
+    if action_key == "button_c" and current.get("status"):
+        # オープン後〜閉店前の間に押された早じまいは当日中有効
+        if not first_open_hm or now_hm >= first_open_hm:
+            return {
+                "tier": 3,
+                "status": current.get("status", "本日終了"),
+                "message": current.get("message", "本日の営業は終了しました"),
+                "color": current.get("color", "#c0392b"),
+                "is_custom_badge": True
+            }
+
+    # (D) 営業時間内の場合
+    if in_open_period:
+        # LINEのA・Bボタンが押されていればそのメッセージを優先表示！
+        if action_key in ["button_a", "button_b"] and current.get("status"):
+            return {
+                "tier": 1,
+                "status": current.get("status"),
+                "message": current.get("message", ""),
+                "color": current.get("color", "#27ae60"),
+                "is_custom_badge": True
+            }
+        # ボタンが押されていなければ通常の「営業中」
+        return {
+            "tier": 1,
+            "status": "営業中",
+            "message": "",
+            "color": "#27ae60",
+            "is_custom_badge": True
+        }
+
+    # (E) 営業時間外（朝のオープン前 ／ 中休み・仕込み中 ／ 閉店後）の自動切り替え
+    if hours_list:
+        if first_open_hm and now_hm < first_open_hm:
+            # 0:00 〜 朝のオープン前
+            return {
+                "tier": 3,
+                "status": "準備中",
+                "message": f"本日は {first_open_hm} より営業いたします",
+                "color": "#7f8c8d",
+                "is_custom_badge": True
+            }
+        elif next_open_hm:
+            # 昼の部と夜の部の間（中休み・仕込み時間）
+            return {
+                "tier": 3,
+                "status": "準備中",
+                "message": f"只今仕込み中です（次は {next_open_hm} より営業）",
+                "color": "#7f8c8d",
+                "is_custom_badge": True
+            }
+        else:
+            # すべての営業時間が終わった後（〜23:59）
+            return {
+                "tier": 3,
+                "status": "本日終了",
+                "message": "本日の営業は終了いたしました",
+                "color": "#7f8c8d",
+                "is_custom_badge": True
+            }
+
+    # 営業時間データがない一般カード
+    cat = store.get("badge") or store.get("category", "")
+    return {"tier": 3, "status": cat, "message": "", "color": "#64748b", "is_custom_badge": False}
+
+def update_individual_page(city_key, store, state, now_jst):
+    """
+    リンク先がポータル配下のHTMLであり、かつ <!-- STATUS_START --> の目印があるページのみ更新する
+    """
+    href = store.get("href", "")
+    # 1. 外部リンク（http〜）は何もしない
+    if not href or href.startswith("http") or href.startswith("#"):
+        return
+
+    clean_href = href.lstrip("./")
+    target_html_path = OUTPUT_DIR / city_key / clean_href
+    if not target_html_path.exists() or not target_html_path.is_file():
+        return
+
+    content = target_html_path.read_text(encoding="utf-8")
+
+    # 2. 目印（<!-- STATUS_START -->）がないページは1ミリも触らない
+    pattern = re.compile(r"(<!--\s*STATUS_START\s*-->)(.*?)(<!--\s*STATUS_END\s*-->)", re.DOTALL)
+    if not pattern.search(content):
+        return
+
+    status_text = state["status"] or "営業案内"
+    status_color = state["color"] or "#7f8c8d"
+    status_msg = state["message"] or store.get("date", "")
+    formatted_msg = status_msg.replace("\n", "<br>")
+    updated_str = now_jst.strftime("%H:%M")
+
+    injected_html = f"""\\1
+        <div class="status-card" id="statusCard" style="border-color: {status_color};">
+            <div class="status-badge" id="statusBadge" style="background-color: {status_color};">{status_text}</div>
+            <p class="status-message" id="statusMessage">{formatted_msg}</p>
+            <div class="status-updated" id="statusUpdated">自動確認: {updated_str}</div>
+        </div>
+        \\3"""
+
+    new_content = pattern.sub(injected_html, content)
+    if new_content != content:
+        target_html_path.write_text(new_content, encoding="utf-8")
+        print(f"  └ 個別ページを更新しました: {target_html_path}")
+
+def build_nav_menu_html(nav_list):
     if not nav_list:
         return ""
-    links = []
-    for item in nav_list:
-        title = item.get("title", "")
-        url = item.get("url", "#")
-        links.append(f'<a href="{url}">{title}</a>')
-    return "\n".join(links)
+    return "\n".join([f'<a href="{item.get("url", "#")}">{item.get("title", "")}</a>' for item in nav_list])
 
-def build_cards_html(cards):
-    """店舗やイベントのデータ配列を HTML カード群に変換（リアルタイムステータス＆モーダル対応版）"""
+def build_cards_html(cards_with_state):
     cards_html = []
     modals_html = []
     
-    for card in cards:
+    for card, state in cards_with_state:
         title = card.get('title') or card.get('name', '')
         desc = card.get('description', '')
         img_url = card.get('image_url', '')
         href = card.get('href', '')
         loc = card.get('location', '')
         date_str = card.get('date', '')
-        cat = card.get('badge') or card.get('category', '')
         password = card.get('password', '')
 
-        # --- リアルタイム営業案内（current）の取得とHTML生成 ---
-        current = card.get('current', {})
-        status_text = current.get('status', '')
-        status_msg = current.get('message', '')
-        status_color = current.get('color', '#7f8c8d')
+        status_text = state['status']
+        status_msg = state['message']
+        status_color = state['color']
+        is_custom = state['is_custom_badge']
 
-        # バッジ表示（currentのステータスがあればそちらを優先して色付きで目立たせる）
-        if status_text:
+        if is_custom and status_text:
             badge_html = f'<span style="background: {status_color}; color: #ffffff; font-size: 0.75rem; padding: 3px 10px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">{status_text}</span>'
-        elif cat:
-            badge_html = f'<span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">{cat}</span>'
+        elif status_text:
+            badge_html = f'<span style="background: #f1f5f9; color: #475569; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: inline-block;">{status_text}</span>'
         else:
             badge_html = ''
 
-        # リアルタイムメッセージ枠（改行を<br>に変換してカード内に表示）
         if status_msg:
             formatted_msg = status_msg.replace('\n', '<br>')
             status_box_html = f'''
@@ -93,13 +228,11 @@ def build_cards_html(cards):
 
         info_html = f'<p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">📍 {loc} | 🕒 {date_str}</p>' if (loc or date_str) else ''
         
-        # パスワード認証モーダル判定
         if password:
             card_id = "pwd_" + str(abs(hash(href)))
             link_html = f'''
                 <button type="button" onclick="openModal('{card_id}_modal')" style="margin-top: auto; width: 100%; display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border: none; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; cursor: pointer; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">特設ページを開く</button>
             '''
-            
             modal_item = f'''
             <div id="{card_id}_modal" class="modal-overlay" hidden onclick="closeModalOnOverlay(event, '{card_id}_modal')">
                 <div class="modal-content" style="max-width: 360px; text-align: center;">
@@ -123,7 +256,7 @@ def build_cards_html(cards):
             modals_html.append(modal_item)
         else:
             target_attr = 'target="_blank" rel="noopener"' if href.startswith('http') else ''
-            link_html = f'<a href="{href}" {target_attr} style="margin-top: auto; display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">詳細を見る</a>' if href else '<a href="#" style="margin-top: auto; display: block; text-align: center; background: #cbd5e1; color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem;">詳細を見る</a>'
+            link_html = f'<a href="{href}" {target_attr} style="margin-top: auto; display: block; text-align: center; background: linear-gradient(135deg, #f97316, #ea580c); color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);">詳細を見る</a>' if href else ''
 
         card_item = f"""
             <article class="region-card" style="display: flex; flex-direction: column;">
@@ -147,36 +280,33 @@ def main():
     with open(MASTER_JSON_PATH, "r", encoding="utf-8") as f:
         master_data = json.load(f)
 
-    # 1. 共通ナビゲーションメニューを取得
+    now_jst = datetime.now(JST)
     global_data = master_data.get("global", {})
-    nav_list = global_data.get("nav_menu", [])
+    nav_menu_html = build_nav_menu_html(global_data.get("nav_menu", []))
     root_path = "../.."
-    nav_menu_html = build_nav_menu_html(nav_list, root_path)
 
-    # 2. 全店舗データを取得
     all_stores = master_data.get("stores", {})
-
-    # 3. 各都市（iizuka, tagawaなど）をループして一括ビルド
     cities_data = master_data.get("cities", {})
+
     for city_key, city_meta in cities_data.items():
         out_file = OUTPUT_DIR / city_key / f"{city_key}.html"
-
         city_name = city_meta.get("city_name", city_key)
         hero_img = city_meta.get("hero_image", f"./images/{city_key}-hero.jpg")
         hero_desc = city_meta.get("hero_description", "")
         is_coming_soon = city_meta.get("status") == "coming_soon"
 
-        # 公開対象（publish: true）かつ該当都市のカードを抽出
-        city_cards = [
-            store_data for store_data in all_stores.values()
-            if store_data.get("city") == city_key and store_data.get("publish", True)
-        ]
-        
-        # ★優先順位（営業中＞通常＞終了＞休止中）で並び替え
-        city_cards.sort(key=get_store_priority)
-        
-        cards_list_html = build_cards_html(city_cards) if city_cards else '<p>掲載店舗はまだありません。</p>'
+        city_cards_with_state = []
+        for store_id, store_data in all_stores.items():
+            if store_data.get("city") == city_key and store_data.get("publish", True):
+                state = evaluate_card_state(store_data, now_jst)
+                city_cards_with_state.append((store_data, state))
+                # 個別ページに目印があれば同時更新
+                update_individual_page(city_key, store_data, state, now_jst)
 
+        # 5段階の階層（tier: 1〜5）の順番でソート
+        city_cards_with_state.sort(key=lambda item: item[1]["tier"])
+
+        cards_list_html = build_cards_html(city_cards_with_state) if city_cards_with_state else '<p>掲載店舗はまだありません。</p>'
         template = env.get_template('sity-page.html')
 
         html_content = template.render(
@@ -194,7 +324,7 @@ def main():
         with open(out_file, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-        print(f"[{city_name}] ページを生成しました（優先度ソート済） -> {out_file}")
+        print(f"[{city_name}] ページを生成しました（現在時刻 {now_jst.strftime('%H:%M')} 基準・5段階ソート済） -> {out_file}")
 
 if __name__ == "__main__":
     main()

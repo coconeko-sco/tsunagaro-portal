@@ -140,12 +140,14 @@
         <div class="header-catch">惜しみない情熱を注ぐご主人の作るたこ焼き</div>
         <h1>たこ焼きマスターテスト店</h1>
 
-        <!-- リアルタイム営業ステータス表示枠（初期表示：常時自然な営業案内） -->
-        <div class="status-card" id="statusCard">
-            <div class="status-badge" id="statusBadge">営業案内</div>
+        <!-- リアルタイム営業ステータス表示枠（Pythonがここを自動書き換えします） -->
+        <!-- STATUS_START -->
+        <div class="status-card" id="statusCard" style="border-color: #27ae60;">
+            <div class="status-badge" id="statusBadge" style="background-color: #27ae60;">営業中</div>
             <p class="status-message" id="statusMessage">10:00 〜 19:00（毎月第1・第3水曜定休）</p>
-            <div class="status-updated" id="statusUpdated"></div>
+            <div class="status-updated" id="statusUpdated">自動確認: 15:11</div>
         </div>
+        <!-- STATUS_END -->
 
         <div class="description">
             <p>幅広い年齢層から支持されるたこ道楽は、しっかりした生地でどこか懐かしい味。惜しみない情熱を注ぐご主人の作るたこ焼きは、何度でも通いたくなる気持ちにさせてくれます。素材を活かすために絶妙なタイミングで焼き上げるプロの技にも脱帽です！</p>
@@ -187,41 +189,5 @@
         </div>
     </div>
 
-    <!-- Cloudflare Workerからステータスを取得・表示切り替えするスクリプト -->
-    <script>
-        async function fetchStatus() {
-            const badge = document.getElementById('statusBadge');
-            const message = document.getElementById('statusMessage');
-            const updated = document.getElementById('statusUpdated');
-            const card = document.getElementById('statusCard');
-
-            try {
-                // Cloudflare WorkerのAPIエンドポイント（テスト用URLに置き換え）
-                const res = await fetch('https://your-worker-subdomain.workers.dev/api/status/takodouraku-niho');
-                if (!res.ok) throw new Error('通信エラー');
-                const data = await res.json();
-
-                if (data.status) badge.textContent = data.status;
-                if (data.message) message.textContent = data.message;
-                if (data.updatedAt) updated.textContent = '更新時間: ' + data.updatedAt;
-
-                if (data.color) {
-                    badge.style.backgroundColor = data.color;
-                    card.style.borderColor = data.color;
-                }
-            } catch (e) {
-                // 通信エラー時・Worker未動作用フォールバック
-                badge.textContent = '営業案内';
-                badge.style.backgroundColor = '#7f8c8d';
-                card.style.borderColor = '#7f8c8d';
-                message.textContent = '10:00 〜 19:00（毎月第1・第3水曜定休）';
-                updated.textContent = '';
-            }
-        }
-
-        // ページ読み込み時 ＆ 30秒ごとに自動更新
-        fetchStatus();
-        setInterval(fetchStatus, 30000);
-    </script>
 </body>
 </html>
