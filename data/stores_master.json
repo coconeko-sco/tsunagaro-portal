@@ -65,7 +65,10 @@
       "description": "職人が目の前で一品ずつ揚げる本格天ぷら店。福岡の銘柄鶏「華味鳥」を使ったささみのとり天は絶品！ごはん・味噌汁・茶碗蒸し付き。",
       "location": "飯塚市勢田（国道200号沿い）",
       "date": "11:00〜14:30 / 16:30〜20:30",
-      "hours": ["11:00-14:30", "16:30-20:30"],
+      "hours": [
+        "11:00-14:30",
+        "16:30-20:30"
+      ],
       "closed_days": [],
       "image_url": "./images/ebiten.jpeg",
       "href": "https://www.lifefood.info/?utm_source=GBP&utm_medium=organic",
@@ -81,7 +84,9 @@
       "description": "銘柄鶏「華味鳥」と野上養鶏場の「味宝卵」を使用。出汁のきいた味噌汁・茶碗蒸しセットで楽しむ絶品どんぶり。",
       "location": "ゆめタウン飯塚 2F フードコート",
       "date": "10:00〜21:00",
-      "hours": ["10:00-21:00"],
+      "hours": [
+        "10:00-21:00"
+      ],
       "closed_days": [],
       "image_url": "./toritotamago-fuji/images/toritotamago-fuji.png",
       "href": "./toritotamago-fuji/index.html",
@@ -110,7 +115,9 @@
       "description": "店主が目利きした新鮮な魚介と美味しい料理が楽しめる居酒屋。アットホームな雰囲気で、個室や団体宴会にも幅広く対応！",
       "location": "田川郡福智町赤池510-112",
       "date": "17:00〜23:00（L.O. 22:30）",
-      "hours": ["17:00-23:00"],
+      "hours": [
+        "17:00-23:00"
+      ],
       "closed_days": [],
       "image_url": "./images/ippo.jpeg",
       "href": "https://www.lifefood.info/ippo/",
@@ -130,8 +137,13 @@
       "description": "惜しみない情熱を注ぐご主人の作る絶品たこ焼き。スマートボタンによるリアルタイム営業案内連携テスト中。",
       "location": "飯塚市仁保",
       "date": "10:00 〜 19:00（毎月第1・第3水曜定休）",
-      "hours": ["10:00-19:00"],
-      "closed_days": ["1st_Wed", "3rd_Wed"],
+      "hours": [
+        "10:00-19:00"
+      ],
+      "closed_days": [
+        "1st_Wed",
+        "3rd_Wed"
+      ],
       "image_url": "./images/takoyaki.png",
       "href": "./takodouraku-niho/index.html",
       "publish": true,
@@ -141,11 +153,11 @@
         "meo": false
       },
       "current": {
-        "action_key": "default",
-        "status": "",
-        "message": "",
-        "color": "",
-        "expires_at": null
+        "action_key": "button_a",
+        "status": "営業中",
+        "message": "元気に営業中！あつあつのたこ焼き準備できてます！",
+        "color": "#27ae60",
+        "expires_at": "2026-10-15T06:26:19.307Z"
       },
       "actions": {
         "default": {
