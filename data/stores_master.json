@@ -153,11 +153,11 @@
         "meo": false
       },
       "current": {
-        "action_key": "button_b",
-        "status": "焼き上がり待ち",
-        "message": "只今順番に焼き上げ中！お渡しの目安：約 10分〜15分",
-        "color": "#d35400",
-        "expires_at": "2026-10-15T06:46:58.685Z"
+        "action_key": "button_c",
+        "status": "本日終了",
+        "message": "本日の営業は終了いたしました。またのご来店をお待ちしております。",
+        "color": "#c0392b",
+        "expires_at": null
       },
       "actions": {
         "default": {
