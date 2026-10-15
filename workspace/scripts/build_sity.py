@@ -178,7 +178,6 @@ def update_individual_page(city_key, store, state, now_jst):
         <div class="status-card" id="statusCard" style="border-color: {status_color};">
             <div class="status-badge" id="statusBadge" style="background-color: {status_color};">{status_text}</div>
             <p class="status-message" id="statusMessage">{formatted_msg}</p>
-            <div class="status-updated" id="statusUpdated">自動確認: {updated_str}</div>
         </div>
         \\3"""
 
