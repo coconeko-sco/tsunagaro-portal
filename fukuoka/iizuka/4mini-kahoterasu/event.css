@@ -367,3 +367,17 @@ body {
         flex: 0 0 70px;
     }
 }
+/* ヒーロー内ボタンの横並び（スマホは自動で折り返し） */
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        /* ギャラリー用ボタン（赤アクセントで目立たせる） */
+        .gallery-link {
+            background-color: #D50000;
+            color: #FFFFFF;
+        }
