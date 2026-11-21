@@ -87,3 +87,4 @@
 }
 .site-portal-footer a { color: #aaa; text-decoration: none; font-size: 0.8em; }
 .site-portal-footer a span { color: #fff; font-weight: 600; }
+.photo-cat-badge, .photo-num-tag { display: none !important; }
