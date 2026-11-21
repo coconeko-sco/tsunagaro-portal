@@ -3,286 +3,41 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LHJQFWKTQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-6LHJQFWKTQ');
     </script>
-    <title>ENTRY PHOTO GALLERY | 4MINI BIKE MEETING IN 2026 | つながろ</title>
-
-    <!-- 同じ階層の event.css を読み込み -->
+    <title>PHOTO GALLERY | 4MINI BIKE MEETING IN 2026 | つながろ</title>
     <link rel="stylesheet" href="event.css?v=18" />
-    <style>
-        /* =========================================
-           gallery2026.html 専用スタイル（event.css の黄色×黒デザインに統一）
-        ========================================= */
-
-        /* 上部ナビゲーション */
-        .gallery-top-nav {
-            margin-bottom: 14px;
-        }
-        .back-link {
-            display: inline-block;
-            background-color: #000000;
-            color: #FFFF00;
-            font-size: 0.85rem;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
-            transition: transform 0.15s ease;
-        }
-        .back-link:hover {
-            transform: translateY(-1px);
-        }
-
-        /* ヒーロー内の補足テキスト */
-        .gallery-hero-desc {
-            font-size: 0.92rem;
-            font-weight: bold;
-            margin-top: 6px;
-        }
-        .gallery-hero-sub {
-            font-size: 0.82rem;
-            color: #333333;
-            margin-top: 6px;
-        }
-
-        /* 件数・並び替えコントロールバー */
-        .gallery-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            background-color: #FFFF00;
-            border: 2px solid #000000;
-            border-radius: 10px;
-            padding: 10px 14px;
-            margin-bottom: 16px;
-        }
-        .photo-count {
-            font-weight: 900;
-            font-size: 0.95rem;
-        }
-        .photo-count span {
-            color: #D50000;
-            font-size: 1.25rem;
-            margin: 0 3px;
-        }
-        .control-buttons {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .ctrl-btn {
-            padding: 6px 12px;
-            border: 2px solid #000000;
-            background-color: #FFFFFF;
-            color: #000000;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            font-weight: 900;
-            cursor: pointer;
-            transition: background-color 0.15s ease, color 0.15s ease;
-        }
-        .ctrl-btn.active {
-            background-color: #000000;
-            color: #FFFF00;
-        }
-        .ctrl-btn:hover:not(.active) {
-            background-color: #FFEB3B;
-        }
-
-        /* エントリー車フォトグリッド */
-        .entry-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        @media (min-width: 600px) {
-            .entry-gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-        }
-
-        .entry-gallery-card {
-            position: relative;
-            aspect-ratio: 4 / 3;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #000000;
-            border: 2px solid #000000;
-            cursor: pointer;
-        }
-        .entry-gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.2s ease;
-        }
-        .entry-gallery-card:hover img {
-            transform: scale(1.04);
-        }
-        .photo-num-tag {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background-color: rgba(0, 0, 0, 0.78);
-            color: #FFFF00;
-            font-size: 0.72rem;
-            font-weight: 900;
-            padding: 2px 7px;
-            border-radius: 4px;
-            pointer-events: none;
-        }
-
-        /* 写真がまだ0枚のときの待機表示 */
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 36px 16px;
-            background-color: #FFFFFF;
-            border: 2px dashed #000000;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-        .empty-state strong {
-            display: block;
-            font-size: 1.05rem;
-            color: #D50000;
-            margin-bottom: 8px;
-        }
-
-        /* 下部の戻りボタンエリア */
-        .bottom-nav-wrap {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* 前後送り対応モーダル（event.css の黒×黄トーンに統一） */
-        .gallery-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.92);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-        .gallery-modal.open {
-            display: flex;
-        }
-        .modal-img-wrap {
-            max-width: 95vw;
-            max-height: 76vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-img-wrap img {
-            max-width: 100%;
-            max-height: 76vh;
-            object-fit: contain;
-            border: 2px solid #FFFF00;
-            border-radius: 8px;
-        }
-        .modal-caption {
-            color: #FFFF00;
-            margin-top: 12px;
-            font-size: 0.88rem;
-            font-weight: bold;
-            text-align: center;
-        }
-        .modal-nav-bar {
-            display: flex;
-            gap: 14px;
-            margin-top: 12px;
-        }
-        .modal-nav-btn {
-            padding: 8px 18px;
-            background-color: #FFFF00;
-            color: #000000;
-            border: 2px solid #000000;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            font-weight: 900;
-            cursor: pointer;
-        }
-        .modal-nav-btn:hover {
-            background-color: #FFFFFF;
-        }
-        .modal-close-btn {
-            position: fixed;
-            top: 12px;
-            right: 20px;
-            color: #FFFF00;
-            font-size: 40px;
-            font-weight: bold;
-            background: none;
-            border: none;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        /* 最下部ポータル案内（index.html と完全統一） */
-        .site-portal-footer {
-            text-align: center;
-            padding: 12px 10px;
-            background: #0e0e0e;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            margin-top: 5px;
-        }
-        .site-portal-footer a {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 0.8em;
-            letter-spacing: 0.05em;
-            transition: color 0.2s ease;
-        }
-        .site-portal-footer a span {
-            color: #fff;
-            font-weight: 600;
-        }
-        .site-portal-footer a:hover {
-            color: #fff;
-        }
-        .site-portal-footer a:hover span {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="gallery.css?v=1" />
 </head>
 <body>
     <main class="event-page">
-        <!-- イベントTOPへ戻る -->
         <nav class="gallery-top-nav">
             <a href="index.html" class="back-link">← イベント詳細ページへ戻る</a>
         </nav>
 
-        <!-- ヒーロー（event.css の .event-hero をそのまま使用） -->
         <section class="event-hero">
-            <span class="event-label">ENTRY PHOTO GALLERY</span>
-            <h1>4MINI BIKE MEETING 2026<br>エントリー車 フォトギャラリー</h1>
-            <p class="gallery-hero-desc">2026年11月22日（日）飯塚・カホテラス会場で撮影した愛車を順次公開中！</p>
-            <p class="gallery-hero-sub">※写真をタップすると拡大表示されます（長押しで保存OK）</p>
+            <span class="event-label">EVENT PHOTO GALLERY</span>
+            <h1>4MINI BIKE MEETING 2026<br>公式フォトギャラリー</h1>
+            <p class="gallery-hero-desc">2026年11月22日（日）飯塚・カホテラス会場で撮影した写真を順次公開中！</p>
+            <p class="gallery-hero-sub">※写真をタップすると高画質で拡大・保存できます</p>
         </section>
 
         <div class="event-grid">
-            <!-- 写真一覧セクション（event.css の .event-section をそのまま使用） -->
-            <section class="event-section" aria-label="エントリー車写真一覧">
+            <section class="event-section" aria-label="イベント写真一覧">
+                <div class="category-tabs">
+                    <button type="button" class="cat-btn active" data-cat="all">すべて</button>
+                    <button type="button" class="cat-btn" data-cat="entry">エントリー車</button>
+                    <button type="button" class="cat-btn" data-cat="staff">スタッフ車</button>
+                    <button type="button" class="cat-btn" data-cat="other">会場・その他</button>
+                </div>
+
                 <div class="gallery-controls">
-                    <div class="photo-count">
-                        現在 <span id="photo-total">0</span> 台 公開中！
-                    </div>
+                    <div class="photo-count">現在 <span id="photo-total">0</span> 枚 公開中！</div>
                     <div class="control-buttons">
                         <button type="button" id="sort-newest" class="ctrl-btn active">新しい順</button>
                         <button type="button" id="sort-oldest" class="ctrl-btn">古い順</button>
@@ -290,177 +45,115 @@
                     </div>
                 </div>
 
-                <div id="gallery-grid" class="entry-gallery-grid">
-                    <!-- JSにより自動で写真が並びます -->
-                </div>
+                <div id="gallery-grid" class="entry-gallery-grid"></div>
             </section>
 
-            <!-- 掲載NG・削除依頼のご案内 -->
             <section class="event-section notice">
                 <h2>写真の掲載に関するお願い</h2>
                 <p>防犯上などの理由で<strong>HPへの掲載を希望されないオーナー様</strong>は、撮影時または会場の本部スタッフまでお気軽にお声がけください（公開後の削除依頼もすぐに対応いたします）。</p>
             </section>
         </div>
 
-        <!-- 下部にも戻り導線 -->
         <div class="bottom-nav-wrap">
             <a href="index.html" class="flyer-link">← イベント詳細・キッチンカー情報を見る</a>
         </div>
-
         <footer class="event-footer">4MINI BIKE MEETING in カホテラス 実行委員会</footer>
     </main>
 
-    <!-- 最下部：ポータル「つながろ」TOP案内 -->
     <div class="site-portal-footer">
         <a href="../../../index.html">地域情報ポータル <span>「つながろ」 TOPへ</span> ↵</a>
     </div>
 
-    <!-- 画像全画面拡大モーダル -->
     <div id="gallery-modal" class="gallery-modal" role="dialog" aria-modal="true">
         <button type="button" class="modal-close-btn" id="modal-close" aria-label="閉じる">&times;</button>
-        <div class="modal-img-wrap">
-            <img id="modal-img" src="" alt="拡大写真">
-        </div>
+        <div class="modal-img-wrap"><img id="modal-img" src="" alt="拡大写真"></div>
         <div id="modal-caption" class="modal-caption"></div>
         <div class="modal-nav-bar">
-            <button type="button" id="modal-prev" class="modal-nav-btn">◀ 前の写真</button>
-            <button type="button" id="modal-next" class="modal-nav-btn">次の写真 ▶</button>
+            <button type="button" id="modal-prev" class="modal-nav-btn">◀ 前</button>
+            <a id="modal-dl" class="modal-nav-btn modal-dl-btn" href="" download>📥 高画質保存</a>
+            <button type="button" id="modal-next" class="modal-nav-btn">次 ▶</button>
         </div>
     </div>
 
     <script>
-        /* =========================================================
-           ★ 当日の写真アップ運用エリア（ここだけ更新すればOK！）
-           =========================================================
-           【運用方法 A：連番ファイルで運用する場合（おすすめ）】
-           1. images/gallery2026/ フォルダに 001.jpg, 002.jpg, 003.jpg ... をアップ
-           2. 下の AUTO_COUNT の数字をアップした枚数（例: 25）に書き換えて保存！
+        const PHOTO_COUNTS = {
+            entry: 0,
+            staff: 13,
+            other: 0
+        };
 
-           【運用方法 B：自由なファイル名で運用する場合】
-           AUTO_COUNT を 0 にして、MANUAL_PHOTOS にファイル名を並べる
-        ========================================================= */
-        const PHOTO_DIR = "images/gallery2026/";
-        const AUTO_COUNT = 0; // ★当日はここを「アップした枚数」に書き換えるだけ！
+        const CATEGORY_META = {
+            entry: { name: "エントリー車", dir: "images/entry/", badgeClass: "badge-entry", tagPrefix: "ENTRY" },
+            staff: { name: "スタッフ車",   dir: "images/staff/", badgeClass: "badge-staff", tagPrefix: "STAFF" },
+            other: { name: "会場・その他", dir: "images/other/", badgeClass: "badge-other", tagPrefix: "PHOTO" }
+        };
 
-        // 自由なファイル名を使いたい場合だけここに追加
-        const MANUAL_PHOTOS = [
-            // "001.jpg",
-            // "002.jpg",
-        ];
-
-        /* =========================================================
-           以下は自動表示・並び替え・拡大モーダルの処理
-        ========================================================= */
-        let photoList = [];
-        let sortOrder = "newest";
-        let currentIndex = 0;
+        let photoList = [], currentCategory = "all", sortOrder = "newest", currentIndex = 0;
 
         function buildPhotoList() {
             const list = [];
-            for (let i = 1; i <= AUTO_COUNT; i++) {
-                const num = String(i).padStart(3, "0");
-                list.push({
-                    id: i,
-                    src: `${PHOTO_DIR}${num}.jpg`,
-                    label: `No.${num}`
-                });
-            }
-            MANUAL_PHOTOS.forEach((filename, idx) => {
-                const id = AUTO_COUNT + idx + 1;
-                list.push({
-                    id: id,
-                    src: `${PHOTO_DIR}${filename}`,
-                    label: `No.${String(id).padStart(3, "0")}`
-                });
+            ["entry", "staff", "other"].forEach(cat => {
+                const count = PHOTO_COUNTS[cat] || 0;
+                const meta = CATEGORY_META[cat];
+                for (let i = 1; i <= count; i++) {
+                    const num = String(i).padStart(3, "0");
+                    list.push({
+                        category: cat, catName: meta.name, badgeClass: meta.badgeClass,
+                        thumb: `${meta.dir}thumb/${num}.jpg`,
+                        full: `${meta.dir}full/${num}.jpg`,
+                        filename: `4mini2026_${cat}_${num}.jpg`,
+                        label: `${meta.tagPrefix}-${num}`
+                    });
+                }
             });
             return list;
         }
 
         function renderGallery() {
             const grid = document.getElementById("gallery-grid");
-            const totalEl = document.getElementById("photo-total");
-            const baseList = buildPhotoList();
-
+            let baseList = buildPhotoList();
+            if (currentCategory !== "all") baseList = baseList.filter(item => item.category === currentCategory);
             photoList = sortOrder === "newest" ? [...baseList].reverse() : [...baseList];
-            totalEl.textContent = photoList.length;
+            document.getElementById("photo-total").textContent = photoList.length;
             grid.innerHTML = "";
 
             if (photoList.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state">
-                        <strong>📸 ただいま撮影・アップロード準備中です！</strong>
-                        当日会場で撮影したエントリー車両の写真を順次公開していきます。<br>
-                        少し時間をおいて「最新を読み込む」ボタンを押してください。
-                    </div>
-                `;
+                grid.innerHTML = `<div class="empty-state"><strong>📸 ただいま撮影・アップロード準備中です！</strong>当日会場で撮影した写真を順次公開していきます。<br>少し時間をおいて「最新を読み込む」ボタンを押してください。</div>`;
                 return;
             }
-
             photoList.forEach((item, index) => {
                 const card = document.createElement("div");
                 card.className = "entry-gallery-card";
-                card.innerHTML = `
-                    <img src="${item.src}" alt="4MINIエントリー車 ${item.label}" loading="lazy" decoding="async" />
-                    <span class="photo-num-tag">${item.label}</span>
-                `;
+                card.innerHTML = `<img src="${item.thumb}" alt="4MINI ${item.catName} ${item.label}" loading="lazy" decoding="async" /><span class="photo-cat-badge ${item.badgeClass}">${item.catName}</span><span class="photo-num-tag">${item.label}</span>`;
                 card.addEventListener("click", () => openModal(index));
                 grid.appendChild(card);
             });
         }
 
         const modal = document.getElementById("gallery-modal");
-        const modalImg = document.getElementById("modal-img");
-        const modalCaption = document.getElementById("modal-caption");
-
-        function openModal(index) {
-            currentIndex = index;
-            updateModalView();
-            modal.classList.add("open");
-        }
-
+        function openModal(index) { currentIndex = index; updateModalView(); modal.classList.add("open"); }
         function updateModalView() {
-            if (!photoList[currentIndex]) return;
             const item = photoList[currentIndex];
-            modalImg.src = item.src;
-            modalCaption.textContent = `4MINI BIKE MEETING 2026 — ${item.label}（長押しで保存できます）`;
+            if (!item) return;
+            document.getElementById("modal-img").src = item.full;
+            const dl = document.getElementById("modal-dl");
+            dl.href = item.full;
+            dl.download = item.filename;
+            document.getElementById("modal-caption").textContent = `4MINI 2026 [${item.catName}] ${item.label}（ボタンまたは画像長押しで保存）`;
         }
-
-        function closeModal() {
-            modal.classList.remove("open");
-        }
+        function closeModal() { modal.classList.remove("open"); }
 
         document.getElementById("modal-close").addEventListener("click", closeModal);
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) closeModal();
-        });
-        document.getElementById("modal-prev").addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + photoList.length) % photoList.length;
-            updateModalView();
-        });
-        document.getElementById("modal-next").addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % photoList.length;
-            updateModalView();
-        });
-
-        const btnNewest = document.getElementById("sort-newest");
-        const btnOldest = document.getElementById("sort-oldest");
-
-        btnNewest.addEventListener("click", () => {
-            sortOrder = "newest";
-            btnNewest.classList.add("active");
-            btnOldest.classList.remove("active");
-            renderGallery();
-        });
-        btnOldest.addEventListener("click", () => {
-            sortOrder = "oldest";
-            btnOldest.classList.add("active");
-            btnNewest.classList.remove("active");
-            renderGallery();
-        });
-        document.getElementById("reload-btn").addEventListener("click", () => {
-            location.reload();
-        });
-
+        modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+        document.getElementById("modal-prev").addEventListener("click", () => { currentIndex = (currentIndex - 1 + photoList.length) % photoList.length; updateModalView(); });
+        document.getElementById("modal-next").addEventListener("click", () => { currentIndex = (currentIndex + 1) % photoList.length; updateModalView(); });
+        document.querySelectorAll(".cat-btn").forEach(btn => btn.addEventListener("click", () => {
+            document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active"); currentCategory = btn.dataset.cat; renderGallery();
+        }));
+        document.getElementById("sort-newest").addEventListener("click", () => { sortOrder = "newest"; document.getElementById("sort-newest").classList.add("active"); document.getElementById("sort-oldest").classList.remove("active"); renderGallery(); });
+        document.getElementById("sort-oldest").addEventListener("click", () => { sortOrder = "oldest"; document.getElementById("sort-oldest").classList.add("active"); document.getElementById("sort-newest").classList.remove("active"); renderGallery(); });
+        document.getElementById("reload-btn").addEventListener("click", () => location.reload());
         renderGallery();
     </script>
 </body>

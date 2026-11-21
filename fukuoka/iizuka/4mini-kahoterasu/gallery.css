@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.gallery-top-nav { margin-bottom: 14px; }
+.back-link {
+    display: inline-block; background-color: #000; color: #FF0;
+    font-size: 0.85rem; font-weight: bold; text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+}
+.gallery-hero-desc { font-size: 0.92rem; font-weight: bold; margin-top: 6px; }
+.gallery-hero-sub { font-size: 0.82rem; color: #333; margin-top: 6px; }
+
+.category-tabs {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;
+}
+@media (min-width: 600px) { .category-tabs { grid-template-columns: repeat(4, 1fr); } }
+.cat-btn {
+    padding: 9px 8px; border: 2px solid #000; background: #FFF; color: #000;
+    border-radius: 8px; font-size: 0.84rem; font-weight: 900; cursor: pointer;
+}
+.cat-btn.active { background: #000; color: #FF0; }
+
+.gallery-controls {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; background: #FF0; border: 2px solid #000;
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 16px;
+}
+.photo-count { font-weight: 900; font-size: 0.95rem; }
+.photo-count span { color: #D50000; font-size: 1.25rem; margin: 0 3px; }
+.control-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+.ctrl-btn {
+    padding: 6px 12px; border: 2px solid #000; background: #FFF; color: #000;
+    border-radius: 6px; font-size: 0.82rem; font-weight: 900; cursor: pointer;
+}
+.ctrl-btn.active { background: #000; color: #FF0; }
+
+.entry-gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 600px) { .entry-gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } }
+.entry-gallery-card {
+    position: relative; aspect-ratio: 4 / 3; border-radius: 8px;
+    overflow: hidden; background: #000; border: 2px solid #000; cursor: pointer;
+}
+.entry-gallery-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.photo-cat-badge {
+    position: absolute; top: 5px; left: 5px; font-size: 0.68rem; font-weight: 900;
+    padding: 2px 7px; border-radius: 4px; border: 1px solid #000; pointer-events: none;
+}
+.badge-entry { background: #FF0; color: #000; }
+.badge-staff { background: #D50000; color: #FFF; }
+.badge-other { background: #FFF; color: #000; }
+
+.photo-num-tag {
+    position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.78);
+    color: #FF0; font-size: 0.72rem; font-weight: 900; padding: 2px 7px;
+    border-radius: 4px; pointer-events: none;
+}
+.empty-state {
+    grid-column: 1 / -1; text-align: center; padding: 36px 16px;
+    background: #FFF; border: 2px dashed #000; border-radius: 8px; font-size: 0.9rem;
+}
+.empty-state strong { display: block; font-size: 1.05rem; color: #D50000; margin-bottom: 8px; }
+.bottom-nav-wrap { text-align: center; margin-top: 20px; }
+
+.gallery-modal {
+    display: none; position: fixed; z-index: 9999; inset: 0;
+    background: rgba(0,0,0,0.92); flex-direction: column;
+    align-items: center; justify-content: center; padding: 16px;
+}
+.gallery-modal.open { display: flex; }
+.modal-img-wrap { max-width: 95vw; max-height: 70vh; display: flex; align-items: center; justify-content: center; }
+.modal-img-wrap img { max-width: 100%; max-height: 70vh; object-fit: contain; border: 2px solid #FF0; border-radius: 8px; }
+.modal-caption { color: #FF0; margin-top: 10px; font-size: 0.88rem; font-weight: bold; text-align: center; }
+.modal-nav-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 12px; }
+.modal-nav-btn {
+    padding: 8px 16px; background: #FF0; color: #000; border: 2px solid #000;
+    border-radius: 8px; font-size: 0.86rem; font-weight: 900; cursor: pointer; text-decoration: none;
+}
+.modal-dl-btn { background: #D50000; color: #FFF; border-color: #FF0; }
+.modal-close-btn {
+    position: fixed; top: 12px; right: 20px; color: #FF0; font-size: 40px;
+    font-weight: bold; background: none; border: none; cursor: pointer; line-height: 1;
+}
+
+.site-portal-footer {
+    text-align: center; padding: 12px 10px; background: #0e0e0e;
+    border-top: 1px solid rgba(255,255,255,0.08); margin-top: 5px;
+}
+.site-portal-footer a { color: #aaa; text-decoration: none; font-size: 0.8em; }
+.site-portal-footer a span { color: #fff; font-weight: 600; }
