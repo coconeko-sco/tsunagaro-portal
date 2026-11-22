@@ -75,15 +75,10 @@
     </div>
 
     <script>
-        const PHOTO_COUNTS = {
-            entry: 47,
-            staff: 26,
-            other: 0
-        };
+        const PHOTO_FILES = {"entry": ["001.jpg", "003.jpg", "004.jpg", "005.jpg", "006.jpg", "008.jpg", "009.jpg", "010.jpg", "011.jpg", "014.jpg", "015.jpg", "016.jpg", "017.jpg", "018.jpg", "019.jpg", "020.jpg", "021.jpg", "022.jpg", "023.jpg", "024.jpg", "025.jpg", "026.jpg", "027.jpg", "028.jpg", "029.jpg", "030.jpg", "031.jpg", "032.jpg", "033.jpg", "034.jpg", "036.jpg", "037.jpg", "038.jpg", "042.jpg", "044.jpg", "045.jpg", "046.jpg", "047.jpg", "048.jpg", "049.jpg", "050.jpg", "052.jpg", "053.jpg", "055.jpg", "056.jpg", "061.jpg", "066.jpg"], "other": ["S001.jpg", "S002.jpg", "S003.jpg", "S004.jpg", "S005.jpg", "S006.jpg", "S007.jpg", "S008.jpg", "S009.jpg", "S010.jpg", "S011.jpg", "S012.jpg", "S013.jpg"]};
 
         const CATEGORY_META = {
             entry: { name: "エントリー車", dir: "images/entry/", badgeClass: "badge-entry", tagPrefix: "ENTRY" },
-            staff: { name: "スタッフ車",   dir: "images/staff/", badgeClass: "badge-staff", tagPrefix: "STAFF" },
             other: { name: "会場・その他", dir: "images/other/", badgeClass: "badge-other", tagPrefix: "PHOTO" }
         };
 
@@ -91,19 +86,19 @@
 
         function buildPhotoList() {
             const list = [];
-            ["entry", "staff", "other"].forEach(cat => {
-                const count = PHOTO_COUNTS[cat] || 0;
+            ["entry", "other"].forEach(cat => {
+                const files = PHOTO_FILES[cat] || [];
                 const meta = CATEGORY_META[cat];
-                for (let i = 1; i <= count; i++) {
-                    const num = String(i).padStart(3, "0");
+                files.forEach(fname => {
+                    const stem = fname.replace(/\.[^.]+$/, "");
                     list.push({
                         category: cat, catName: meta.name, badgeClass: meta.badgeClass,
-                        thumb: `${meta.dir}thumb/${num}.jpg`,
-                        full: `${meta.dir}full/${num}.jpg`,
-                        filename: `4mini2026_${cat}_${num}.jpg`,
-                        label: `${meta.tagPrefix}-${num}`
+                        thumb: `${meta.dir}thumb/${fname}`,
+                        full: `${meta.dir}full/${fname}`,
+                        filename: `4mini2026_${cat}_${fname}`,
+                        label: `${meta.tagPrefix}-${stem}`
                     });
-                }
+                });
             });
             return list;
         }
