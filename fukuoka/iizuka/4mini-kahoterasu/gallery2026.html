@@ -100,7 +100,7 @@
             ["entry", "other"].forEach(cat => {
                 const files = PHOTO_FILES[cat] || [];
                 const meta = CATEGORY_META[cat];
-                files.forEach(fname => {
+                files.filter(f => !f.startsWith("GROUP")).forEach(fname => {
                     const stem = fname.replace(/\.[^.]+$/, "");
                     list.push({
                         category: cat, catName: meta.name, badgeClass: meta.badgeClass,
