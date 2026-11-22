@@ -68,7 +68,7 @@
                     <button type="button" class="cat-btn" data-cat="entry">エントリー車</button>
                     <button type="button" class="cat-btn" data-cat="other">スタッフバイク</button>
                 </div>
-<div id="model-filter-bar" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0 14px;"><button type="button" class="ctrl-btn active model-btn" data-model="all">全車種</button><button type="button" class="ctrl-btn model-btn" data-model="モンキー">モンキー</button><button type="button" class="ctrl-btn model-btn" data-model="ゴリラ">ゴリラ</button><button type="button" class="ctrl-btn model-btn" data-model="ダックス">ダックス</button><button type="button" class="ctrl-btn model-btn" data-model="シャリー">シャリー</button><button type="button" class="ctrl-btn model-btn" data-model="カブ">カブ</button><button type="button" class="ctrl-btn model-btn" data-model="エイプ">エイプ</button><button type="button" class="ctrl-btn model-btn" data-model="グロム">グロム</button><button type="button" class="ctrl-btn model-btn" data-model="その他">その他</button></div>
+<div id="model-filter-bar" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0 14px;"><button type="button" class="ctrl-btn active model-btn" data-model="all">全車種</button><button type="button" class="ctrl-btn model-btn" data-model="モンキー">モンキー</button><button type="button" class="ctrl-btn model-btn" data-model="ゴリラ">ゴリラ</button><button type="button" class="ctrl-btn model-btn" data-model="ダックス">ダックス</button><button type="button" class="ctrl-btn model-btn" data-model="シャリー">シャリー</button><button type="button" class="ctrl-btn model-btn" data-model="エイプ">エイプ</button><button type="button" class="ctrl-btn model-btn" data-model="グロム">グロム</button><button type="button" class="ctrl-btn model-btn" data-model="その他">その他</button></div>
 
                 <div class="gallery-controls">
                     <div class="photo-count">現在 <span id="photo-total">0</span> 枚 公開中！</div>
@@ -177,7 +177,7 @@ const PHOTO_FILES = {"entry": ["001.jpg", "002.jpg", "003.jpg", "004.jpg", "005.
         function renderGallery() {
             const grid = document.getElementById("gallery-grid");
             let baseList = buildBikeList();
-            if (currentCategory !== "all") baseList = baseList.filter(item => item.category === currentCategory); if (currentModel !== "all") baseList = baseList.filter(item => item.category === "entry" && (currentModel === "その他" ? !["モンキー","ゴリラ","ダックス","シャリー","カブ","エイプ","グロム"].includes(item.model) : item.model === currentModel));
+            if (currentCategory !== "all") baseList = baseList.filter(item => item.category === currentCategory); if (currentModel !== "all") baseList = baseList.filter(item => item.category === "entry" && (currentModel === "その他" ? !["モンキー","ゴリラ","ダックス","シャリー","エイプ","グロム"].includes(item.model) : item.model === currentModel));
             photoList = sortOrder === "newest" ? [...baseList].reverse() : [...baseList];
             document.getElementById("photo-total").textContent = photoList.length;
             grid.innerHTML = "";
