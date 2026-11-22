@@ -1,4 +1,4 @@
-import json, re, shutil
+import json, re, shutil, unicodedata
 from pathlib import Path
 from PIL import Image, ImageOps
 
@@ -18,8 +18,8 @@ for cat in CATS:
     for d in (cat_dir, thumb_dir, full_dir, bak_dir):
         d.mkdir(parents=True, exist_ok=True)
 
-    existing = sorted([int(f.stem) for f in full_dir.glob("*.jpg") if f.stem.isdigit()])
-    next_num = existing[-1] + 1 if existing else 1
+    existing_200 = sorted([int(f.stem) for f in full_dir.glob("*.jpg") if f.stem.isdigit() and int(f.stem) >= 200])
+    next_num = existing_200[-1] + 1 if existing_200 else 201
 
     new_files = sorted(
         [f for f in cat_dir.iterdir() if f.is_file() and f.suffix.lower() in EXTS],
@@ -27,10 +27,11 @@ for cat in CATS:
     )
 
     for src in new_files:
-        if src.stem.isdigit():
-            stem = f"{int(src.stem):03d}"
-        elif re.match(r"^[A-Za-z]+\d+$", src.stem):
-            stem = src.stem.upper()
+        norm_stem = unicodedata.normalize("NFKC", src.stem)
+        if norm_stem.isdigit():
+            stem = f"{int(norm_stem):03d}"
+        elif re.match(r"^[A-Za-z]+\d+$", norm_stem) and not norm_stem.upper().startswith(("IMG", "DSC", "PXL", "F")):
+            stem = norm_stem.upper()
         else:
             stem = f"{next_num:03d}"
             next_num += 1
