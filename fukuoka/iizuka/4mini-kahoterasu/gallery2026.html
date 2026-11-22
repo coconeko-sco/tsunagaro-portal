@@ -228,11 +228,6 @@
         document.getElementById("sort-oldest").addEventListener("click", () => { sortOrder = "oldest"; document.getElementById("sort-oldest").classList.add("active"); document.getElementById("sort-newest").classList.remove("active"); renderGallery(); });
         document.getElementById("reload-btn").addEventListener("click", () => location.reload());
         renderGallery();
-        }));
-        document.getElementById("sort-newest").addEventListener("click", () => { sortOrder = "newest"; document.getElementById("sort-newest").classList.add("active"); document.getElementById("sort-oldest").classList.remove("active"); renderGallery(); });
-        document.getElementById("sort-oldest").addEventListener("click", () => { sortOrder = "oldest"; document.getElementById("sort-oldest").classList.add("active"); document.getElementById("sort-newest").classList.remove("active"); renderGallery(); });
-        document.getElementById("reload-btn").addEventListener("click", () => location.reload());
-        renderGallery();
     </script>
 </body>
 </html>
