@@ -66,8 +66,7 @@
                 <div class="category-tabs">
                     <button type="button" class="cat-btn active" data-cat="all">すべて</button>
                     <button type="button" class="cat-btn" data-cat="entry">エントリー車</button>
-                    <button type="button" class="cat-btn" data-cat="race">🏁 人力20mレース</button>
-                    <button type="button" class="cat-btn" data-cat="other">スタッフ・会場</button>
+                    <button type="button" class="cat-btn" data-cat="other">スタッフバイク</button>
                 </div>
 
                 <div class="gallery-controls">
@@ -80,6 +79,15 @@
                 </div>
 
                 <div id="gallery-grid" class="entry-gallery-grid"></div>
+            </section>
+
+            <section class="event-section" id="race-gallery-section" style="margin-top:28px; background:#18181b; color:#fff; border:2px solid #ef4444; box-shadow:0 8px 24px rgba(0,0,0,0.25);">
+                <div style="text-align:center; margin-bottom:16px;">
+                    <span class="event-label" style="background:#ef4444; color:#fff; display:inline-block; margin-bottom:6px;">SPECIAL EVENT</span>
+                    <h2 style="margin:4px 0; font-size:1.35rem; color:#fff;">🏁 人力20mレース 白熱の走行シーン</h2>
+                    <p style="margin:4px 0 0; font-size:0.88rem; color:#d4d4d8;">エンジン禁止！足漕ぎダッシュの激闘ショット（タップで拡大・高画質保存）</p>
+                </div>
+                <div id="race-grid" class="entry-gallery-grid"></div>
             </section>
 
             <section class="event-section notice">
@@ -114,13 +122,13 @@
 
         const CATEGORY_META = {
             entry: { name: "エントリー車", dir: "images/entry/", badgeClass: "badge-entry", tagPrefix: "ENTRY" },
-            race:  { name: "20mレース",   dir: "images/other/", badgeClass: "badge-entry", tagPrefix: "RACE" },
-            other: { name: "スタッフ・会場", dir: "images/other/", badgeClass: "badge-other", tagPrefix: "PHOTO" }
+            other: { name: "スタッフバイク", dir: "images/other/", badgeClass: "badge-other", tagPrefix: "STAFF" },
+            race:  { name: "20mレース",   dir: "images/other/", badgeClass: "badge-entry", tagPrefix: "RACE" }
         };
 
-        let photoList = [], currentCategory = "all", sortOrder = "newest", currentIndex = 0;
+        let photoList = [], raceList = [], activeModalList = [], currentCategory = "all", sortOrder = "newest", currentIndex = 0;
 
-        function buildPhotoList() {
+        function buildBikeList() {
             const list = [];
             (PHOTO_FILES["entry"] || []).forEach(fname => {
                 const stem = fname.replace(/\.[^.]+$/, "");
@@ -134,47 +142,71 @@
                 });
             });
             (PHOTO_FILES["other"] || []).forEach(fname => {
-                if (fname.startsWith("GROUP") || fname.startsWith("PODIUM")) return;
-                const isRace = fname.startsWith("RACE");
-                const cat = isRace ? "race" : "other";
-                const meta = CATEGORY_META[cat];
+                if (fname.startsWith("GROUP") || fname.startsWith("PODIUM") || fname.startsWith("RACE")) return;
+                const meta = CATEGORY_META.other;
                 const stem = fname.replace(/\.[^.]+$/, "");
                 list.push({
-                    category: cat, catName: meta.name, badgeClass: meta.badgeClass,
+                    category: "other", catName: meta.name, badgeClass: meta.badgeClass,
                     thumb: `${meta.dir}thumb/${fname}`,
                     full: `${meta.dir}full/${fname}`,
-                    filename: `4mini2026_${cat}_${fname}`,
-                    label: isRace ? stem : `${meta.tagPrefix}-${stem}`
+                    filename: `4mini2026_staff_${fname}`,
+                    label: `${meta.tagPrefix}-${stem}`
                 });
             });
             return list;
         }
 
+        function buildRaceList() {
+            const meta = CATEGORY_META.race;
+            return (PHOTO_FILES["other"] || [])
+                .filter(fname => fname.startsWith("RACE"))
+                .map(fname => {
+                    const stem = fname.replace(/\.[^.]+$/, "");
+                    return {
+                        category: "race", catName: meta.name, badgeClass: meta.badgeClass,
+                        thumb: `${meta.dir}thumb/${fname}`,
+                        full: `${meta.dir}full/${fname}`,
+                        filename: `4mini2026_race_${fname}`,
+                        label: stem
+                    };
+                });
+        }
+
         function renderGallery() {
             const grid = document.getElementById("gallery-grid");
-            let baseList = buildPhotoList();
+            let baseList = buildBikeList();
             if (currentCategory !== "all") baseList = baseList.filter(item => item.category === currentCategory);
             photoList = sortOrder === "newest" ? [...baseList].reverse() : [...baseList];
             document.getElementById("photo-total").textContent = photoList.length;
             grid.innerHTML = "";
 
-            if (photoList.length === 0) {
-                grid.innerHTML = `<div class="empty-state"><strong>📸 ただいま撮影・アップロード準備中です！</strong>当日会場で撮影した写真を順次公開していきます。<br>少し時間をおいて「最新を読み込む」ボタンを押してください。</div>`;
-                return;
-            }
             photoList.forEach((item, index) => {
                 const card = document.createElement("div");
                 card.className = "entry-gallery-card";
                 card.innerHTML = `<img src="${item.thumb}" alt="4MINI ${item.catName} ${item.label}" loading="lazy" decoding="async" /><span class="photo-cat-badge ${item.badgeClass}">${item.catName}</span><span class="photo-num-tag">${item.label}</span>`;
-                card.addEventListener("click", () => openModal(index));
+                card.addEventListener("click", () => openModal(photoList, index));
                 grid.appendChild(card);
             });
+
+            // 枠外の「人力20mレース」独立ギャラリーを描画
+            const rGrid = document.getElementById("race-grid");
+            raceList = buildRaceList();
+            if (rGrid) {
+                rGrid.innerHTML = "";
+                raceList.forEach((item, index) => {
+                    const card = document.createElement("div");
+                    card.className = "entry-gallery-card";
+                    card.innerHTML = `<img src="${item.thumb}" alt="4MINI ${item.catName} ${item.label}" loading="lazy" decoding="async" /><span class="photo-cat-badge" style="background:#ef4444; color:#fff;">🏁 20mレース</span><span class="photo-num-tag">${item.label}</span>`;
+                    card.addEventListener("click", () => openModal(raceList, index));
+                    rGrid.appendChild(card);
+                });
+            }
         }
 
         const modal = document.getElementById("gallery-modal");
-        function openModal(index) { currentIndex = index; updateModalView(); modal.classList.add("open"); }
+        function openModal(targetList, index) { activeModalList = targetList; currentIndex = index; updateModalView(); modal.classList.add("open"); }
         function updateModalView() {
-            const item = photoList[currentIndex];
+            const item = activeModalList[currentIndex];
             if (!item) return;
             document.getElementById("modal-img").src = item.full;
             const dl = document.getElementById("modal-dl");
@@ -186,11 +218,16 @@
 
         document.getElementById("modal-close").addEventListener("click", closeModal);
         modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-        document.getElementById("modal-prev").addEventListener("click", () => { currentIndex = (currentIndex - 1 + photoList.length) % photoList.length; updateModalView(); });
-        document.getElementById("modal-next").addEventListener("click", () => { currentIndex = (currentIndex + 1) % photoList.length; updateModalView(); });
+        document.getElementById("modal-prev").addEventListener("click", () => { currentIndex = (currentIndex - 1 + activeModalList.length) % activeModalList.length; updateModalView(); });
+        document.getElementById("modal-next").addEventListener("click", () => { currentIndex = (currentIndex + 1) % activeModalList.length; updateModalView(); });
         document.querySelectorAll(".cat-btn").forEach(btn => btn.addEventListener("click", () => {
             document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
             btn.classList.add("active"); currentCategory = btn.dataset.cat; renderGallery();
+        }));
+        document.getElementById("sort-newest").addEventListener("click", () => { sortOrder = "newest"; document.getElementById("sort-newest").classList.add("active"); document.getElementById("sort-oldest").classList.remove("active"); renderGallery(); });
+        document.getElementById("sort-oldest").addEventListener("click", () => { sortOrder = "oldest"; document.getElementById("sort-oldest").classList.add("active"); document.getElementById("sort-newest").classList.remove("active"); renderGallery(); });
+        document.getElementById("reload-btn").addEventListener("click", () => location.reload());
+        renderGallery();
         }));
         document.getElementById("sort-newest").addEventListener("click", () => { sortOrder = "newest"; document.getElementById("sort-newest").classList.add("active"); document.getElementById("sort-oldest").classList.remove("active"); renderGallery(); });
         document.getElementById("sort-oldest").addEventListener("click", () => { sortOrder = "oldest"; document.getElementById("sort-oldest").classList.add("active"); document.getElementById("sort-newest").classList.remove("active"); renderGallery(); });
