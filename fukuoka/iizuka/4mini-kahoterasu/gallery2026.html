@@ -39,11 +39,35 @@
                 </div>
             </section>
 
+            <section class="event-section" style="text-align:center; padding:18px; border:2px solid #d4af37; background:#fffdf5;">
+                <span class="event-label" style="margin-bottom:8px; display:inline-block; background:#b8860b; color:#fff;">20m RACE PODIUM</span>
+                <h2 style="margin:6px 0 12px; font-size:1.2rem;">🏆 人力20mレース 表彰台（1位・2位・3位）</h2>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px; max-width:860px; margin:0 auto;">
+                    <div>
+                        <a href="images/other/full/PODIUM01.jpg" download="4mini2026_race_podium1.jpg">
+                            <img src="images/other/full/PODIUM01.jpg" alt="人力20mレース 1位・2位・3位 表彰写真1" style="width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.15);" />
+                        </a>
+                        <div style="margin-top:8px;">
+                            <a href="images/other/full/PODIUM01.jpg" download="4mini2026_race_podium1.jpg" class="ctrl-btn active" style="display:inline-block; text-decoration:none; padding:6px 14px; font-size:0.85rem;">📥 表彰写真① 高画質保存</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="images/other/full/PODIUM02.jpg" download="4mini2026_race_podium2.jpg">
+                            <img src="images/other/full/PODIUM02.jpg" alt="人力20mレース 1位・2位・3位 表彰写真2" style="width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.15);" />
+                        </a>
+                        <div style="margin-top:8px;">
+                            <a href="images/other/full/PODIUM02.jpg" download="4mini2026_race_podium2.jpg" class="ctrl-btn active" style="display:inline-block; text-decoration:none; padding:6px 14px; font-size:0.85rem;">📥 表彰写真② 高画質保存</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="event-section" aria-label="イベント写真一覧">
                 <div class="category-tabs">
                     <button type="button" class="cat-btn active" data-cat="all">すべて</button>
                     <button type="button" class="cat-btn" data-cat="entry">エントリー車</button>
-                    <button type="button" class="cat-btn" data-cat="other">会場・その他</button>
+                    <button type="button" class="cat-btn" data-cat="race">🏁 人力20mレース</button>
+                    <button type="button" class="cat-btn" data-cat="other">スタッフ・会場</button>
                 </div>
 
                 <div class="gallery-controls">
@@ -86,29 +110,41 @@
     </div>
 
     <script>
-        const PHOTO_FILES = {"entry": ["001.jpg", "002.jpg", "003.jpg", "004.jpg", "005.jpg", "006.jpg", "007.jpg", "008.jpg", "009.jpg", "010.jpg", "011.jpg", "012.jpg", "013.jpg", "014.jpg", "015.jpg", "016.jpg", "017.jpg", "018.jpg", "019.jpg", "020.jpg", "021.jpg", "022.jpg", "023.jpg", "024.jpg", "025.jpg", "026.jpg", "027.jpg", "028.jpg", "029.jpg", "030.jpg", "031.jpg", "032.jpg", "033.jpg", "034.jpg", "036.jpg", "037.jpg", "038.jpg", "040.jpg", "041.jpg", "042.jpg", "043.jpg", "044.jpg", "045.jpg", "046.jpg", "047.jpg", "048.jpg", "049.jpg", "050.jpg", "052.jpg", "053.jpg", "055.jpg", "056.jpg", "057.jpg", "058.jpg", "060.jpg", "061.jpg", "063.jpg", "064.jpg", "065.jpg", "066.jpg", "067.jpg", "069.jpg", "070.jpg", "071.jpg", "072.jpg", "073.jpg", "074.jpg", "075.jpg", "076.jpg", "077.jpg", "078.jpg", "080.jpg", "081.jpg", "082.jpg", "083.jpg", "084.jpg", "085.jpg", "086.jpg", "087.jpg", "088.jpg", "089.jpg", "090.jpg", "093.jpg", "094.jpg", "095.jpg", "096.jpg", "097.jpg", "098.jpg", "099.jpg", "100.jpg", "101.jpg", "102.jpg", "103.jpg", "105.jpg", "106.jpg", "107.jpg", "109.jpg", "110.jpg", "111.jpg", "112.jpg", "113.jpg", "114.jpg", "116.jpg", "117.jpg", "118.jpg", "120.jpg", "121.jpg", "122.jpg", "123.jpg", "124.jpg", "127.jpg", "128.jpg", "129.jpg", "130.jpg", "131.jpg", "132.jpg", "133.jpg", "134.jpg", "135.jpg", "136.jpg", "137.jpg", "138.jpg", "140.jpg", "141.jpg", "142.jpg", "146.jpg", "147.jpg"], "other": ["GROUP01.jpg", "S001.jpg", "S002.jpg", "S003.jpg", "S004.jpg", "S005.jpg", "S006.jpg", "S007.jpg", "S008.jpg", "S009.jpg", "S010.jpg", "S011.jpg", "S012.jpg", "S013.jpg"]};
+        const PHOTO_FILES = {"entry": ["001.jpg", "002.jpg", "003.jpg", "004.jpg", "005.jpg", "006.jpg", "007.jpg", "008.jpg", "009.jpg", "010.jpg", "011.jpg", "012.jpg", "013.jpg", "014.jpg", "015.jpg", "016.jpg", "017.jpg", "018.jpg", "019.jpg", "020.jpg", "021.jpg", "022.jpg", "023.jpg", "024.jpg", "025.jpg", "026.jpg", "027.jpg", "028.jpg", "029.jpg", "030.jpg", "031.jpg", "032.jpg", "033.jpg", "034.jpg", "036.jpg", "037.jpg", "038.jpg", "040.jpg", "041.jpg", "042.jpg", "043.jpg", "044.jpg", "045.jpg", "046.jpg", "047.jpg", "048.jpg", "049.jpg", "050.jpg", "052.jpg", "053.jpg", "055.jpg", "056.jpg", "057.jpg", "058.jpg", "060.jpg", "061.jpg", "063.jpg", "064.jpg", "065.jpg", "066.jpg", "067.jpg", "069.jpg", "070.jpg", "071.jpg", "072.jpg", "073.jpg", "074.jpg", "075.jpg", "076.jpg", "077.jpg", "078.jpg", "080.jpg", "081.jpg", "082.jpg", "083.jpg", "084.jpg", "085.jpg", "086.jpg", "087.jpg", "088.jpg", "089.jpg", "090.jpg", "093.jpg", "094.jpg", "095.jpg", "096.jpg", "097.jpg", "098.jpg", "099.jpg", "100.jpg", "101.jpg", "102.jpg", "103.jpg", "105.jpg", "106.jpg", "107.jpg", "109.jpg", "110.jpg", "111.jpg", "112.jpg", "113.jpg", "114.jpg", "116.jpg", "117.jpg", "118.jpg", "120.jpg", "121.jpg", "122.jpg", "123.jpg", "124.jpg", "127.jpg", "128.jpg", "129.jpg", "130.jpg", "131.jpg", "132.jpg", "133.jpg", "134.jpg", "135.jpg", "136.jpg", "137.jpg", "138.jpg", "140.jpg", "141.jpg", "142.jpg", "146.jpg", "147.jpg"], "other": ["GROUP01.jpg", "PODIUM01.jpg", "PODIUM02.jpg", "RACE001.jpg", "RACE002.jpg", "RACE003.jpg", "RACE004.jpg", "RACE005.jpg", "RACE006.jpg", "RACE007.jpg", "RACE008.jpg", "RACE009.jpg", "RACE010.jpg", "RACE011.jpg", "RACE012.jpg", "RACE013.jpg", "RACE014.jpg", "RACE015.jpg", "RACE016.jpg", "RACE017.jpg", "RACE018.jpg", "RACE019.jpg", "RACE020.jpg", "RACE021.jpg", "RACE022.jpg", "RACE023.jpg", "RACE024.jpg", "RACE025.jpg", "RACE026.jpg", "RACE027.jpg", "RACE028.jpg", "RACE029.jpg", "S001.jpg", "S002.jpg", "S003.jpg", "S004.jpg", "S005.jpg", "S006.jpg", "S007.jpg", "S008.jpg", "S009.jpg", "S010.jpg", "S011.jpg", "S012.jpg", "S013.jpg"]};
 
         const CATEGORY_META = {
             entry: { name: "エントリー車", dir: "images/entry/", badgeClass: "badge-entry", tagPrefix: "ENTRY" },
-            other: { name: "会場・その他", dir: "images/other/", badgeClass: "badge-other", tagPrefix: "PHOTO" }
+            race:  { name: "20mレース",   dir: "images/other/", badgeClass: "badge-entry", tagPrefix: "RACE" },
+            other: { name: "スタッフ・会場", dir: "images/other/", badgeClass: "badge-other", tagPrefix: "PHOTO" }
         };
 
         let photoList = [], currentCategory = "all", sortOrder = "newest", currentIndex = 0;
 
         function buildPhotoList() {
             const list = [];
-            ["entry", "other"].forEach(cat => {
-                const files = PHOTO_FILES[cat] || [];
+            (PHOTO_FILES["entry"] || []).forEach(fname => {
+                const stem = fname.replace(/\.[^.]+$/, "");
+                const meta = CATEGORY_META.entry;
+                list.push({
+                    category: "entry", catName: meta.name, badgeClass: meta.badgeClass,
+                    thumb: `${meta.dir}thumb/${fname}`,
+                    full: `${meta.dir}full/${fname}`,
+                    filename: `4mini2026_entry_${fname}`,
+                    label: `${meta.tagPrefix}-${stem}`
+                });
+            });
+            (PHOTO_FILES["other"] || []).forEach(fname => {
+                if (fname.startsWith("GROUP") || fname.startsWith("PODIUM")) return;
+                const isRace = fname.startsWith("RACE");
+                const cat = isRace ? "race" : "other";
                 const meta = CATEGORY_META[cat];
-                files.filter(f => !f.startsWith("GROUP")).forEach(fname => {
-                    const stem = fname.replace(/\.[^.]+$/, "");
-                    list.push({
-                        category: cat, catName: meta.name, badgeClass: meta.badgeClass,
-                        thumb: `${meta.dir}thumb/${fname}`,
-                        full: `${meta.dir}full/${fname}`,
-                        filename: `4mini2026_${cat}_${fname}`,
-                        label: `${meta.tagPrefix}-${stem}`
-                    });
+                const stem = fname.replace(/\.[^.]+$/, "");
+                list.push({
+                    category: cat, catName: meta.name, badgeClass: meta.badgeClass,
+                    thumb: `${meta.dir}thumb/${fname}`,
+                    full: `${meta.dir}full/${fname}`,
+                    filename: `4mini2026_${cat}_${fname}`,
+                    label: isRace ? stem : `${meta.tagPrefix}-${stem}`
                 });
             });
             return list;
